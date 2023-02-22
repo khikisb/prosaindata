@@ -1,0 +1,184 @@
+Traceback (most recent call last):
+  File "/usr/local/lib/python3.8/dist-packages/jupyter_cache/executors/utils.py", line 51, in single_nb_execution
+    executenb(
+  File "/usr/local/lib/python3.8/dist-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/usr/local/lib/python3.8/dist-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/usr/local/lib/python3.8/dist-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/usr/lib/python3.8/asyncio/base_events.py", line 616, in run_until_complete
+    return future.result()
+  File "/usr/local/lib/python3.8/dist-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/usr/local/lib/python3.8/dist-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/usr/local/lib/python3.8/dist-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# max_pages = 172 # total halaman di website PTA, terbaru februari 2023
+
+r = request_header_url("Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1", "https://pta.trunojoyo.ac.id/c_search/byprod/10")
+soup = parse_website(r)
+prettify_web_structure(soup)
+table = get_content_table(soup, "div", {"id":"wrapper"})
+
+pagination = table.findAll("a", attrs = {"class":"pag_button"})
+total_pages = int(pagination[LAST_INDEX]["href"].split("/")[LAST_INDEX])
+
+papers = []
+for pages in range(FIRST_INDEX, 4 + INCREMENT_BY_ONE):
+
+    url_link = "https://pta.trunojoyo.ac.id/c_search/byprod/10"
+    id_prodi = url_link.split("/")[LAST_INDEX]
+    nama_prodi = ""
+    if (id_prodi == "10"):
+        nama_prodi = "Teknik Informatika"
+
+    r_pages = request_header_url("Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1", f"{url_link}/{pages}")
+    soup_pages = parse_website(r_pages)
+    prettify_web_structure(soup_pages)
+    table_pages = get_content_table(soup_pages, "div", {"id":"wrapper"})
+
+    for article_row in table_pages.findAll("a", attrs = {"class":"gray button"}):
+        r_article_row = request_header_url("Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1", article_row["href"])
+        soup_article_row = parse_website(r_article_row)
+        prettify_web_structure(soup_article_row)
+        table_article_row = get_content_table(soup_article_row, "li", {"data-id":"id-1", "data-cat":"#luxury"})
+        article_row_title = table_article_row.find('a', attrs = {"class":"title", "href":"#"}).string
+        article_row_abstract = table_article_row.find('p', attrs = {"align":"justify"}).string
+        nim = str(article_row["href"]).split("/")[LAST_INDEX]
+        papers.append([
+            nim,
+            article_row_title, 
+            article_row_abstract,
+            nama_prodi
+        ])
+
+------------------
+
+[0;31m[0m
+[0;31mOSError[0mTraceback (most recent call last)
+[0;32m/usr/local/lib/python3.8/dist-packages/urllib3/connection.py[0m in [0;36m_new_conn[0;34m(self)[0m
+[1;32m    157[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 158[0;31m             conn = connection.create_connection(
+[0m[1;32m    159[0m                 (self._dns_host, self.port), self.timeout, **extra_kw)
+
+[0;32m/usr/local/lib/python3.8/dist-packages/urllib3/util/connection.py[0m in [0;36mcreate_connection[0;34m(address, timeout, source_address, socket_options)[0m
+[1;32m     79[0m     [0;32mif[0m [0merr[0m [0;32mis[0m [0;32mnot[0m [0;32mNone[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 80[0;31m         [0;32mraise[0m [0merr[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     81[0m [0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.8/dist-packages/urllib3/util/connection.py[0m in [0;36mcreate_connection[0;34m(address, timeout, source_address, socket_options)[0m
+[1;32m     69[0m                 [0msock[0m[0;34m.[0m[0mbind[0m[0;34m([0m[0msource_address[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 70[0;31m             [0msock[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0msa[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     71[0m             [0;32mreturn[0m [0msock[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mOSError[0m: [Errno 101] Network is unreachable
+
+During handling of the above exception, another exception occurred:
+
+[0;31mNewConnectionError[0mTraceback (most recent call last)
+[0;32m/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py[0m in [0;36murlopen[0;34m(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)[0m
+[1;32m    596[0m             [0;31m# Make the request on the httplib connection object.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 597[0;31m             httplib_response = self._make_request(conn, method, url,
+[0m[1;32m    598[0m                                                   [0mtimeout[0m[0;34m=[0m[0mtimeout_obj[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py[0m in [0;36m_make_request[0;34m(self, conn, method, url, timeout, chunked, **httplib_request_kw)[0m
+[1;32m    342[0m         [0;32mtry[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 343[0;31m             [0mself[0m[0;34m.[0m[0m_validate_conn[0m[0;34m([0m[0mconn[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    344[0m         [0;32mexcept[0m [0;34m([0m[0mSocketTimeout[0m[0;34m,[0m [0mBaseSSLError[0m[0;34m)[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py[0m in [0;36m_validate_conn[0;34m(self, conn)[0m
+[1;32m    838[0m         [0;32mif[0m [0;32mnot[0m [0mgetattr[0m[0;34m([0m[0mconn[0m[0;34m,[0m [0;34m'sock'[0m[0;34m,[0m [0;32mNone[0m[0;34m)[0m[0;34m:[0m  [0;31m# AppEngine might not have  `.sock`[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 839[0;31m             [0mconn[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    840[0m [0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.8/dist-packages/urllib3/connection.py[0m in [0;36mconnect[0;34m(self)[0m
+[1;32m    300[0m         [0;31m# Add certificate verification[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 301[0;31m         [0mconn[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_new_conn[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    302[0m         [0mhostname[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0mhost[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.8/dist-packages/urllib3/connection.py[0m in [0;36m_new_conn[0;34m(self)[0m
+[1;32m    166[0m         [0;32mexcept[0m [0mSocketError[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 167[0;31m             raise NewConnectionError(
+[0m[1;32m    168[0m                 self, "Failed to establish a new connection: %s" % e)
+
+[0;31mNewConnectionError[0m: <urllib3.connection.VerifiedHTTPSConnection object at 0x7fa3fa484190>: Failed to establish a new connection: [Errno 101] Network is unreachable
+
+During handling of the above exception, another exception occurred:
+
+[0;31mMaxRetryError[0mTraceback (most recent call last)
+[0;32m/usr/local/lib/python3.8/dist-packages/requests/adapters.py[0m in [0;36msend[0;34m(self, request, stream, timeout, verify, cert, proxies)[0m
+[1;32m    438[0m             [0;32mif[0m [0;32mnot[0m [0mchunked[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 439[0;31m                 resp = conn.urlopen(
+[0m[1;32m    440[0m                     [0mmethod[0m[0;34m=[0m[0mrequest[0m[0;34m.[0m[0mmethod[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py[0m in [0;36murlopen[0;34m(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)[0m
+[1;32m    636[0m [0;34m[0m[0m
+[0;32m--> 637[0;31m             retries = retries.increment(method, url, error=e, _pool=self,
+[0m[1;32m    638[0m                                         _stacktrace=sys.exc_info()[2])
+
+[0;32m/usr/local/lib/python3.8/dist-packages/urllib3/util/retry.py[0m in [0;36mincrement[0;34m(self, method, url, response, error, _pool, _stacktrace)[0m
+[1;32m    398[0m         [0;32mif[0m [0mnew_retry[0m[0;34m.[0m[0mis_exhausted[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 399[0;31m             [0;32mraise[0m [0mMaxRetryError[0m[0;34m([0m[0m_pool[0m[0;34m,[0m [0murl[0m[0;34m,[0m [0merror[0m [0;32mor[0m [0mResponseError[0m[0;34m([0m[0mcause[0m[0;34m)[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    400[0m [0;34m[0m[0m
+
+[0;31mMaxRetryError[0m: HTTPSConnectionPool(host='pta.trunojoyo.ac.id', port=443): Max retries exceeded with url: /c_search/byprod/10 (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7fa3fa484190>: Failed to establish a new connection: [Errno 101] Network is unreachable'))
+
+During handling of the above exception, another exception occurred:
+
+[0;31mConnectionError[0mTraceback (most recent call last)
+[0;32m<ipython-input-5-818273656789>[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# max_pages = 172 # total halaman di website PTA, terbaru februari 2023[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;34m[0m[0m
+[0;32m----> 3[0;31m [0mr[0m [0;34m=[0m [0mrequest_header_url[0m[0;34m([0m[0;34m"Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1"[0m[0;34m,[0m [0;34m"https://pta.trunojoyo.ac.id/c_search/byprod/10"[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m [0msoup[0m [0;34m=[0m [0mparse_website[0m[0;34m([0m[0mr[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m [0mprettify_web_structure[0m[0;34m([0m[0msoup[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m<ipython-input-4-e6e6f38faca4>[0m in [0;36mrequest_header_url[0;34m(header, url_website)[0m
+[1;32m      4[0m [0;32mdef[0m [0mrequest_header_url[0m[0;34m([0m[0mheader[0m[0;34m,[0m [0murl_website[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m     [0mheaders[0m [0;34m=[0m [0;34m{[0m[0;34m'User-Agent'[0m[0;34m:[0m [0mheader[0m[0;34m}[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 6[0;31m     [0;32mreturn[0m [0mrequests[0m[0;34m.[0m[0mget[0m[0;34m([0m[0murl[0m[0;34m=[0m[0murl_website[0m[0;34m,[0m [0mheaders[0m[0;34m=[0m[0mheaders[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      7[0m [0;34m[0m[0m
+[1;32m      8[0m [0;32mdef[0m [0mparse_website[0m[0;34m([0m[0mrequest[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.8/dist-packages/requests/api.py[0m in [0;36mget[0;34m(url, params, **kwargs)[0m
+[1;32m     74[0m [0;34m[0m[0m
+[1;32m     75[0m     [0mkwargs[0m[0;34m.[0m[0msetdefault[0m[0;34m([0m[0;34m'allow_redirects'[0m[0;34m,[0m [0;32mTrue[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 76[0;31m     [0;32mreturn[0m [0mrequest[0m[0;34m([0m[0;34m'get'[0m[0;34m,[0m [0murl[0m[0;34m,[0m [0mparams[0m[0;34m=[0m[0mparams[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     77[0m [0;34m[0m[0m
+[1;32m     78[0m [0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.8/dist-packages/requests/api.py[0m in [0;36mrequest[0;34m(method, url, **kwargs)[0m
+[1;32m     59[0m     [0;31m# cases, and look like a memory leak in others.[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[1;32m     60[0m     [0;32mwith[0m [0msessions[0m[0;34m.[0m[0mSession[0m[0;34m([0m[0;34m)[0m [0;32mas[0m [0msession[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m---> 61[0;31m         [0;32mreturn[0m [0msession[0m[0;34m.[0m[0mrequest[0m[0;34m([0m[0mmethod[0m[0;34m=[0m[0mmethod[0m[0;34m,[0m [0murl[0m[0;34m=[0m[0murl[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m     62[0m [0;34m[0m[0m
+[1;32m     63[0m [0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.8/dist-packages/requests/sessions.py[0m in [0;36mrequest[0;34m(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)[0m
+[1;32m    540[0m         }
+[1;32m    541[0m         [0msend_kwargs[0m[0;34m.[0m[0mupdate[0m[0;34m([0m[0msettings[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 542[0;31m         [0mresp[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0msend[0m[0;34m([0m[0mprep[0m[0;34m,[0m [0;34m**[0m[0msend_kwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    543[0m [0;34m[0m[0m
+[1;32m    544[0m         [0;32mreturn[0m [0mresp[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.8/dist-packages/requests/sessions.py[0m in [0;36msend[0;34m(self, request, **kwargs)[0m
+[1;32m    653[0m [0;34m[0m[0m
+[1;32m    654[0m         [0;31m# Send the request[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 655[0;31m         [0mr[0m [0;34m=[0m [0madapter[0m[0;34m.[0m[0msend[0m[0;34m([0m[0mrequest[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    656[0m [0;34m[0m[0m
+[1;32m    657[0m         [0;31m# Total elapsed time of the request (approximately)[0m[0;34m[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m/usr/local/lib/python3.8/dist-packages/requests/adapters.py[0m in [0;36msend[0;34m(self, request, stream, timeout, verify, cert, proxies)[0m
+[1;32m    514[0m                 [0;32mraise[0m [0mSSLError[0m[0;34m([0m[0me[0m[0;34m,[0m [0mrequest[0m[0;34m=[0m[0mrequest[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    515[0m [0;34m[0m[0m
+[0;32m--> 516[0;31m             [0;32mraise[0m [0mConnectionError[0m[0;34m([0m[0me[0m[0;34m,[0m [0mrequest[0m[0;34m=[0m[0mrequest[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    517[0m [0;34m[0m[0m
+[1;32m    518[0m         [0;32mexcept[0m [0mClosedPoolError[0m [0;32mas[0m [0me[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;31mConnectionError[0m: HTTPSConnectionPool(host='pta.trunojoyo.ac.id', port=443): Max retries exceeded with url: /c_search/byprod/10 (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7fa3fa484190>: Failed to establish a new connection: [Errno 101] Network is unreachable'))
+ConnectionError: HTTPSConnectionPool(host='pta.trunojoyo.ac.id', port=443): Max retries exceeded with url: /c_search/byprod/10 (Caused by NewConnectionError('<urllib3.connection.VerifiedHTTPSConnection object at 0x7fa3fa484190>: Failed to establish a new connection: [Errno 101] Network is unreachable'))
+

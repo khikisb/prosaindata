@@ -1,0 +1,936 @@
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Scrape Website pta.trunojoyo.ac.id with Beautiful Soap &#8212; Proyek Sains Data</title>
+    
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=1999514e3f237ded88cf" rel="stylesheet">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=5115cc725059bd94278eecd172e13a965bf8f5a9" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.b7bb847fb20b106c3d81b95245e65545.min.css" />
+    
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf">
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=9c920249402e914e316237a7dbc6769907cce411"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Scrape data dari berita online (DETIK.COM)" href="beritaOnline.html" />
+    <link rel="prev" title="Tugas 1 Crawling data Twitter" href="Twitter.html" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="None">
+    
+
+    <!-- Google Analytics -->
+    
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="60">
+<!-- Checkboxes to toggle the left sidebar -->
+<input type="checkbox" class="sidebar-toggle" name="__navigation" id="__navigation" aria-label="Toggle navigation sidebar">
+<label class="overlay overlay-navbar" for="__navigation">
+    <div class="visually-hidden">Toggle navigation sidebar</div>
+</label>
+<!-- Checkboxes to toggle the in-page toc -->
+<input type="checkbox" class="sidebar-toggle" name="__page-toc" id="__page-toc" aria-label="Toggle in-page Table of Contents">
+<label class="overlay overlay-pagetoc" for="__page-toc">
+    <div class="visually-hidden">Toggle in-page Table of Contents</div>
+</label>
+<!-- Headers at the top -->
+<div class="announcement header-item noprint"></div>
+<div class="header header-item noprint"></div>
+
+    
+    <div class="container-fluid" id="banner"></div>
+
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<!-- Sidebar -->
+<div class="bd-sidebar noprint" id="site-navigation">
+    <div class="bd-sidebar__content">
+        <div class="bd-sidebar__top"><div class="navbar-brand-box">
+    <a class="navbar-brand text-wrap" href="../index.html">
+      
+        <!-- `logo` is deprecated in Sphinx 4.0, so remove this when we stop supporting 3 -->
+        
+      
+      
+      <img src="../_static/Okhi.png" class="logo" alt="logo">
+      
+      
+      <h1 class="site-logo" id="site-title">Proyek Sains Data</h1>
+      
+    </a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Proyek Sains Data
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+ <li class="toctree-l1">
+  <a class="reference internal" href="Twitter.html">
+   Tugas 1 Crawling data Twitter
+  </a>
+ </li>
+ <li class="toctree-l1 current active">
+  <a class="current reference internal" href="#">
+   Scrape Website pta.trunojoyo.ac.id with Beautiful Soap
+  </a>
+ </li>
+ <li class="toctree-l1">
+  <a class="reference internal" href="beritaOnline.html">
+   Scrape data dari berita online (DETIK.COM)
+  </a>
+ </li>
+</ul>
+
+    </div>
+</nav></div>
+        <div class="bd-sidebar__bottom">
+             <!-- To handle the deprecated key -->
+            
+            <div class="navbar_extra_footer">
+            Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+            </div>
+            
+        </div>
+    </div>
+    <div id="rtd-footer-container"></div>
+</div>
+
+
+          
+
+
+          
+<!-- A tiny helper pixel to detect if we've scrolled -->
+<div class="sbt-scroll-pixel-helper"></div>
+<!-- Main content -->
+<div class="col py-0 content-container">
+    
+    <div class="header-article row sticky-top noprint">
+        
+
+
+
+<div class="col py-1 d-flex header-article-main">
+    <div class="header-article__left">
+        
+        <label for="__navigation"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="right"
+title="Toggle navigation"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-bars"></i>
+  </span>
+
+</label>
+
+        
+    </div>
+    <div class="header-article__right">
+<div class="menu-dropdown menu-dropdown-launch-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Launch interactive content">
+      <i class="fas fa-rocket"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://mybinder.org/v2/gh/executablebooks/jupyter-book/master?urlpath=tree/docs/tugas-prosaindata/ScrapeDataUTM.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Launch on Binder"
+>
+  
+
+<span class="headerbtn__icon-container">
+  
+    <img src="../_static/images/logo_binder.svg">
+  </span>
+<span class="headerbtn__text-container">Binder</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<button onclick="toggleFullScreen()"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="bottom"
+title="Fullscreen mode"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+<div class="menu-dropdown menu-dropdown-repository-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Source repositories">
+      <i class="fab fa-github"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Source repository"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="headerbtn__text-container">repository</span>
+</a>
+
+      </li>
+      
+      <li>
+        <a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftugas-prosaindata/ScrapeDataUTM.html&body=Your%20issue%20content%20here."
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Open an issue"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="headerbtn__text-container">open issue</span>
+</a>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+<div class="menu-dropdown menu-dropdown-download-buttons">
+  <button class="headerbtn menu-dropdown__trigger"
+      aria-label="Download this page">
+      <i class="fas fa-download"></i>
+  </button>
+  <div class="menu-dropdown__content">
+    <ul>
+      <li>
+        <a href="../_sources/tugas-prosaindata/ScrapeDataUTM.ipynb"
+   class="headerbtn"
+   data-toggle="tooltip"
+data-placement="left"
+title="Download source file"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="headerbtn__text-container">.ipynb</span>
+</a>
+
+      </li>
+      
+      <li>
+        
+<button onclick="printPdf(this)"
+  class="headerbtn"
+  data-toggle="tooltip"
+data-placement="left"
+title="Print to PDF"
+>
+  
+
+<span class="headerbtn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="headerbtn__text-container">.pdf</span>
+</button>
+
+      </li>
+      
+    </ul>
+  </div>
+</div>
+
+    </div>
+</div>
+
+<!-- Table of contents -->
+<div class="col-md-3 bd-toc show noprint">
+</div>
+    </div>
+    <div class="article row">
+        <div class="col pl-md-3 pl-lg-5 content-container">
+            <!-- Table of contents that is only displayed when printing the page -->
+            <div id="jb-print-docs-body" class="onlyprint">
+                <h1>Scrape Website pta.trunojoyo.ac.id with Beautiful Soap</h1>
+                <!-- Table of contents -->
+                <div id="print-main-content">
+                    <div id="jb-print-toc">
+                        
+                    </div>
+                </div>
+            </div>
+            <main id="main-content" role="main">
+                
+              <div>
+                
+  <div class="tex2jax_ignore mathjax_ignore section" id="scrape-website-pta-trunojoyo-ac-id-with-beautiful-soap">
+<h1>Scrape Website <a class="reference external" href="http://pta.trunojoyo.ac.id">pta.trunojoyo.ac.id</a> with Beautiful Soap<a class="headerlink" href="#scrape-website-pta-trunojoyo-ac-id-with-beautiful-soap" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>Menggunakan Library BeautifulSoap</p></li>
+<li><p>Data yang akan di Scrape ada di <a class="reference external" href="http://pta.trunojoyo.ac.id">pta.trunojoyo.ac.id</a></p></li>
+<li><p>Ouput yang diharapkan adalan NIM, Judul Penelitian dan Abstraks dari jurusan Teknik Informatika dalam format csv</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="o">!</span>pip install requests
+<span class="o">!</span>pip install html5lib
+<span class="o">!</span>pip install bs4
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: requests in /usr/local/lib/python3.8/dist-packages (2.25.1)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/local/lib/python3.8/dist-packages (from requests) (1.24.3)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /usr/local/lib/python3.8/dist-packages (from requests) (2.10)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.8/dist-packages (from requests) (2022.12.7)
+Requirement already satisfied: chardet&lt;5,&gt;=3.0.2 in /usr/local/lib/python3.8/dist-packages (from requests) (4.0.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: html5lib in /usr/local/lib/python3.8/dist-packages (1.0.1)
+Requirement already satisfied: webencodings in /usr/local/lib/python3.8/dist-packages (from html5lib) (0.5.1)
+Requirement already satisfied: six&gt;=1.9 in /usr/local/lib/python3.8/dist-packages (from html5lib) (1.15.0)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: bs4 in /usr/local/lib/python3.8/dist-packages (0.0.1)
+Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.8/dist-packages (from bs4) (4.6.3)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># constant</span>
+<span class="n">LAST_INDEX</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">FIRST_INDEX</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">INCREMENT_BY_ONE</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># import library</span>
+<span class="kn">from</span> <span class="nn">bs4</span> <span class="kn">import</span> <span class="n">BeautifulSoup</span>
+<span class="kn">import</span> <span class="nn">requests</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">request_url</span><span class="p">(</span><span class="n">url</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">request_header_url</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">url_website</span><span class="p">):</span>
+    <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="n">header</span><span class="p">}</span>
+    <span class="k">return</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url_website</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">parse_website</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Use html5lib library to parse&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">BeautifulSoup</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">content</span><span class="p">,</span> <span class="s1">&#39;html5lib&#39;</span><span class="p">)</span> <span class="c1"># If this line causes an error, run &#39;pip install html5lib&#39; or install html5lib    </span>
+
+<span class="k">def</span> <span class="nf">prettify_web_structure</span><span class="p">(</span><span class="n">parsed_page</span><span class="p">):</span>
+    <span class="n">parsed_page</span><span class="o">.</span><span class="n">prettify</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">get_content_table</span><span class="p">(</span><span class="n">web_element</span><span class="p">,</span> <span class="n">tag</span><span class="p">,</span> <span class="n">attributes</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">web_element</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">tag</span><span class="p">,</span> <span class="n">attrs</span> <span class="o">=</span> <span class="n">attributes</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># max_pages = 172 # total halaman di website PTA, terbaru februari 2023</span>
+
+<span class="n">r</span> <span class="o">=</span> <span class="n">request_header_url</span><span class="p">(</span><span class="s2">&quot;Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1&quot;</span><span class="p">,</span> <span class="s2">&quot;https://pta.trunojoyo.ac.id/c_search/byprod/10&quot;</span><span class="p">)</span>
+<span class="n">soup</span> <span class="o">=</span> <span class="n">parse_website</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="n">prettify_web_structure</span><span class="p">(</span><span class="n">soup</span><span class="p">)</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">get_content_table</span><span class="p">(</span><span class="n">soup</span><span class="p">,</span> <span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;wrapper&quot;</span><span class="p">})</span>
+
+<span class="n">pagination</span> <span class="o">=</span> <span class="n">table</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span><span class="s2">&quot;pag_button&quot;</span><span class="p">})</span>
+<span class="n">total_pages</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pagination</span><span class="p">[</span><span class="n">LAST_INDEX</span><span class="p">][</span><span class="s2">&quot;href&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="n">LAST_INDEX</span><span class="p">])</span>
+
+<span class="n">papers</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">pages</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">FIRST_INDEX</span><span class="p">,</span> <span class="mi">4</span> <span class="o">+</span> <span class="n">INCREMENT_BY_ONE</span><span class="p">):</span>
+
+    <span class="n">url_link</span> <span class="o">=</span> <span class="s2">&quot;https://pta.trunojoyo.ac.id/c_search/byprod/10&quot;</span>
+    <span class="n">id_prodi</span> <span class="o">=</span> <span class="n">url_link</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="n">LAST_INDEX</span><span class="p">]</span>
+    <span class="n">nama_prodi</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">id_prodi</span> <span class="o">==</span> <span class="s2">&quot;10&quot;</span><span class="p">):</span>
+        <span class="n">nama_prodi</span> <span class="o">=</span> <span class="s2">&quot;Teknik Informatika&quot;</span>
+
+    <span class="n">r_pages</span> <span class="o">=</span> <span class="n">request_header_url</span><span class="p">(</span><span class="s2">&quot;Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">url_link</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">pages</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">soup_pages</span> <span class="o">=</span> <span class="n">parse_website</span><span class="p">(</span><span class="n">r_pages</span><span class="p">)</span>
+    <span class="n">prettify_web_structure</span><span class="p">(</span><span class="n">soup_pages</span><span class="p">)</span>
+    <span class="n">table_pages</span> <span class="o">=</span> <span class="n">get_content_table</span><span class="p">(</span><span class="n">soup_pages</span><span class="p">,</span> <span class="s2">&quot;div&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;wrapper&quot;</span><span class="p">})</span>
+
+    <span class="k">for</span> <span class="n">article_row</span> <span class="ow">in</span> <span class="n">table_pages</span><span class="o">.</span><span class="n">findAll</span><span class="p">(</span><span class="s2">&quot;a&quot;</span><span class="p">,</span> <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span><span class="s2">&quot;gray button&quot;</span><span class="p">}):</span>
+        <span class="n">r_article_row</span> <span class="o">=</span> <span class="n">request_header_url</span><span class="p">(</span><span class="s2">&quot;Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1&quot;</span><span class="p">,</span> <span class="n">article_row</span><span class="p">[</span><span class="s2">&quot;href&quot;</span><span class="p">])</span>
+        <span class="n">soup_article_row</span> <span class="o">=</span> <span class="n">parse_website</span><span class="p">(</span><span class="n">r_article_row</span><span class="p">)</span>
+        <span class="n">prettify_web_structure</span><span class="p">(</span><span class="n">soup_article_row</span><span class="p">)</span>
+        <span class="n">table_article_row</span> <span class="o">=</span> <span class="n">get_content_table</span><span class="p">(</span><span class="n">soup_article_row</span><span class="p">,</span> <span class="s2">&quot;li&quot;</span><span class="p">,</span> <span class="p">{</span><span class="s2">&quot;data-id&quot;</span><span class="p">:</span><span class="s2">&quot;id-1&quot;</span><span class="p">,</span> <span class="s2">&quot;data-cat&quot;</span><span class="p">:</span><span class="s2">&quot;#luxury&quot;</span><span class="p">})</span>
+        <span class="n">article_row_title</span> <span class="o">=</span> <span class="n">table_article_row</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;class&quot;</span><span class="p">:</span><span class="s2">&quot;title&quot;</span><span class="p">,</span> <span class="s2">&quot;href&quot;</span><span class="p">:</span><span class="s2">&quot;#&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">string</span>
+        <span class="n">article_row_abstract</span> <span class="o">=</span> <span class="n">table_article_row</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;p&#39;</span><span class="p">,</span> <span class="n">attrs</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;align&quot;</span><span class="p">:</span><span class="s2">&quot;justify&quot;</span><span class="p">})</span><span class="o">.</span><span class="n">string</span>
+        <span class="n">nim</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">article_row</span><span class="p">[</span><span class="s2">&quot;href&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="n">LAST_INDEX</span><span class="p">]</span>
+        <span class="n">papers</span><span class="o">.</span><span class="n">append</span><span class="p">([</span>
+            <span class="n">nim</span><span class="p">,</span>
+            <span class="n">article_row_title</span><span class="p">,</span> 
+            <span class="n">article_row_abstract</span><span class="p">,</span>
+            <span class="n">nama_prodi</span>
+        <span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">OSError</span>Traceback (most recent call last)
+<span class="nn">/usr/local/lib/python3.8/dist-packages/urllib3/connection.py</span> in <span class="ni">_new_conn</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">157</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">158</span>             <span class="n">conn</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">create_connection</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">159</span>                 <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_dns_host</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">port</span><span class="p">),</span> <span class="bp">self</span><span class="o">.</span><span class="n">timeout</span><span class="p">,</span> <span class="o">**</span><span class="n">extra_kw</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/urllib3/util/connection.py</span> in <span class="ni">create_connection</span><span class="nt">(address, timeout, source_address, socket_options)</span>
+<span class="g g-Whitespace">     </span><span class="mi">79</span>     <span class="k">if</span> <span class="n">err</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">80</span>         <span class="k">raise</span> <span class="n">err</span>
+<span class="g g-Whitespace">     </span><span class="mi">81</span> 
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/urllib3/util/connection.py</span> in <span class="ni">create_connection</span><span class="nt">(address, timeout, source_address, socket_options)</span>
+<span class="g g-Whitespace">     </span><span class="mi">69</span>                 <span class="n">sock</span><span class="o">.</span><span class="n">bind</span><span class="p">(</span><span class="n">source_address</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">70</span>             <span class="n">sock</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">sa</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span>             <span class="k">return</span> <span class="n">sock</span>
+
+<span class="ne">OSError</span>: [Errno 101] Network is unreachable
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">NewConnectionError</span>Traceback (most recent call last)
+<span class="nn">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">596</span>             <span class="c1"># Make the request on the httplib connection object.</span>
+<span class="ne">--&gt; </span><span class="mi">597</span>             <span class="n">httplib_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_request</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">598</span>                                                   <span class="n">timeout</span><span class="o">=</span><span class="n">timeout_obj</span><span class="p">,</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">342</span>         <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">343</span>             <span class="bp">self</span><span class="o">.</span><span class="n">_validate_conn</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">344</span>         <span class="k">except</span> <span class="p">(</span><span class="n">SocketTimeout</span><span class="p">,</span> <span class="n">BaseSSLError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">_validate_conn</span><span class="nt">(self, conn)</span>
+<span class="g g-Whitespace">    </span><span class="mi">838</span>         <span class="k">if</span> <span class="ow">not</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s1">&#39;sock&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>  <span class="c1"># AppEngine might not have  `.sock`</span>
+<span class="ne">--&gt; </span><span class="mi">839</span>             <span class="n">conn</span><span class="o">.</span><span class="n">connect</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">840</span> 
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/urllib3/connection.py</span> in <span class="ni">connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">300</span>         <span class="c1"># Add certificate verification</span>
+<span class="ne">--&gt; </span><span class="mi">301</span>         <span class="n">conn</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_new_conn</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">302</span>         <span class="n">hostname</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">host</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/urllib3/connection.py</span> in <span class="ni">_new_conn</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">166</span>         <span class="k">except</span> <span class="n">SocketError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">167</span>             <span class="k">raise</span> <span class="n">NewConnectionError</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">168</span>                 <span class="bp">self</span><span class="p">,</span> <span class="s2">&quot;Failed to establish a new connection: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">e</span><span class="p">)</span>
+
+<span class="ne">NewConnectionError</span>: &lt;urllib3.connection.VerifiedHTTPSConnection object at 0x7fa3fa484190&gt;: Failed to establish a new connection: [Errno 101] Network is unreachable
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">MaxRetryError</span>Traceback (most recent call last)
+<span class="nn">/usr/local/lib/python3.8/dist-packages/requests/adapters.py</span> in <span class="ni">send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="g g-Whitespace">    </span><span class="mi">438</span>             <span class="k">if</span> <span class="ow">not</span> <span class="n">chunked</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">439</span>                 <span class="n">resp</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">440</span>                     <span class="n">method</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="p">,</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">636</span> 
+<span class="ne">--&gt; </span><span class="mi">637</span>             <span class="n">retries</span> <span class="o">=</span> <span class="n">retries</span><span class="o">.</span><span class="n">increment</span><span class="p">(</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">e</span><span class="p">,</span> <span class="n">_pool</span><span class="o">=</span><span class="bp">self</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">638</span>                                         <span class="n">_stacktrace</span><span class="o">=</span><span class="n">sys</span><span class="o">.</span><span class="n">exc_info</span><span class="p">()[</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/urllib3/util/retry.py</span> in <span class="ni">increment</span><span class="nt">(self, method, url, response, error, _pool, _stacktrace)</span>
+<span class="g g-Whitespace">    </span><span class="mi">398</span>         <span class="k">if</span> <span class="n">new_retry</span><span class="o">.</span><span class="n">is_exhausted</span><span class="p">():</span>
+<span class="ne">--&gt; </span><span class="mi">399</span>             <span class="k">raise</span> <span class="n">MaxRetryError</span><span class="p">(</span><span class="n">_pool</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">error</span> <span class="ow">or</span> <span class="n">ResponseError</span><span class="p">(</span><span class="n">cause</span><span class="p">))</span>
+<span class="g g-Whitespace">    </span><span class="mi">400</span> 
+
+<span class="ne">MaxRetryError</span>: HTTPSConnectionPool(host=&#39;pta.trunojoyo.ac.id&#39;, port=443): Max retries exceeded with url: /c_search/byprod/10 (Caused by NewConnectionError(&#39;&lt;urllib3.connection.VerifiedHTTPSConnection object at 0x7fa3fa484190&gt;: Failed to establish a new connection: [Errno 101] Network is unreachable&#39;))
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">ConnectionError</span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">5</span><span class="o">-</span><span class="mi">818273656789</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># max_pages = 172 # total halaman di website PTA, terbaru februari 2023</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="n">r</span> <span class="o">=</span> <span class="n">request_header_url</span><span class="p">(</span><span class="s2">&quot;Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1&quot;</span><span class="p">,</span> <span class="s2">&quot;https://pta.trunojoyo.ac.id/c_search/byprod/10&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">soup</span> <span class="o">=</span> <span class="n">parse_website</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">prettify_web_structure</span><span class="p">(</span><span class="n">soup</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-4-e6e6f38faca4&gt;</span> in <span class="ni">request_header_url</span><span class="nt">(header, url_website)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">def</span> <span class="nf">request_header_url</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">url_website</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="n">header</span><span class="p">}</span>
+<span class="ne">----&gt; </span><span class="mi">6</span>     <span class="k">return</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url_website</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">def</span> <span class="nf">parse_website</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/requests/api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> 
+<span class="g g-Whitespace">     </span><span class="mi">75</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;allow_redirects&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">76</span>     <span class="k">return</span> <span class="n">request</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span> 
+<span class="g g-Whitespace">     </span><span class="mi">78</span> 
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/requests/api.py</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span>     <span class="c1"># cases, and look like a memory leak in others.</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span>     <span class="k">with</span> <span class="n">sessions</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">61</span>         <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span> 
+<span class="g g-Whitespace">     </span><span class="mi">63</span> 
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/requests/sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
+<span class="g g-Whitespace">    </span><span class="mi">540</span>         <span class="p">}</span>
+<span class="g g-Whitespace">    </span><span class="mi">541</span>         <span class="n">send_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">542</span>         <span class="n">resp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">prep</span><span class="p">,</span> <span class="o">**</span><span class="n">send_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">543</span> 
+<span class="g g-Whitespace">    </span><span class="mi">544</span>         <span class="k">return</span> <span class="n">resp</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/requests/sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">653</span> 
+<span class="g g-Whitespace">    </span><span class="mi">654</span>         <span class="c1"># Send the request</span>
+<span class="ne">--&gt; </span><span class="mi">655</span>         <span class="n">r</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">656</span> 
+<span class="g g-Whitespace">    </span><span class="mi">657</span>         <span class="c1"># Total elapsed time of the request (approximately)</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/requests/adapters.py</span> in <span class="ni">send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="g g-Whitespace">    </span><span class="mi">514</span>                 <span class="k">raise</span> <span class="n">SSLError</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">515</span> 
+<span class="ne">--&gt; </span><span class="mi">516</span>             <span class="k">raise</span> <span class="ne">ConnectionError</span><span class="p">(</span><span class="n">e</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="n">request</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">517</span> 
+<span class="g g-Whitespace">    </span><span class="mi">518</span>         <span class="k">except</span> <span class="n">ClosedPoolError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+
+<span class="ne">ConnectionError</span>: HTTPSConnectionPool(host=&#39;pta.trunojoyo.ac.id&#39;, port=443): Max retries exceeded with url: /c_search/byprod/10 (Caused by NewConnectionError(&#39;&lt;urllib3.connection.VerifiedHTTPSConnection object at 0x7fa3fa484190&gt;: Failed to establish a new connection: [Errno 101] Network is unreachable&#39;))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">papers</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NIM&quot;</span><span class="p">,</span> <span class="s2">&quot;Judul&quot;</span><span class="p">,</span> <span class="s2">&quot;Abstrak&quot;</span><span class="p">,</span> <span class="s2">&quot;Program Studi&quot;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;papers.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>File akan disimpan secara otomatis,
+anda bisa mendownloadnya</p>
+<p>![output.png](data:image/png;base64,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)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Memuat file CSV sebagai dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;papers.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menampilkan dataframe menggunakan fungsi display()</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-a2b739f1-722f-4f69-abf1-4f0256e53341">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>NIM</th>
+      <th>Judul</th>
+      <th>Abstrak</th>
+      <th>Program Studi</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>40411100468</td>
+      <td>PERANCANGAN DAN IMPLEMENTASI SISTEM DATABASE \...</td>
+      <td>Sistem  informasi  akademik  (SIAKAD) merupaka...</td>
+      <td>Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>40411100476</td>
+      <td>APLIKASI KONTROL DAN MONITORING JARINGAN KOMPU...</td>
+      <td>Berjalannya koneksi jaringan komputer dengan l...</td>
+      <td>Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>40411100480</td>
+      <td>RANCANG BANGUN APLIKASI PROXY SERVER UNTUK\nEN...</td>
+      <td>Web server adalah sebuah perangkat lunak serve...</td>
+      <td>Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>70411100070</td>
+      <td>SISTEM PENDUKUNG KEPUTUSAN OPTIMASI PENJADWALA...</td>
+      <td>Penjadwalan  kuliah  di  Perguruan  Tinggi  me...</td>
+      <td>Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>80411100115</td>
+      <td>SISTEM AUGMENTED REALITY ANIMASI BENDA BERGERA...</td>
+      <td>Seiring perkembangan teknologi yang ada diduni...</td>
+      <td>Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>70411100007</td>
+      <td>Gerak Pekerja Pada Game Real Time Strategy Men...</td>
+      <td>Gerak pekerja ada pada game yang memiliki genr...</td>
+      <td>Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>70411100126</td>
+      <td>RANCANG BANGUN GAME PERAWATAN SAPI KARAPAN MEN...</td>
+      <td>Perkembangan game yang semakin pesat, memberik...</td>
+      <td>Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>70411100109</td>
+      <td>EKSTRAKSI FITUR BERBASIS TWO DIMENSIONAL LINEA...</td>
+      <td>Sistem pengenalan wajah adalah suatu sistem un...</td>
+      <td>Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>80411100083</td>
+      <td>IMPLEMENTASI  ALGORITMA PRIM  DAN DEPTH FIRST ...</td>
+      <td>Teknologi mobile game beroperating system open...</td>
+      <td>Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>70411100092</td>
+      <td>Perancangan Sistem Informasi Badan Kepegawaian...</td>
+      <td>Kantor Badan Kepegawaian kota Bangkalan adalah...</td>
+      <td>Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>70411100120</td>
+      <td>PEMANFAATAN TOGAF ADM UNTUK PERANCANGAN SISTEM...</td>
+      <td>Penyusunan Sistem Informasi Dinas Perindustria...</td>
+      <td>Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>70411100143</td>
+      <td>APLIKASI METODE FUZZY ANALYTIC NETWORK PROCESS...</td>
+      <td>Perusahaan pemerintah maupun swasta mempunyai ...</td>
+      <td>Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>70411100037</td>
+      <td>SISTEM PENDUKUNG KEPUTUSAN REKOMENDASI MENU DI...</td>
+      <td>Pelayanan makanan bagi pasien rawat inap di Ru...</td>
+      <td>Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>70411100079</td>
+      <td>RANCANG BANGUN APLIKASI PEMILIHAN TEKNIK REKAY...</td>
+      <td>Penyusunan Sistem Pendukung Keputusan pemiliha...</td>
+      <td>Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>70411100050</td>
+      <td>DETEKSI COREPOINT SIDIK JARI MENGGUNAKAN METOD...</td>
+      <td>Sidik jari adalah salah satu karakteristik fis...</td>
+      <td>Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>70411100124</td>
+      <td>SISTEM PENENTUAN STATUS GIZI PASIEN RAWAT INAP...</td>
+      <td>Di Indonesia masalah perkembangan gizi adalah ...</td>
+      <td>Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>70411100072</td>
+      <td>PENGENALAN TULISAN TANGAN HURUF ALFABET\nDENGA...</td>
+      <td>Pengenalan tulisan tangan merupakan topik pene...</td>
+      <td>Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>70411100152</td>
+      <td>PENGENALAN POLA SENYUMAN BERBASIS EKSTRAKSI FI...</td>
+      <td>Citra senyum merupakan salah satu fitur biomet...</td>
+      <td>Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>70411100114</td>
+      <td>SISTEM PEROLEHAN CITRA BERBASIS ISI MENGGUNAKA...</td>
+      <td>Batik adalah kerajinan yang memiliki nilai sen...</td>
+      <td>Teknik Informatika</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>70411100036</td>
+      <td>ONTOLOGY SEMANTIC WEB UNTUK PENCARIAN TUGAS AK...</td>
+      <td>Kebutuhan pencarian data pada internet yang ce...</td>
+      <td>Teknik Informatika</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-a2b739f1-722f-4f69-abf1-4f0256e53341')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-a2b739f1-722f-4f69-abf1-4f0256e53341 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-a2b739f1-722f-4f69-abf1-4f0256e53341');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./tugas-prosaindata"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+            </main>
+            <footer class="footer-article noprint">
+                
+    <!-- Previous / next buttons -->
+<div class='prev-next-area'>
+    <a class='left-prev' id="prev-link" href="Twitter.html" title="previous page">
+        <i class="fas fa-angle-left"></i>
+        <div class="prev-next-info">
+            <p class="prev-next-subtitle">previous</p>
+            <p class="prev-next-title">Tugas 1 Crawling data Twitter</p>
+        </div>
+    </a>
+    <a class='right-next' id="next-link" href="beritaOnline.html" title="next page">
+    <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Scrape data dari berita online (DETIK.COM)</p>
+    </div>
+    <i class="fas fa-angle-right"></i>
+    </a>
+</div>
+            </footer>
+        </div>
+    </div>
+    <div class="footer-content row">
+        <footer class="col footer"><p>
+  
+    By Okhi Sahrul Barkah<br/>
+  
+      &copy; Copyright 2022.<br/>
+</p>
+        </footer>
+    </div>
+    
+</div>
+
+
+      </div>
+    </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/pydata-sphinx-theme.js?digest=1999514e3f237ded88cf"></script>
+
+
+  </body>
+</html>

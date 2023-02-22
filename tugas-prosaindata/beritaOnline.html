@@ -51,7 +51,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script async="async" src="../_static/sphinx-thebe.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Scrape data dari pta.trunojoyo.ac.id" href="ScraptDataPTA.html" />
+    <link rel="prev" title="Scrape Website pta.trunojoyo.ac.id with Beautiful Soap" href="ScrapeDataUTM.html" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="docsearch:language" content="None">
     
@@ -118,8 +118,8 @@ const thebe_selector_output = ".output, .cell_output"
   </a>
  </li>
  <li class="toctree-l1">
-  <a class="reference internal" href="ScraptDataPTA.html">
-   Scrape data dari pta.trunojoyo.ac.id
+  <a class="reference internal" href="ScrapeDataUTM.html">
+   Scrape Website pta.trunojoyo.ac.id with Beautiful Soap
   </a>
  </li>
  <li class="toctree-l1 current active">
@@ -337,6 +337,11 @@ title="Print to PDF"
                 
   <div class="tex2jax_ignore mathjax_ignore section" id="scrape-data-dari-berita-online-detik-com">
 <h1>Scrape data dari berita online (<a class="reference external" href="http://DETIK.COM">DETIK.COM</a>)<a class="headerlink" href="#scrape-data-dari-berita-online-detik-com" title="Permalink to this headline">#</a></h1>
+<ul class="simple">
+<li><p>Menggunakan Library BeautifulSoap</p></li>
+<li><p>Data yang akan di Scrape ada <a class="reference external" href="http://detik.com">detik.com</a></p></li>
+<li><p>Ouput yang diharapkan adalan Judul berita dan isi berita dalam format Csv</p></li>
+</ul>
 <p>Link dapat di run di :
 <a class="reference external" href="https://colab.research.google.com/drive/1C_TlXBiOwX2CURAhzWvm1RKT3dD9wJDC?usp=sharing">https://colab.research.google.com/drive/1C_TlXBiOwX2CURAhzWvm1RKT3dD9wJDC?usp=sharing</a></p>
 <div class="cell docutils container">
@@ -387,61 +392,385 @@ title="Print to PDF"
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[1] &gt; Ketua DPP 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[1] &gt; Gus Muhaim
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[2] &gt; Bupati Ken
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[2] &gt; Sudirman S
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[3] &gt; Projo Beri
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[3] &gt; Jabar Hari
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[4] &gt; Survei POL
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[4] &gt; Sudirman S
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[5] &gt; Demokrat: 
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[5] &gt; Partai Gel
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[6] &gt; Pastikan P
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[6] &gt; Anies Duku
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[7] &gt; Duet Anies
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[7] &gt; Ketua DPP 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[8] &gt; Relawan Jo
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[8] &gt; Bupati Ken
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[9] &gt; Besok, PKS
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[9] &gt; Projo Beri
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[10] &gt; Elektabili
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[10] &gt; Demokrat: 
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[11] &gt; Cak Imin B
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[11] &gt; Pastikan P
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[12] &gt; Ganjar Ung
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[12] &gt; Duet Anies
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[13] &gt; Kelakar Su
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[13] &gt; Relawan Jo
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[14] &gt; Cak Imin B
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[14] &gt; Besok, PKS
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[15] &gt; Banyak Pro
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[15] &gt; Paloh Ceri
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[16] &gt; AHY Dampin
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[16] &gt; Elektabili
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[17] &gt; Bamsoet: T
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[17] &gt; Cak Imin B
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>done[18] &gt; Surya Palo
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">TypeError</span>Traceback (most recent call last)
+<span class="nn">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">376</span>             <span class="k">try</span><span class="p">:</span>  <span class="c1"># Python 2.7, use buffering of HTTP responses</span>
+<span class="ne">--&gt; </span><span class="mi">377</span>                 <span class="n">httplib_response</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">(</span><span class="n">buffering</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">378</span>             <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>  <span class="c1"># Python 3</span>
+
+<span class="ne">TypeError</span>: getresponse() got an unexpected keyword argument &#39;buffering&#39;
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">KeyboardInterrupt</span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">92</span><span class="n">d6901ad8ad</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">scrape_detik</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-2-148802bb58db&gt;</span> in <span class="ni">scrape_detik</span><span class="nt">(hal)</span>
+<span class="g g-Whitespace">     </span><span class="mi">11</span>             <span class="n">link</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)[</span><span class="s1">&#39;href&#39;</span><span class="p">]</span>
+<span class="g g-Whitespace">     </span><span class="mi">12</span>             <span class="n">headline</span> <span class="o">=</span> <span class="n">x</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="s1">&#39;h2&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+<span class="ne">---&gt; </span><span class="mi">13</span>             <span class="n">ge_</span> <span class="o">=</span> <span class="n">req</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">link</span><span class="p">,</span><span class="n">hades</span><span class="p">)</span><span class="o">.</span><span class="n">text</span>
+<span class="g g-Whitespace">     </span><span class="mi">14</span>             <span class="n">sop_</span> <span class="o">=</span> <span class="n">bs</span><span class="p">(</span><span class="n">ge_</span><span class="p">,</span><span class="s1">&#39;lxml&#39;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">15</span>             <span class="n">content</span> <span class="o">=</span> <span class="n">sop_</span><span class="o">.</span><span class="n">find_all</span><span class="p">(</span><span class="s1">&#39;div&#39;</span><span class="p">,</span><span class="n">class_</span><span class="o">=</span><span class="s1">&#39;detail__body-text itp_bodycontent&#39;</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/requests/api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span> 
+<span class="g g-Whitespace">     </span><span class="mi">75</span>     <span class="n">kwargs</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;allow_redirects&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<span class="ne">---&gt; </span><span class="mi">76</span>     <span class="k">return</span> <span class="n">request</span><span class="p">(</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span> <span class="n">params</span><span class="o">=</span><span class="n">params</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span> 
+<span class="g g-Whitespace">     </span><span class="mi">78</span> 
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/requests/api.py</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span>     <span class="c1"># cases, and look like a memory leak in others.</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span>     <span class="k">with</span> <span class="n">sessions</span><span class="o">.</span><span class="n">Session</span><span class="p">()</span> <span class="k">as</span> <span class="n">session</span><span class="p">:</span>
+<span class="ne">---&gt; </span><span class="mi">61</span>         <span class="k">return</span> <span class="n">session</span><span class="o">.</span><span class="n">request</span><span class="p">(</span><span class="n">method</span><span class="o">=</span><span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span> 
+<span class="g g-Whitespace">     </span><span class="mi">63</span> 
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/requests/sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
+<span class="g g-Whitespace">    </span><span class="mi">540</span>         <span class="p">}</span>
+<span class="g g-Whitespace">    </span><span class="mi">541</span>         <span class="n">send_kwargs</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">542</span>         <span class="n">resp</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">prep</span><span class="p">,</span> <span class="o">**</span><span class="n">send_kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">543</span> 
+<span class="g g-Whitespace">    </span><span class="mi">544</span>         <span class="k">return</span> <span class="n">resp</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/requests/sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">653</span> 
+<span class="g g-Whitespace">    </span><span class="mi">654</span>         <span class="c1"># Send the request</span>
+<span class="ne">--&gt; </span><span class="mi">655</span>         <span class="n">r</span> <span class="o">=</span> <span class="n">adapter</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">656</span> 
+<span class="g g-Whitespace">    </span><span class="mi">657</span>         <span class="c1"># Total elapsed time of the request (approximately)</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/requests/adapters.py</span> in <span class="ni">send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="g g-Whitespace">    </span><span class="mi">437</span>         <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">438</span>             <span class="k">if</span> <span class="ow">not</span> <span class="n">chunked</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">439</span>                 <span class="n">resp</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">urlopen</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">440</span>                     <span class="n">method</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">441</span>                     <span class="n">url</span><span class="o">=</span><span class="n">url</span><span class="p">,</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">595</span> 
+<span class="g g-Whitespace">    </span><span class="mi">596</span>             <span class="c1"># Make the request on the httplib connection object.</span>
+<span class="ne">--&gt; </span><span class="mi">597</span>             <span class="n">httplib_response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_make_request</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">method</span><span class="p">,</span> <span class="n">url</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">598</span>                                                   <span class="n">timeout</span><span class="o">=</span><span class="n">timeout_obj</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">599</span>                                                   <span class="n">body</span><span class="o">=</span><span class="n">body</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">,</span>
+
+<span class="nn">/usr/local/lib/python3.8/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">378</span>             <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>  <span class="c1"># Python 3</span>
+<span class="g g-Whitespace">    </span><span class="mi">379</span>                 <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">380</span>                     <span class="n">httplib_response</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">getresponse</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">381</span>                 <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">382</span>                     <span class="c1"># Remove the TypeError from the exception chain in Python 3;</span>
+
+<span class="nn">/usr/lib/python3.8/http/client.py</span> in <span class="ni">getresponse</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1346</span>         <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1347</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1348</span>                 <span class="n">response</span><span class="o">.</span><span class="n">begin</span><span class="p">()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1349</span>             <span class="k">except</span> <span class="ne">ConnectionError</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1350</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="nn">/usr/lib/python3.8/http/client.py</span> in <span class="ni">begin</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">314</span>         <span class="c1"># read until we get a non-100 response</span>
+<span class="g g-Whitespace">    </span><span class="mi">315</span>         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">316</span>             <span class="n">version</span><span class="p">,</span> <span class="n">status</span><span class="p">,</span> <span class="n">reason</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_status</span><span class="p">()</span>
+<span class="g g-Whitespace">    </span><span class="mi">317</span>             <span class="k">if</span> <span class="n">status</span> <span class="o">!=</span> <span class="n">CONTINUE</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">318</span>                 <span class="k">break</span>
+
+<span class="nn">/usr/lib/python3.8/http/client.py</span> in <span class="ni">_read_status</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">275</span> 
+<span class="g g-Whitespace">    </span><span class="mi">276</span>     <span class="k">def</span> <span class="nf">_read_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="ne">--&gt; </span><span class="mi">277</span>         <span class="n">line</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fp</span><span class="o">.</span><span class="n">readline</span><span class="p">(</span><span class="n">_MAXLINE</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="s2">&quot;iso-8859-1&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">278</span>         <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">line</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">_MAXLINE</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">279</span>             <span class="k">raise</span> <span class="n">LineTooLong</span><span class="p">(</span><span class="s2">&quot;status line&quot;</span><span class="p">)</span>
+
+<span class="nn">/usr/lib/python3.8/socket.py</span> in <span class="ni">readinto</span><span class="nt">(self, b)</span>
+<span class="g g-Whitespace">    </span><span class="mi">667</span>         <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">668</span>             <span class="k">try</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">669</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sock</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">670</span>             <span class="k">except</span> <span class="n">timeout</span><span class="p">:</span>
+<span class="g g-Whitespace">    </span><span class="mi">671</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">_timeout_occurred</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="nn">/usr/lib/python3.8/ssl.py</span> in <span class="ni">recv_into</span><span class="nt">(self, buffer, nbytes, flags)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1239</span>                   <span class="s2">&quot;non-zero flags not allowed in calls to recv_into() on </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span>
+<span class="g g-Whitespace">   </span><span class="mi">1240</span>                   <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">)</span>
+<span class="ne">-&gt; </span><span class="mi">1241</span>             <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">nbytes</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1242</span>         <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1243</span>             <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">recv_into</span><span class="p">(</span><span class="n">buffer</span><span class="p">,</span> <span class="n">nbytes</span><span class="p">,</span> <span class="n">flags</span><span class="p">)</span>
+
+<span class="nn">/usr/lib/python3.8/ssl.py</span> in <span class="ni">read</span><span class="nt">(self, len, buffer)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1097</span>         <span class="k">try</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1098</span>             <span class="k">if</span> <span class="n">buffer</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+<span class="ne">-&gt; </span><span class="mi">1099</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">,</span> <span class="n">buffer</span><span class="p">)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1100</span>             <span class="k">else</span><span class="p">:</span>
+<span class="g g-Whitespace">   </span><span class="mi">1101</span>                 <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_sslobj</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="nb">len</span><span class="p">)</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
+</div>
+<p>Scrape_detik(3) disini berarti, anda akan scrape data website dengan jumlah 3 halaman</p>
+<p>Setelah proses tersebut, File akan disimpan secara otomatis,
+anda bisa mendownloadnya</p>
+<p>![Screenshot 2023-02-23 055415.png](data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXEAAAHHCAYAAABJFGjMAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAC7sSURBVHhe7d0NdBT1vf/xjw+xjaBBC0IUo21iL7mUYNEKVfBIaAm3BSvVRm+hAs3f1BqOkRxEiyIq2grSAP4T6w03V3zA2vjUo9xeQ0voJT7XpoJ/G48Sq7EaEG6BCuZKrP7nOzuDm5iHze6S5Bfer3PmZJ52M5PsfuY33/nN7mHjxo37RAAAJx02Z84cQhwAHEVLHAAcdnjwEwDgIEIcABxGiAOAwwhxAHAYIQ4ADiPEAcBhhDgAOIwQBwCHEeIA4DBCHAAcRogDgMMIcQBwGCEOAA4jxAHAYYQ4ADiMEAcAhxHiAOAwvtkHQL8xYMAAZWVlBVPx2bp1q/bt2xdM9X2EOIB+4ZprrtHkyZODqcQ88sgjuvPOO4Op2NgB5PTTT9fTTz8dzOnaOeeco5deeimhgwYhDqBf2LBhgx+G1pLuyujRo4Oxjk2aNCkY65oF+IoVK5SZmally5apuro6WNKxvLw8LViwQA0NDZo3b17cQU6IA+gXLMQ3b96skpKSYE7HbN2uxBvipqsgDwPcJBriXNgEgARZAFsQ20HEWEBbULcnOsBt/UQC3BDiAJAEFsR2FrB+/Xp/ur0gjw5wW8/WTyTADeUUAP1Cd8opndXEi4qK/LJId8opbUVfZLULpHahdNasWbr00kv9eRbgS5cu9ccTFXeI205eeOGF/sZZTcemBw4cGCzt2vbt27Vt27ZgKllyVbhogtKDqbZ2v1qlVQ/t1/Rri5Q37APVVV2vime8BRMLtXh8erC8PrIyAKd0J8Q7U1pa6od8IiFuooPcsm7YsGH+eDID3MQd4uGOhn+0cDpW9957r+65555gKlnytbgyTxnBVFvNmys0945TDqyzp65cJeV10iWLVfnNjGD585GVATilr4W4advtMdkBbuKuiYdXXqN/WjDHOljfyIPm/Xo9Vrpcy9sMK6q2eAufUM1TjWp6s07VT3oBDgA95JNPkl+97mc18aAl/v4WVVy1SjG3qTtpiaedmq0TB3gj+3frzdeb1ByZDaCP6cvlFCsfDx061B+3Bq91QUyW/tU75aSjlRqMdmysildWqrKyTMVnB7Pak5mn4p/dpdJF8zW/xBuuvUVld96m4imRfqAA0JG2Fza///3vH7gDNLqHSjLEHeLWud2OVvazzzglTbFfWu1E6gQVF+Ur54QUNb+zRbUbalS72WuFpwxRzveKVDy+60MFgENTdIBbi9s6fxj7GbbAkxnkcYe4baiddthPY+N2OhPrYN1tDppjclRYaa3t6GGx8oPFXcmZPV05aVLzy2t09Q2rtOaBtVpzx/W6uqpezUpTzjemxdDiB3AosQZtRUVFqwBve9dmdCnFgtxyM9GGcL+92aflw5bPDsGyzmVr3Klegntr7z8+VwsWLdbiYFgwbnBklRMydG5kDAC6ddt9dJBbNcMel0iQx31h036pfeRjn/rYxrOLVVaQo9ROL2xaTbxQOcc0a0vlXK2yfuKtLmwqWB5Zu32Nqi64SVXBFIDeZ2f4lkWxfABWZyzXLN/i/eyUzgI8WlhS4QOwoiUlxP+uwqXzNXbwDj1feq0qXok8CkDfdsUVV/g3ICaDdYPu7n0sFuR8FG2ikhLizyvnx6UqPjNNza9W6erbqz/tVpiZr4U/zNJb/3W3Hn2K7oZAXxNWCBJxyHwphB3x7MgXfi6AnRqE/SBjYf05bUiqJIW4Uqdq4YrpykyRWnY1qK7uLe0fnK0zR6Ur9XBpxzOrdG2l3TgEAL0r7gubdhoQ/dNC3HqcxDrYaUef1bxOP729SvW7pJTjMjV2Uq4mjPYC3Gt7N24q100EOIA+Iu6WuBXwL7roIj388MN96AOwku/AHZvar91vNKiJGgqAPqR/1cQB4BDTb/uJA8ChgBAHAIcR4gDgMEIcABxGiAOAwwhxAHAYIQ4ADiPEAcBhhDgAOIwQBwCHEeIA4DBCHAAcRogDgMMIcQBwGCEOAA4jxAHAYYQ4ADiMEAcAhxHiAOAwQhwAHEaIA4DD+Lb7duTl5flDV6qrq/0BAHoLId6GhfeCBQuCqa4tW7aMIEeHzjnnHL300kvat29fMAdILkK8jZtvvtl/423evNkfOnLppZcGY30nyIcNG+Zv+4ABA4I5rTU0NOjpp58Opvq2zMxMf1868sgjj/T5YAwbBPZ3nzdvHkGOg4IQb6O0tFSjR4/Wvffeq3vuuSeY+1kbNmwIxiJ6O8hjPYNw4czhwgsv1BVXXBFMtc+FYLQD0YoVK/yDatvttQOUvc6ysrI0cOBAf11bZ+/evdq6davfgHDlgIveRYi3EW+Im5KSkk5b7wdTeAYRizvvvNMPiq701r6E/4OuWOiVl5cHUx3rrf0wHQV5LAfdbdu2+Qdcey0CHSHE20gkxO3NaW9Se7P2tFiDrzt6a3+SvS+2H0uXLu21lm0iQW4szG+44YZeeV2h76OLYRLZm9TerPam7Q9sfyxo+rrt27f7re1waKu398NKJrYNJjrQrZVdWFioSZMmHRgsrNvug13rqKiocOJ/gZ5HS7yNRFriIXsTWmmlJ8W63bGaNWuWf/G2N/clVhaE0a3U9h7fG/thOmptR7fI23PNNddo8uTJwdSn6A2FtmiJx8kCoe2wfv36YCl6iv3N7YATLRkHsWSwA0lH5ZLoFnk4bdc1wrM4K/+0d1Zhz9dfzvSQHIR4nOwN1naw2iV6jrViy8rK/FZtdMvb/hd9oWdHUVFRMNaanS3ZtkcHue2DbbOVTcKQtm6U7bFWOhAixLvJ3mCHQkvIblCxsOnLp+5hX3FreU+ZMiWYG2E9cHqTlVE6ep3Y9oallOggt7+1lUvCM4uODkT2GOrjCBHi3RC+4Wzoj0FuQRLul7VmLWzsolp36tM9xS5mRpdN7KATHWx2VtSb5a2uQtZa3mE3z7ZBHks5iBBHiBCPUfQbzYb+FOTWv/zxxx/3Bzudt4u2Vnu1/bSLm6effnqwZt/RNujsJpnou2iNlVo6unB4sMVyBmPbHIp+fUVfpO0IFzcRIsRjYK3R8A0WCoM8ep6LrL5qF9QsUKzlaiUUCxFr6f3yl78M1upb7CyhbYhZ/dn+T3a3Z8gCvKO68sFm29dRGIc3ZbU9EEUHeTjdHnteQhyhpIS4nW5bEFgLzoa1a9ceaMm5zvbB9s1+RrfqbNzmuRzkFibWjc1C8bLLLvN7RFg4PPXUU35Q9NX9aht+FtxDhw71x+12/fB1aEPb1nlPsr9ne8IDjf2NrXuk1b7tf9C2Rm7LrUbeVkfPi0NTwiFuF2GsX64Fgr0I7cVoLaKwJed6ycH2yeqr9tMuRoXCC1PhMhdZmNi2L1q06MA+WBja/7Sv/t/s722vsZCFnTUiom+YaTvY2UVv6CiEo7se2jp2g491Ue3sYmfIxu0xQCihELfgtpaOXWSyF+H555/v/wzfOPYi7A8lB2v52Bss+s1j4zbP5VaRhcmTTz7Z6iBkF9vCfu/h0JdO3cMGQuiiiy7qtCeKvfbau2mmp7QN4ZDtQ9j4CdlrKiz/tBfkNvSl/wX6hoRCPOwHay256NaRsVPeMMjtjeYyC7n2Wj82LzoAXWS3hEez/bH/ZfTQ1/q/hyUSC3QbOts+e+3ZOr3JgtfKJtbYida2DNm2/NM2yAlwtCfuELcXmJ1628Ww9gLOhLXL3mwJHSrCng72t7YWXmdD2A/ZAjusJbcnbC1a2PQlFspWjrDhk08+8YOvs6EvsPeIXXewhk3bMO9MdJAD7Tli+PDhNwbj3ZKRkeG/ycOLMh0ZP368v25v1SW7y/bJQiJshbZ12GGHdbjMuuJZ4NmbtKdbTUcddZR/am6fTR22UDsabBvt4Lt///4Dp/Nt98fWW7JkiY4//nitXLkymNszbB++9rWvBVPtszMI20b7aX/3jobQo48+qvr6+mCqd7S0tPh/ZyuZWKj/7W9/8+fZwdT+zjbv7bff9t9T//7v/+6vl5ub6x9ozzrrLNXU1PjrA9Hi/gAsCwJrpVk4t+0tEO2BBx7wX4RWJ3eBnd5asNmbzW4g6Q4LDfu72JvQLlb1NAu1MMi7Yvtm+xje5m3bbAcea9HbPlgZwlp/vVWHtW2yBkAyhL1tXBTdErd9CC9+AqG4Q9wCw7oSWj1yxowZwdzW7AVoIdFboRYPa4mHPQfi5dIFKAsH6ysefYHN2NmEfeGC/e/Qu6KD3N5H/E8QLaGPog1breFFzGj2grMXnr0ArYdDe+WHvsq63rUNtVhZeLsS4NGiW/FhKx19h72PrHTk4msLB1dCIW5BbX3B7ae96a27mrXgok/HraVurQdXT2cBoC9L+EshrAVn5QcL7rbswozVia0VQR9XAEi+hEM8ZEEdXoiyi2NWt7NWeFhjtosxbW+YAQAkJmkh3hmCHAAOjrj7iXeHhbbVyidOnOj3e33hhRe0a9euYCkAIF49EuImOsjtJpM//OEPwRIAQLx6pJwSzS6A0n0NAJIjKZ8n3h0EOAAkT4+HOAAgeQhxAHAYIQ4ADuvxC5sHU3Z2djAGAG5I9COS+1WIA8ChhnIKADiMEAcAhxHiAOAwQhwAHEaIA4DDCHEAcBghDgAOI8QBwGGEOAA4jBAHAIcR4gDgMEIcABxGiAOAw/gUwxgMGDBAWVlZwVRr9uXP27ZtC6YAoGcR4jGoqKhQZmZmMNXavn37NG/ePP/b/AGgpxHiXbDwthDvjAX5ww8/HEy1b/369bTYASQdId6F0aNHq7S0NJiKnwX4jBkzgikASA4ubMbJWt9PP/10MNW1YcOGdViSAYB4EeJxCOvgN9xwg18midXAgQODMQBIDkK8m9peyFy6dGm3ghwAkokQ74aOeqIQ5AB6CyEeo44CPESQA+gNhHiM7IYf62q4YcMGzZo1K5gbYfNsmDx5cjAHAHoGId6npGtq0WLNvySng2kAaI0Q71OylXlahrJOzehgGgBa42afLrR3s8/mzZv10ksvBVP6THmlIyUlJf5jASBZCPEuxHLbfawKCwv5jBUASUU5pQsWuskI3mQ9DwBES7glbi1V634Xy4c72a3nQ4cO1datW/3HuKKzj6KNlWv7DMANcYe4hffNN9+sww47zO8jHUut1+rLVj+2QOTjWwEgcXGHuF3ss1A+//zzu9XCtFbt448/7oe+XegDAMQv7pp4WF5oL8At3KM/sc/Gw2lKCgCQPHGHuLWo28rLy/Nb2dZKtx4dVgO/8MIL/fFk9fAAAHwqqb1TnnrqKb+8En6GiNW/LdjtI1vvvPNOfx4AIHmSGuJhqSS8EcY+S8QuetqXJzzyyCP+vJD1UgEAJCauEA9LKR31SLHudMaWt9cDxULdSi3tlWQAALHrdojbRcvVq1f74+Xl5f7Ptiygja3bnrBVbs/T0ToAgK51O8Sjuwa295khFuBFRUUHWuDWK8XmhcFu7GKnWbRoUUz9ywEA7YurnGJ3Z27fvl3nnHNOMCcSzDZtNwDdc889qq6u9ufbhU2bF10DDx/HzT4AkJi4L2xG32Zvte0rrrjCD2sLZgvw8OKmhbuNu9zitv2zsk97Q/QZRr92yWJVVi5WfjAJoG9I+I7NSZMm+dPW4jZhC9zYcvuGd7uQGc2+BceEj+3rrI979M1L0axHziHxEQIW4t/0/r8FN6kqmJVM+TdWKk/VKrjxYDw70H/F3RJvy8I7OsCNtb7bBnjIlTs3o+82bY+10lesWKFLL7200+GQabH3lLOLVVZZpuKzg2ngEJVwiHe3m2C4ftgN8WCYMGFCMJY4O5Poiu2TXeTtbPj5z38erA0AyRN3OcVKJUuWLPHD2C5kxlLztsdYzxVrlR7MEkRlZaXWrFmj2traYE78bJvbfrNPvGL5UojUEdM1rzBPmWkp/nTzti164j9WqTp4WOqIqSr8wRTlDEuNzNjTqJr7l2ltXbM/6ZclDt+iWp2iCSel+fP2vL5O5Q9JFxcFz/txi3bUP6bVpdXyn9ZatQWn6c0X39WJozPl/+rmJm1Zd7dWPRn84s+UU1KVfWGRZk3M1hDblJY9atx0v5Y9UKfIlnQmU3lXztG0UelK9ZoRto9vHp6j7A8/Lad0tp/+Pp4cme17O3hcaramXjZDU4Ln1cfeNm2MdZsANx0xfPjwG4PxbrHeKfY5KW+//bY/vnfv3mBJx+xja//85z9r5cqV2rVrVzA3+b7zne/oggsu0F/+8hc1NjYGc+NjB5yw3p+ojRs3+n+rjuXqqhsv0hf3PqP7Kh7S717arhPGnKfzRh2jP9S8rL3+8nz904fP6b6y1Xp4Y6NScs7WeV/P0t7fPKO/eM8w8rzvKGv48TpqS5X+7eHf6bV/fFFnfPUMnXfOydr73C+1+jFv3sdZOuvMM3TyR+tU+7r3oJPH6Vtjhit9wHb9l3dA/s8Xt2vgaacr52v/pGP+WKOX3/fW+cp5+k6m1PD4f+sVbzJ12gItnjZUf/3PSt3zm036095TNH5yrr7yyQbVvvaRt0bHMmddo8vHHq+dT9/nb+NfjjxD47+SppS/N+jx39uzd76f637/uB7f+UVNHnOs6isv18L77DHeo668Ufkj/lfPrf2/Wv1QjRo/n6Ozz/u6st7/jZ55018F6HcSKqdYXdta4LF8IYSx9Xqyl8qNN96Y1NLKwTdYA7yG5+6ttap9pV71L67T2kfXqeblJg3yl/9RVb9Yrp8u984yXm9S05u1WuMtU+oA75FR3qnVrXfXqt57jtq7n1C9hXDTs1p2fzivVls/TNHgL46JrO9r1pZHl2vdi5Hfu+qOWjUpXaO+kR4sj5atH4z3Ev3Vai1/os5/zrqHVujZd1KUefq0YJ2OjNGU0UPU0lD96Tbef5M2vR0s9sW4n2388dFyLb/tdq3Z1KCmbY3efm7x9iFVA/iEB/RjSbuw2Ve5FeRPqKZuj4aMX6jKstt0S0mhztBzevTBGtX7y/dox+fGaOa1ZX7JyB++2c434X/c8tnyQat5u9WyXzrqiEjJ5oCPg5/mna3a4YX/wLT2vml/lNK9NE0Zkf/pdlSWKfckb9ERkTU6lqXBad4WvPNcJyWOGPezjT3bUzXmkp+obHW4TXnq+lGA2/p9iLulWbXlJZp7Xbmq/vsN7f7CCE2fc4tuv3aq1yb2pE7VvMJcndj8rNZcN1cFBQUq+G1i5aJE7HixQstLl7ce1rTuodSRj1p2B2PtiGs/UzV1XqFyhzfr2Xuu11x7TEG1eu+vA/SMQ6IlnowLnD3i3NlauKhIk46oU/VDXkBeV6KfPrVDqaedIf9c4quZOjGlWa+vX6vabZF2bOrhbVrTiYh+NZyUpSHHSHv3tBeDW7VzjzRo6CnabWWfcHjjTb35pregUy+raac0+NQpXux2IK79zFHmCSlqfu1JrX2qKdLKT01REv86QJ/Ur0PcqQA3DR8o5aQxmnLZDE0Yma3skRM0IWuQ10DfJy/3pLd2arf1Cvn2bH/5mGnFWnyutdFTNWikrZAI73m955t6ZuT3zr5igtJbGlX3u6ZgebQ6PfmCF+4n56r4yqkaY9t65lTNX1KmW38UXWdvT702/HmHUjLzdN2cCd7vytaEmYt1bnRvk1j2c0+z9nrT6dljlH2q9cJp1M593hr/PE2zz41sT/GN3j54S1LTsv2HAP1Rvw1x5wLcvFOlZRU12nGsF6Il8zW/ZLbOPHKr1pWVq8ZfvlZ3P7RFO9Miy4vyhqjp+Xqv1TlIx57oP0MCmtXYOEC5/yfyeyek7VTdr1aq6p1gcRsNDy5TxQYvyL88XUW2rT+aosHvrtPqe+uCNTrWcM/PtPbFnRp09mzvd83Xxdm7Vf9mS7DUE8t+vvKEnnq1WUPOLtL8H1jvoSat/Y8qbfmfQZowK7I9Q955zr+oO+hYKuPov+LuJ96X2YXMZAV4MvuJ26c/9snPkAn6ib9eOVerngnmJeAz/bgPaDxot+0Dh6p+GeLJZLfcJ+v7QWO52adXJDnE007N1ont3si7T+++0qiuquYAYkfvlC5Y6CYjeJP1PC7Y82bUxc5WAwEOJBst8RjYZ6NkZWUFU/Gxjydw5UO/ALiDEAcAh1FOAQCHEeIA4DBCHAAcRogDgMMIcQBwGCEOAA4jxAHAYfQT7ya7Db+zL0/uk5+NAqDfIsRjZHdtrlixwg/xzlRXV2vZsmXBFAAcXJ2WU3799S0HhkOd3XbfVYDbZ6PYlyovWLAgmNNL7JvpKxcrP5jsNvtArMoyFZ8dTAPos6iJJ9G8efP6TpBHyZxSpPk/yot8xVu7MpX34/kq/GbHawDomwjxJLIPuOqLQZ59+ihlf/UMnRFM2+d9V94Y3U7P1hmjszXmjHANAK4gxJOsLwb5utsuV8HlP9W6YPqz1umnlxfo8ts6XgNA30SIHwRtg9y+HSg2+VpcWalbrirULWVea9kbr1xdqsXfH6PoLxVOmzhbt5SGy+9S6aIZGtPhtw5LY68sU+XKYo31a93Bt+6cnOc9Pqx7j1XxykqVXTnWJj4r09uuuyp116J8dXRVIHNKcdQ2l+mWK/Oi1k1T7o9vUdnqYPldUfs0ukillXdp4TR/xYiTZus2m3dBJzsFwEeIJ5F9jVs4LFmyJJjbfekjMrS1armWl65RTeNRypj0QxVNDBaeXaTFMyfo6KbHVF7qrXPfc/rgpFwVXtNxwB7wzCrNLShQ9dve+NvVKiiI4Zt8UieouChP6duqdfuSKrX3tRap44tV9L1sHflaZJvKH39TR4/OV1FR5KCQPvNqzTjzaL35eLm3T8u15vkPlB7u0+ZHteW9FGWMmuqva9K/MUJDWhq15deRb7oH0DFCPImsxR09dNWbpSNNm27Vmk32TTi1WrvkUdU3pyrrTPsyYGnqeaOUtqtOa25fpzr7tpxNa3Trr+u9lvW5mprs3iSHewF+62xltzyvtUvbD3AzbWKO0t57TqvviGxT3RPL9asXd+joE0crx1uenna09OG7evl3df43/NTeXaXHNjyrV/cN8ZY2qfqVJqVk5CgS4+nK/fIQtTT8sZPyD4AQId4HtXwc3QKtUeNOKWVAmjc+VpknpKj5r1sU3emz+clGLwpTNSjJX+qe/u2LlZO2Ry8/VKHaDhvFY5X+BW8btje0Cvnnf3GtLr+uwt/OuiefU6OylX/HXSq9daGKZ6ar6b/Wat0LO/x1mzbWqyklQzlWUvHOKrKHNWvri9X+MgCdI8TRgVQd1fSo1r58lMZ8v1gTEilPN1TppitKdNN967Rle4rSx+Wr+Ge3qTA8c3jnUW15O1JSSZ2QpfTmN1W3MVgGoFOEeB+Ucnh0YuYqY7DXOt9nXzH8vBrea1Hq8By/TBFKnZKhdDVrd2MwIyma9daLNar5t19py+E5unhuXquLq596Xk3/423D0MxW/dCzv1esxVfle+3vTE2/crEWzhyhxk3rtOaOm3Tt1VWq/3iIcs4ML6Q264mXvHb88BEqGpGh5jfqvPMPALEgxPug9LMXaMa52coeOUZTr56q7NRm1T8dKS+s+/3L2nPcGM325o8Z6a1z7gwtmJotvb1J67q6SBn4YH+LNDhDU0d6wdtVC7u5VhUPb9H+EdO14JKgxn/2DC28tlB5J0Umn9i4RXtOGKfiH+d525ytMdOKNWtSjtJa3lK9GvTuP9KUOX66iqeNiSz/xiid+Dlp998+Peo0V9er8XBvf05u1uvPEeFArAjxPqjpjZ3Kzp+v+SVFmv5lqeE35aoIA/qZct10f60+SJ+uohJvnR9MUNr2GlV0cuGxrXW/r9MOLzCne8//3ZHBzE40P1WhxzZ/oIzz5mjGiFSln+q1r0/7kk4ZFC5fpfKH6vXRyHxvm+er6PzT9NGfq1Re/ry//PnyclX9+SOddn5RsPxEffDUWt1+f5O/3Nf8mLY0egeXXfXaGOPBCEAXH4AV/ZkpFzwbfQJ/6LHeJtZ1MB4lJSUxfrqh9RPPk35boJseDGYBQCdoiQOAwxIK8RM+t18jj93bavji0dygAQA9Je5yyq0j3/BDuz13NJysmveOC6b6h54ppwBA98TVEv/Ksfs6DHBzZebbmpa+s1ULve0w4Ih/BGu7YevWrf5noXSXPcYeCwAHQ1wtcQvxW0Z2P9CivffhUZq3+TTt+8cRwRw3dPX1bNH27t0bV/ADQKwSCvFX/j5QL/99QDA3dqOClvz1r2Tq/8XxeABAREIh/uBfh+rBt4cGc2N3ycnbdcnw7YQ4ACSILoYA4DBCHAAcRogDgMMIcQBwGCEOAA4jxAHAYYQ4ADgsoX7idtflex+mBHNjd8LnWvwPz6KfOAAk5qB8AFYs7G7P6175UjAFAIhH3CFurDVtrerusta7teIBAIlJKMQBAL2LC5sA4DBCHAAcRogDgMMIcQBwGCEOAA4jxAHAYYQ4ADiMEAcAhxHiAOAwQhwAHEaIA4DDCHEAcBghDgAO6/RTDAEAfRstcQBwGCEOAA4jxAHAYYQ4ADiMEAcAhxHiAOAwQhwAHEaIA4DDCHEAcBghDgAOI8QBwGGEOAA4jBAHAIcR4gDgMEIcABxGiAOAwwhxAHAYIQ4ADiPEAcBhhDgAOIwQBwCHEeIA4DBCHAAcRogDgMMIcQBwGCEOAA4jxAHAYYQ4ADiMEAcAhxHiAOAwQhwAHEaIA4DDCHEAcBghDgAOI8QBwGGEOAA4jBAHAIcR4gDgMEIcABxGiAOAwwhxAHAYIQ4ADiPEAcBhhDgAOIwQBwCHEeIA4DBCHAAcRogDgMMIcQBwGCEOAA4jxAHAYYQ4ADiMEAcAhxHiAOAwQhwAHEaIA4DDCHEAcBghDgAOI8QBwGGEOAA4jBAHAIcR4gDgMEIcABxGiAOAwwhxAHAYIQ4ADiPEAcBhhDgAOIwQBwCHEeIA4DBCHAAcRogDgMMIcQBwGCEOAA4jxAHAYYQ4ADiMEAcAhxHiAOAwQhwAHEaIA4DDCHEAcBghDgAOI8QBwGGEOAA4jBAHAIcR4gDgMEIcABxGiAOAwwhxAHAYIQ4ADiPEAcBhhDgAOIwQBwCHEeIA4DBCHAAcRogDgMMIcQBwGCEOAA4jxAHAYYQ4ADiMEAcAhxHiAOAwQhwAHEaIA4DDCHEAcBghDgAOI8QBwGGEOAA4jBAHAIcR4gDgMEIcABxGiAOAwwhxAHAYIQ4ADiPEAcBhhDgAOIwQBwCHEeIA4DBCHAAcRogDgMMIcQBwGCEOAA4jxAHAYYQ4ADiMEAcAhxHiAOAwQhwAHEaIA4DDCHEAcBghDgAOI8QBwGGEOAA4jBAHAIcR4gDgsKSFeGZmpvLy8oKp1my+LQcAJFdSQtwCesWKFSoqKtKAAQOCuRE2bfNtOUEOAMmVcIiHAW7mzZunffv2+eMhm7b5FuYEOQAkV0IhHga4BfTSpUvV0NAQLGnN5i9btowgB4AkO2L48OE3BuPdEh3gFtAbN24MlrTPgnz79u2aOHGicnNz9cILL2jXrl3BUgBAPOJuiS9ZssQP8PXr16u6ujqY2zlbz9a3x9njAQCJiTvEFy1a5Ne7J0+e3GGvlLZsPVvfHmePBwAkJu5yipVCrCRipRErkVippKOauLEAX7BgwYELnZ2tCwCITUIXNi2Iwx4p1o2wowuWo0ePJsAB4CA4bNy4cZ8E43ELL3Kaf/3Xf/XDOmT171/+8pf+OAEOAMmVlBA3FuRZWVntXuS0UsrWrVsJcABIsqSFOACg5yV8xyYAoPcQ4gDgMEIcABxGiAOAwwhxAHAYIQ4ADiPEAcBhhDgAOIwQBwCHEeIA4DBCHAAcRogDgMMIcQBwGCEOAA4jxAHAYYQ4ADiMEAcAhxHiAOAwQhwAHEaIA4DDCHEAcBghDgAOI8QBwGGHjRs37pNgvFtGjx4djMVv8+bNwRgAIB5xhfjNN9+sc845J5iK39NPP60bbrghmAIAdFdcIb5hwwZt375d1dXVwZzuy8vL09ChQzVp0qRgDgCgu+IOcSuFlJSUBHO6r7S01C/JEOIAED8ubAKAwxIO8cLCQr9l3tmwbt06ZWZm+uO2PgAgOZLSErfSSmfDa6+9dmA9AEDyUBMHAIclHOKXXnppMLdz1p0w7JZ47733EuIAkAQJl1M+//nPa9asWZ0O+fn5/ro2busDAJIj4ZZ4rHdu7t27VwMHDvTH7bG0xAEgcdTEAcBh9BMHAIfF1RKvqKjw+30nqqGhgX7jAJCAuEJ82LBh+u53v6usrKxgTvdt3bpVjz76qLZt2xbMAQB0V1whDgDoG6iJA4DDCHEAcBghDgAOI8QBwGGEOAA4jBAHAIcR4gDgMEIcABxGiAOAwwhxAHAYIQ4ADiPEAcBhhDgAOIwQBwCHEeIA4DBCHAAcRogDgMMIcQBwGCEOAA4jxAHAYYQ4ADiMEAcAhxHiAOCww8aNG/dJMN4to0eP1sCBA7V3795gTvcMHTpU69evD6YAAPGIK8SvuOIKXXjhhcFU/BoaGlRYWBhMAQC6K65ySlZWVjCWmMzMTH8AAMSn12viVpIBAMSHC5sA4DBCHAAclnCI79u3z79ACQDoeQmFuAX4vHnz/IEgB4Cel1CIDxgwwO+pEoY5QQ4APSvhcsqCBQuUl5dHkANAL0jKhc3TTz/d/0l9HAB6Vlx3bJaWlvq33Ru7dX7p0qX++DXXXKPJkyf749u3b1d1dbU/3pY9Nnx8SUmJNm/e7I8DALon4Zb4ww8/7P+MDnCzbds23XPPPe0OhDYAJEfCLXELawtlq4vHo6db4mln5emMv29SzavNwZz2jFXxykINeq5ANz0YzOqGW2+9NRgD+o7rrrsuGEPvaZ0tqSNyde6xf1T1C3uC5d2XcIgnyj4AK1l19LFXlqlwdGow5WneoYZnqrTigTpFIjtTs3+2UOP+VqXLb2+/1BOReIi/9dZbwVTfUlFREYzhUGKvyc5DPFPTry1SXmaaUrzz8+ZtW/TEf6xSdfDWzJxSrDlTc5Rub6+P96hx4/1aduB91Vqn62bmqfiH05QzLPI+3fNmje5fvlZ17bapMpV35RxNG5WuVKsZfNysppef0N13VCuyWflaXJmnDH880NykLevu1qon28mUs4tVVjBImwpuUlUwq+e1zpa8q+9S/vHP6ac/WRPsU/fFVU5JVsvZwjvpF0Lf36KKggIVFJTopqpXdfS5RVr8o5xgYYPW/KSgiwAHDj3pM+do6ql7VPvzuSqYu1zPtmQr/4czlG4LRxbqsu+dpt2/Wa65BXN1/YPvasikmfphe+24TtfN9hpt+Tpt95NaPrdAc69bq3e/kKuZs8P3Z7RUL+DmKf/LH2jTHSXe+7lAJatflP45X5cdeD9HNP7W3u+R93zFK0cq54KLNTVY1tdV3365ChIIcBNXiFtd28og9957b9zDsmXLDvLH0HotgE1rdKt3RB701amaHjTQ82+sVNmVYyMT1iq4tUyVlZX+UHrtdO/Y/1mZFyxU2epSFU9MC+YA/UvG8YOkbfVaa2XGZvvZJA0YHGnlnuDNenmT/vM39V5r2msNb6jV6++naXC2/9DWOl3XOyTs3aJNv1mnevs122pU+0az0oaO8B/aSuo0jRtxpOrXrVDVy5FSw54X1qh8U6MGZYxTe7Fv7/nnNzepOWWwTjkzmBWws/TKghzv0JChPO+9vviSyHw7a7ilLPL+ryy7RYXjg6C4ZLEqV96ihT+7y1u22Gvze5s0ZoYWlwbrri7TLT+a4D1fROtlpVp4wadJkjllvkpXR5aV3TpF6UcFCzz+dt1oz25SNeb7iw+s22p7OhH3hU1rjbe9YNmdoaOeK8nW/Outako5URlfDWZEmXrxdGX/49lIq+D2Gu05darmzPTbHgekji9W0bcH6/UHbtKqjfHXrYC+rLFph1qGZWvGCC80Uu1nulrea9AWW7ixQjetrFK9v2aacqZN0Gmfb1R9rT+jtU7XrVHFklWqesVfqLRRUzXhS0eq8ZV2nuir6RqinWr679Z1libvfXj5dRWR7WorNV25Z52i1D0NetFrtEd7/g7vDKNyi3dYaVS112r3y6Sj7awhWy3P2FlDpBU/9pIi5UYeIh0zWEe/tlbLS+9WtXcW8YOLczXkr2tVYmcFD7yuo8+6WEUTvfVSp2peYa7SGm3ZXC1/cqdOnDZHM07ylp2Ur5kXZGn/cxX+sltrduuoz/nP/lkTi/TDSWl66wE78yjR2jcGaexFhQqanB2KO8TdkqpBrbPZ98H/fqSUgado1NcydNSra7XytuW6+3e7g6We1HwtmJmtPRvKCXD0a00PVaj6HS8Er/ZahmXzlXtsvR77xTov9D7ltxorvTPSC07Vjt9WqeqdYEE7Ol3XatNeS7P0quk69X+qVfWQ1+pvV4tagg2IPF/QQl1Z3CrYMr75act1xkip7tf36/lgWWfGjB+hIe89p4oH7KzBa8X/ok6Nqadq1NnBCu/Xq/ruWtW/0ugt3a19H0lHfiFL48aka793sLr9tnJVveStN/UMZX7srbvSawh6z1T/yAbv7CNdWRO8ZWdnK+PjrdpY+by/rGnDc3rrff/ZP+ulKpXfdrsq/KzZo5oXXlfzMYN0SmRphw6REG/W7nZeJzW/KNdjrx+tcd6pU6n3Ilj8gzFK2/Ppyzb9DO/064NgAujHxhZdranH1WvtdVYTv15rG09R/rWFrcoWfmvW6txeKzTtW0Wab63QDnS67jOrvJZvpCb++nFTVVRyoO3bRopSgmpC5PkKVPDbxsiMKJ/WxCM1+OxZP1FhDP0uUo44Sjphgm4JDw7+RVKvwWct6MD+4Kd3mNPa5RWqff9LmlZ4i8pW366if8lQyi5v0RHe8Lls5R94Hu/vdox3pvGFMZFl+1u8Q0AMdqUo41+KdHtYTplj5Z+u9fsQT/VOZdJb3lXjn4IZB6Qqfbi05cHrVXJF1EWWH3p/+MDOZ27VtQ+/rLRJl2k2X0CEfmuMzsxMU1PdGtVss2J1k2o2vKo9g7+kcad5iycWavFV+YqUwK01uUZ/3JaqU0e1c6Lf6bq5KlxUrHyvtewv3VajNXVNSs0Y9dmSwZ8a9W7LYJ2SF0uMhcIa/BClt1evb6PlH15Ev1PjH1AiB4HIcNNDwQqtpCnjxJ2qWXWt5l5eoJI7IhdZZ37PW/QPb3h/i9a0eZ6S8rrIsqNSNMieogt2cTn6Qm6k/NO1fhziVo8r1uIpmdr9p3V67DN/jUHKnT1fC348Xdne66T5w2B2lJaPvQc9U65fvXSUJhQVa0J3Xk+AM+r01nstSh81U2OP8yattjxphNJa/q53X7flx2rIqHH69rey/ZZh2lkXa9QXWvTu1kjRInXMVOVPiizrat1jh+Zo3Lem+u85HTdWF48crJZtDZ8tfzQ/pg0vf6DMKddp9vj0yHMfl6OpJw+RPv5ILf5KbQU1+GP2aGekKN+OVB0dNMjq/tSgPelf17zv5XiP9B49Kl8Lby5W7gmR5a2dofwfL1Tx7LH+uvtborbgmXo1fj5b3/5xrt+tMnVYropuXqgZdr3Wlh2epYkF9jiv4ThpnE7xWuntGTTgSOmj/dq5wzu42L6ec0rwN+1c3N923xdZ3azzfuKR3inn/q1Cc+/wXjaZ0zW/cJKyB0ces+edWj32szWqbW7bT3ysikoLld24RlevrO3y6MjNPuiLOu0nnjpBs38yXRNOCnpg7WlUzf3LtNbvwJ2q7Avn6bJvZiotxZts0/d7TFGpir7YoPL55d7hoPN1U0dM17zCPGX6C71f02k/8TSNnXmVLh6fETxXi5rfq9eT91VonX+zXjv9xFusV1pHfdi99/HyQo3xDlSNT0Za3B32abfeKeN2q+KqVQcOMKnjZ+u6705Quv2JvAbejvoNWl36mN890HqnLJiZq4xgWXR/dvsdl52foyF2QXNXvepbsjVgcyRb/Mw6fpMKbqzy/weF11+ssdaH3nuOxvp3NWTksXrxhmu1ppPrD/0qxAHgUHOIXNgEgP6JEAcAhxHiAOAwQhwAHEaIA4DDCHEAcBghDgAOO2zOnDn0EwcAR3GzDwA4jHIKADiMEAcAhxHiAOAwQhwAHEaIA4CzpP8PzScHkIDZeh0AAAAASUVORK5CYII=)</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="c1"># Memuat file CSV sebagai dataframe</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;politik.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Menampilkan dataframe menggunakan fungsi display()</span>
+<span class="n">display</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-dee0ea5e-74ff-4f74-9bda-8309a60b0f61">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Gus Muhaimin Ingin Kebudayaan Jadi Panglima Pembangunan Bangsa</th>
+      <th>Ketua Umum Partai Kebangkitan Bangsa (PKB) Abdul Muhaimin Iskandar (Gus Muhaimin) menginginkan agar kebudayaan dijadikan sebagai panglima dalam pembangunan bangsa ke depan."Kayaknya kita orientasi yang paling efektif ya budaya sebagai panglima karena ini menyentuh semua aspek: seni, tradisi, ekonomi semua ada di budaya," ujar Gus Muhaimin menanggapi aspirasi para seniman dan budayawan lokal se-Jatim di sela penyerahan Mandat Seniman untuk Indonesia 'Budal Gus' di Padepokan Seni Kirun, Madiun, Rabu (22/2/2023).Dikatakan Gus Muhaimin, di masa Bung Karno, politik dijadikan sebagai panglima. Bahkan, pertunjukan ludruk saat itu dilarang. Selanjutnya, pada era Orde Baru di bawah Presiden Soeharto, ekonomi yang dijadikan sebagai panglima pembangunan.\r    \r  \r        \r  "Reformasi nggak ada panglimanya sehingga tidak punya arah. Kalau mau punya arah budaya harus jadi panglima karena semua sendi kehidupan ujung-ujungnya budaya yang bisa menguatkan, mengokohkan dan mempersatukan," tuturnya.Menurutnya, kondisi saat ini di masa pancaroba akibat pandemi, budaya bisa menjadi pencegah terjadinya konflik, kekerasan, dan perpecahan. Apalagi mendekati kompetisi Pemilu 2024. Karena itu, Gus Muhaimin meminta pemerintah pusat dan pemda untuk benar-benar memperhatikan nasib para seniman tradisional."Seniman-seniman daerah yang hidupnya tentu sangat sulit terutama di era teknologi media sosial seperti sekarang harus ada bantuan-bantuan langsung maupun yang sifatnya promosi dan peningkatan kapasitas," katanya.Gus Muhaimin berharap Kementerian Pendidikan, Kebudayaan Riset dan Teknologi memberikan perhatian kepada para seniman dan budayawan lokal."Tolong Menteri Pendidikan dan Kebudayaan agar memperhatikan. Kepada Pemda tolong beri perhatian khusus, beri ruang atau panggung. Kalau perlu buatlah pertunjukan-pertunjukan yang menampilkan mereka karena selama ini mereka berjasa mempersatukan bangsa kita, berjasa membuat hiburan dan kebahagiaan di tingkat grassroot yang itu tidak bisa diperankan oleh orang lain ataupun negara," katanya.Wakil Ketua DPR Bidang Korkesra ini mengatakan bahwa harus ada upaya untuk meningkatkan mutu produk budaya Indonesia yang sesuai dengan perkembangan zaman dan aplikatif terhadap perkembangan teknologi informasi."Dengan begitu kita tidak kalah dengan Korea yang sebetulnya jauh di bawah kita kualitas dan varian kesenian budayanya, tapi karena mereka lebih aplicable dengan teknologi informasi sehingga seolah-olah kita di bawahnya," katanya.Gus Muhaimin menegaskan kesiapannya untuk bersama-sama memajukan kesenian dan nasib para seniman jika diberikan mandate sebagai pemimpin nasional ke depan."Intinya mari kita bekerjasama menuju Indonesia yang mencintai seniman. (Kalau saya jadi presiden) tandak, ludruk se- Indonesia aman. Kita akan taati perintah Sakirun (Kirun), saya siap. Kita semua siap menuju Indonesia yang berbudaya," tuturnya.Dalam kesempatan itu, Gus Muhaimin bahkan langsung menelepon salah satu kepala daerah di Jatim yang berasal dari PKB yakni Bupati Sidoarjo Ahmad Muhdlor Ali agar memberikan panggung secara rutin kepada para seminal lokal di daerahnya sehingga mereka mendapatkan perhatian.Forum Mandat Seniman untuk Indonesia 'Budal Gus' menjadi ajang bagi para sejumlah seniman dari berbagai daerah di Jatim menyampaikan aspirasinya untuk diperjuangkan oleh Gus Muhaimin. Karyani, seniman asal Ngawi yang mewakili para dalang, tari karawitan dan sinden berharap seni budaya tetap eksis."Ini harus kita lestarikan dan kembangkan. Nah, untuk melestarikan seni dan budaya harus ada penanggap-nya. Jadi harus senang dulu. Anak-anak muda sekarang kurang mengenal seni budaya sendiri. Jika anak-anak kecil dikenalkan budaya sendiri maka akan senang sehingga kesenian kita bisa lestari," katanya.Edi, seniman asal Mojokerto yang juga Pimpinan Ludruk Karya Budaya Mojokerto mengatakan, selama 6 kali pergantian pemerintahan, nasib para seniman ludruk tidak jelas."Dulu Presiden Soekarno dua kali nanggap ludruk di Istana. Sekarang tidak ada lagi. Tak ada yang peduli ludruk. Pernah dihadirkan di rumah Bu Mega sekali. Sekarang tidak ada lagi pemimpin yang nanggap ludruk. Kalau Gus Muhaimin jadi pemimpin kami minta untuk mendatangkan ludruk di rumahnya," harapnya.Kirun, seniman legendaris Jawa Timur mengatakan bahwa selama era pandemi COVID-19, nasib para seniman tradisional benar-benar memprihatinkan. "Sejak pandemi saya minta beras ke Gus Muhaimin untuk dibagikan kepada para seniman tradisional. Satu-satunya capres sing gelem kasih sembako ke seniman ya Cak Imin. Tandak ludruk di Jatim ada jutaan, nggak ada yang ngopeni," katanya.Kirun berharap jika kelak bisa menjadi pemimpin nasional, Gus Muhaimin benar-benar bisa memperhatikan dan mengangkat derajat para seniman tradisional dengan memberikan ruang yang luas untuk berkreasi.</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Sudirman Said soal Anies Merosot di Survei Kom...</td>
+      <td>Elektabilitas Anies Baswedan berada di bawah G...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Jabar Hari Ini: Hukuman Lebih Berat untuk Doni...</td>
+      <td>Ragam peristiwa terjadi di Jabar hari ini, Rab...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Sudirman Said: Anies Perlu Waktu dan Ketenanga...</td>
+      <td>Juru Bicara Anies Baswedan, Sudirman Said berb...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Partai Gelora Pede Jabar Jadi Lumbung Suara di...</td>
+      <td>Partai Gelora Indonesia optimistis Jawa Barat ...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Anies Dukung Sistem Pemilu Terbuka: Lebih Baik...</td>
+      <td>Mahkamah Konstitusi saat ini tengah menyidangk...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Ketua DPP Golkar Tolak Sistem Coblos Partai: B...</td>
+      <td>Ketua DPP Golkar Dave Laksono menegaskan pihak...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Bupati Kendal Dico Temui Gibran di Solo, Kaget...</td>
+      <td>Bupati Kendal Dico Ganinduto bertemu dengan Wa...</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>Projo Beri Selamat JoMan Dukung Prabowo di Pil...</td>
+      <td>Rombongan relawan Jokowi Mania (JoMan) telah r...</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>Demokrat: Kasihan Koalisi Lain, Nama Capresnya...</td>
+      <td>Wasekjen Partai Demokrat Jansen Sitindaon meni...</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>Pastikan Pemilih Meninggal, Petugas Pantarlih ...</td>
+      <td>Viral di media sosial petugas panitia pemutakh...</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>Duet Anies-Sandi Mencuat di Survei Voxpol, PKS...</td>
+      <td>Voxpol Center Research and Consulting menyebut...</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Relawan Jokowi Akan Gelar Musra Lagi di 11 Pro...</td>
+      <td>Gabungan Relawan Jokowi akan menggelar musyawa...</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Besok, PKS Deklarasi Resmi Anies Baswedan Capr...</td>
+      <td>PKS akan mendeklarasikan secara resmi eks Gube...</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>Paloh Cerita Kunjungi PKS Sebelum Berkoalisi, ...</td>
+      <td>Ketum Partai NasDem Surya Paloh mengatakan Nas...</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>Elektabilitas NasDem Melesat Naik, Surya Paloh...</td>
+      <td>Ketum Partai NasDem Surya Paloh buka suara soa...</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Cak Imin Beber Alasan Koalisi Gerindra-PKB Bel...</td>
+      <td>Koalisi Gerindra-PKB sudah mendeklarasikan dir...</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Ganjar Unggul Versi Litbang Kompas, PDIP Tetap...</td>
+      <td>Gubernur Jawa Tengah Ganjar Pranowo mendapatka...</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-dee0ea5e-74ff-4f74-9bda-8309a60b0f61')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-dee0ea5e-74ff-4f74-9bda-8309a60b0f61 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-dee0ea5e-74ff-4f74-9bda-8309a60b0f61');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+</div></div>
 </div>
 </div>
 
@@ -472,11 +801,11 @@ title="Print to PDF"
                 
     <!-- Previous / next buttons -->
 <div class='prev-next-area'>
-    <a class='left-prev' id="prev-link" href="ScraptDataPTA.html" title="previous page">
+    <a class='left-prev' id="prev-link" href="ScrapeDataUTM.html" title="previous page">
         <i class="fas fa-angle-left"></i>
         <div class="prev-next-info">
             <p class="prev-next-subtitle">previous</p>
-            <p class="prev-next-title">Scrape data dari pta.trunojoyo.ac.id</p>
+            <p class="prev-next-title">Scrape Website pta.trunojoyo.ac.id with Beautiful Soap</p>
         </div>
     </a>
 </div>
