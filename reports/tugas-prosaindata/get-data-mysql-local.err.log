@@ -17,9 +17,8 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-import mysql.connector as mysql
 myconn = mysql.connect(host='127.0.0.1',
-                       database='prosain{210411100112}', 
+                       database='freesqldatabase', 
                        user='root', 
                        password='')
 ------------------
@@ -36,12 +35,11 @@ myconn = mysql.connect(host='127.0.0.1',
 The above exception was the direct cause of the following exception:
 
 [0;31mDatabaseError[0mTraceback (most recent call last)
-[0;32m<ipython-input-2-6b33d7a878a7>[0m in [0;36m<module>[0;34m[0m
-[1;32m      1[0m [0;32mimport[0m [0mmysql[0m[0;34m.[0m[0mconnector[0m [0;32mas[0m [0mmysql[0m[0;34m[0m[0;34m[0m[0m
-[0;32m----> 2[0;31m myconn = mysql.connect(host='127.0.0.1',
-[0m[1;32m      3[0m                        [0mdatabase[0m[0;34m=[0m[0;34m'prosain{210411100112}'[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      4[0m                        [0muser[0m[0;34m=[0m[0;34m'root'[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      5[0m                        password='')
+[0;32m<ipython-input-3-3ad377568e1a>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m myconn = mysql.connect(host='127.0.0.1',
+[0m[1;32m      2[0m                        [0mdatabase[0m[0;34m=[0m[0;34m'freesqldatabase'[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m                        [0muser[0m[0;34m=[0m[0;34m'root'[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m                        password='')
 
 [0;32m/usr/local/lib/python3.9/dist-packages/mysql/connector/pooling.py[0m in [0;36mconnect[0;34m(*args, **kwargs)[0m
 [1;32m    291[0m [0;34m[0m[0m
