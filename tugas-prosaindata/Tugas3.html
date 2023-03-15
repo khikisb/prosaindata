@@ -8,7 +8,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tugas 2 Memanggil data iris di 4 database yang berbeda &#8212; Proyek Sains Data</title>
+    <title>Tugas 3 Memanggil data iris di 4 database yang berbeda Menggunakan PCA &#8212; Proyek Sains Data</title>
   
   
   
@@ -60,11 +60,10 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'tugas-prosaindata/Tugas2-Okhi Sahrul Barkah';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tugas-prosaindata/Tugas3';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Tugas 3 Memanggil data iris di 4 database yang berbeda Menggunakan PCA" href="Tugas3.html" />
-    <link rel="prev" title="Cara Menghubungkan SQL Server ke Google Collaboratory" href="get-data-SSMS.html" />
+    <link rel="prev" title="Tugas 2 Memanggil data iris di 4 database yang berbeda" href="Tugas2-Okhi%20Sahrul%20Barkah.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -161,8 +160,8 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="beritaOnline.html">Scrape data dari berita online (DETIK.COM)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="getdata-PgadminLocal.html">Cara menghubungkan Postgres Local dengan Google Colaboratory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="get-data-SSMS.html">Cara Menghubungkan SQL Server ke Google Collaboratory</a></li>
-<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas 2 Memanggil data iris di 4 database yang berbeda</a></li>
-<li class="toctree-l1"><a class="reference internal" href="Tugas3.html">Tugas 3 Memanggil data iris di 4 database yang berbeda Menggunakan PCA</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas2-Okhi%20Sahrul%20Barkah.html">Tugas 2 Memanggil data iris di 4 database yang berbeda</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas 3 Memanggil data iris di 4 database yang berbeda Menggunakan PCA</a></li>
 
 
 
@@ -238,7 +237,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftugas-prosaindata/Tugas2-Okhi Sahrul Barkah.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftugas-prosaindata/Tugas3.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -268,7 +267,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/tugas-prosaindata/Tugas2-Okhi Sahrul Barkah.ipynb" target="_blank"
+      <li><a href="../_sources/tugas-prosaindata/Tugas3.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -350,7 +349,7 @@ document.write(`
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Tugas 2 Memanggil data iris di 4 database yang berbeda</h1>
+    <h1>Tugas 3 Memanggil data iris di 4 database yang berbeda Menggunakan PCA</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -360,13 +359,13 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menggabungkan-4-database">Menggabungkan 4 database</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-prosessing">Pre-prosessing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-knn">Metode KNN</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-naive-bayes">Metode Naive Bayes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-knn">Model KNN</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-naive-bayes">Model Naive Bayes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tugas 3 Memanggil data iris di 4 database yang berbeda Menggunakan PCA</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#getdata">GetData</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">Preprocessing</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pca">PCA</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-knn">Metode Knn</a></li>
 </ul>
+
             </nav>
         </div>
     </div>
@@ -377,99 +376,112 @@ document.write(`
 <div id="searchbox"></div>
                 <article class="bd-article" role="main">
                   
-  <div class="tex2jax_ignore mathjax_ignore section" id="tugas-2-memanggil-data-iris-di-4-database-yang-berbeda">
-<h1>Tugas 2 Memanggil data iris di 4 database yang berbeda<a class="headerlink" href="#tugas-2-memanggil-data-iris-di-4-database-yang-berbeda" title="Permalink to this heading">#</a></h1>
-<p>Sepal length posgresql local)</p>
+  <div class="tex2jax_ignore mathjax_ignore section" id="tugas-3-memanggil-data-iris-di-4-database-yang-berbeda-menggunakan-pca">
+<h1>Tugas 3 Memanggil data iris di 4 database yang berbeda Menggunakan PCA<a class="headerlink" href="#tugas-3-memanggil-data-iris-di-4-database-yang-berbeda-menggunakan-pca" title="Permalink to this heading">#</a></h1>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="getdata">
+<h1>GetData<a class="headerlink" href="#getdata" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">psycopg2</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">KeyboardInterrupt</span>Traceback (most recent call last)
+<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">1</span><span class="o">-</span><span class="n">d5df0069828e</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">drive</span><span class="o">.</span><span class="n">mount</span><span class="p">(</span><span class="s1">&#39;/content/drive&#39;</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/google/colab/drive.py</span> in <span class="ni">mount</span><span class="nt">(mountpoint, force_remount, timeout_ms, readonly)</span>
+<span class="g g-Whitespace">    </span><span class="mi">101</span> <span class="k">def</span> <span class="nf">mount</span><span class="p">(</span><span class="n">mountpoint</span><span class="p">,</span> <span class="n">force_remount</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">timeout_ms</span><span class="o">=</span><span class="mi">120000</span><span class="p">,</span> <span class="n">readonly</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="g g-Whitespace">    </span><span class="mi">102</span><span class="w">   </span><span class="sd">&quot;&quot;&quot;Mount your Google Drive at the specified mountpoint path.&quot;&quot;&quot;</span>
+<span class="ne">--&gt; </span><span class="mi">103</span>   <span class="k">return</span> <span class="n">_mount</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">104</span>       <span class="n">mountpoint</span><span class="p">,</span>
+<span class="g g-Whitespace">    </span><span class="mi">105</span>       <span class="n">force_remount</span><span class="o">=</span><span class="n">force_remount</span><span class="p">,</span>
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/google/colab/drive.py</span> in <span class="ni">_mount</span><span class="nt">(mountpoint, force_remount, timeout_ms, ephemeral, readonly)</span>
+<span class="g g-Whitespace">    </span><span class="mi">130</span>   <span class="p">)</span>
+<span class="g g-Whitespace">    </span><span class="mi">131</span>   <span class="k">if</span> <span class="n">ephemeral</span><span class="p">:</span>
+<span class="ne">--&gt; </span><span class="mi">132</span>     <span class="n">_message</span><span class="o">.</span><span class="n">blocking_request</span><span class="p">(</span>
+<span class="g g-Whitespace">    </span><span class="mi">133</span>         <span class="s1">&#39;request_auth&#39;</span><span class="p">,</span> <span class="n">request</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;authType&#39;</span><span class="p">:</span> <span class="s1">&#39;dfs_ephemeral&#39;</span><span class="p">},</span> <span class="n">timeout_sec</span><span class="o">=</span><span class="kc">None</span>
+<span class="g g-Whitespace">    </span><span class="mi">134</span>     <span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/google/colab/_message.py</span> in <span class="ni">blocking_request</span><span class="nt">(request_type, request, timeout_sec, parent)</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span>       <span class="n">request_type</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">parent</span><span class="o">=</span><span class="n">parent</span><span class="p">,</span> <span class="n">expect_reply</span><span class="o">=</span><span class="kc">True</span>
+<span class="g g-Whitespace">    </span><span class="mi">176</span>   <span class="p">)</span>
+<span class="ne">--&gt; </span><span class="mi">177</span>   <span class="k">return</span> <span class="n">read_reply_from_input</span><span class="p">(</span><span class="n">request_id</span><span class="p">,</span> <span class="n">timeout_sec</span><span class="p">)</span>
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/google/colab/_message.py</span> in <span class="ni">read_reply_from_input</span><span class="nt">(message_id, timeout_sec)</span>
+<span class="g g-Whitespace">     </span><span class="mi">95</span>     <span class="n">reply</span> <span class="o">=</span> <span class="n">_read_next_input_message</span><span class="p">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">96</span>     <span class="k">if</span> <span class="n">reply</span> <span class="o">==</span> <span class="n">_NOT_READY</span> <span class="ow">or</span> <span class="ow">not</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">reply</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+<span class="ne">---&gt; </span><span class="mi">97</span>       <span class="n">time</span><span class="o">.</span><span class="n">sleep</span><span class="p">(</span><span class="mf">0.025</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">98</span>       <span class="k">continue</span>
+<span class="g g-Whitespace">     </span><span class="mi">99</span>     <span class="k">if</span> <span class="p">(</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pandas
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>psycopg2
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>jdbc
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>mysql-connector-python
+<span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>orchest
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: pandas in /usr/local/lib/python3.9/dist-packages (1.4.4)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.9/dist-packages (from pandas) (2022.7.1)
+Requirement already satisfied: numpy&gt;=1.18.5 in /usr/local/lib/python3.9/dist-packages (from pandas) (1.22.4)
+Requirement already satisfied: python-dateutil&gt;=2.8.1 in /usr/local/lib/python3.9/dist-packages (from pandas) (2.8.2)
+Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.9/dist-packages (from python-dateutil&gt;=2.8.1-&gt;pandas) (1.15.0)
+Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: psycopg2 in /usr/local/lib/python3.9/dist-packages (2.9.5)
+Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+<span class=" -Color -Color-Red">ERROR: Could not find a version that satisfies the requirement jdbc (from versions: none)</span>
+<span class=" -Color -Color-Red">ERROR: No matching distribution found for jdbc</span>
+Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Collecting mysql-connector-python
+  Downloading mysql_connector_python-8.0.32-cp39-cp39-manylinux1_x86_64.whl (23.5 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">23.5/23.5 MB</span> <span class=" -Color -Color-Red">34.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: protobuf&lt;=3.20.3,&gt;=3.11.0 in /usr/local/lib/python3.9/dist-packages (from mysql-connector-python) (3.19.6)
+Installing collected packages: mysql-connector-python
+Successfully installed mysql-connector-python-8.0.32
+Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Collecting orchest
+  Downloading orchest-0.3.11.tar.gz (17 kB)
+  Preparing metadata (setup.py) ... ?25l?25hdone
+Collecting pyarrow&lt;8.0,&gt;=1.0.0
+  Downloading pyarrow-7.0.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (26.7 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">26.7/26.7 MB</span> <span class=" -Color -Color-Red">40.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: requests&gt;=1.0.0 in /usr/local/lib/python3.9/dist-packages (from orchest) (2.25.1)
+Requirement already satisfied: numpy&gt;=1.16.6 in /usr/local/lib/python3.9/dist-packages (from pyarrow&lt;8.0,&gt;=1.0.0-&gt;orchest) (1.22.4)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/local/lib/python3.9/dist-packages (from requests&gt;=1.0.0-&gt;orchest) (1.26.15)
+Requirement already satisfied: chardet&lt;5,&gt;=3.0.2 in /usr/local/lib/python3.9/dist-packages (from requests&gt;=1.0.0-&gt;orchest) (4.0.0)
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.9/dist-packages (from requests&gt;=1.0.0-&gt;orchest) (2022.12.7)
+Requirement already satisfied: idna&lt;3,&gt;=2.5 in /usr/local/lib/python3.9/dist-packages (from requests&gt;=1.0.0-&gt;orchest) (2.10)
+Building wheels for collected packages: orchest
+  Building wheel for orchest (setup.py) ... ?25l?25hdone
+  Created wheel for orchest: filename=orchest-0.3.11-py3-none-any.whl size=19359 sha256=168da472bce461a9e33feb6e57c09270a873e399033f22ff271d8b2f82d10d6d
+  Stored in directory: /root/.cache/pip/wheels/28/fd/ad/876cab218568a51f43fe21359fda871407b5366898829e089e
+Successfully built orchest
+Installing collected packages: pyarrow, orchest
+  Attempting uninstall: pyarrow
+    Found existing installation: pyarrow 9.0.0
+    Uninstalling pyarrow-9.0.0:
+      Successfully uninstalled pyarrow-9.0.0
+Successfully installed orchest-0.3.11 pyarrow-7.0.0
 </pre></div>
 </div>
 </div>
 </div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">psycopg2</span>
-<span class="n">connection</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="s1">&#39;postgres&#39;</span><span class="p">,</span>
-                              <span class="n">password</span><span class="o">=</span><span class="s1">&#39;akuanakbaik&#39;</span><span class="p">,</span>
-                              <span class="n">host</span><span class="o">=</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span>
-                              <span class="n">port</span><span class="o">=</span><span class="s1">&#39;5432&#39;</span><span class="p">,</span>
-                              <span class="n">database</span><span class="o">=</span><span class="s1">&#39;prosain</span><span class="si">{210411100112}</span><span class="s1">&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">OperationalError</span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">aa1787239b92</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">psycopg2</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">connection</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="s1">&#39;postgres&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span>                               <span class="n">password</span><span class="o">=</span><span class="s1">&#39;akuanakbaik&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>                               <span class="n">host</span><span class="o">=</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>                               <span class="n">port</span><span class="o">=</span><span class="s1">&#39;5432&#39;</span><span class="p">,</span>
-
-<span class="nn">/usr/local/lib/python3.9/dist-packages/psycopg2/__init__.py</span> in <span class="ni">connect</span><span class="nt">(dsn, connection_factory, cursor_factory, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">120</span> 
-<span class="g g-Whitespace">    </span><span class="mi">121</span>     <span class="n">dsn</span> <span class="o">=</span> <span class="n">_ext</span><span class="o">.</span><span class="n">make_dsn</span><span class="p">(</span><span class="n">dsn</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="ne">--&gt; </span><span class="mi">122</span>     <span class="n">conn</span> <span class="o">=</span> <span class="n">_connect</span><span class="p">(</span><span class="n">dsn</span><span class="p">,</span> <span class="n">connection_factory</span><span class="o">=</span><span class="n">connection_factory</span><span class="p">,</span> <span class="o">**</span><span class="n">kwasync</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">123</span>     <span class="k">if</span> <span class="n">cursor_factory</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">124</span>         <span class="n">conn</span><span class="o">.</span><span class="n">cursor_factory</span> <span class="o">=</span> <span class="n">cursor_factory</span>
-
-<span class="ne">OperationalError</span>: could not connect to server: Connection refused
-	<span class="n">Is</span> <span class="n">the</span> <span class="n">server</span> <span class="n">running</span> <span class="n">on</span> <span class="n">host</span> <span class="s2">&quot;127.0.0.1&quot;</span> <span class="ow">and</span> <span class="n">accepting</span>
-	<span class="n">TCP</span><span class="o">/</span><span class="n">IP</span> <span class="n">connections</span> <span class="n">on</span> <span class="n">port</span> 5432<span class="o">?</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Membuat objek cursor</span>
-<span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-
-<span class="c1"># Mengambil data dari tabel</span>
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;SELECT sepallength FROM Iris&quot;</span><span class="p">)</span>
-
-<span class="c1"># Membuat DataFrame dari hasil query</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_sql</span><span class="p">(</span><span class="s2">&quot;SELECT sepallength FROM Iris&quot;</span><span class="p">,</span> <span class="n">connection</span><span class="p">)</span>
-
-<span class="c1"># Menampilkan data</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     sepallength
-0            5.1
-1            4.9
-2            4.7
-3            4.6
-4            5.0
-..           ...
-145          6.7
-146          6.3
-147          6.5
-148          6.2
-149          5.9
-
-[150 rows x 1 columns]
-</pre></div>
-</div>
-</div>
-</div>
-<p>Sepal width  	: di postgeql elephantsql)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">psycopg2</span>
@@ -551,43 +563,18 @@ Connection successful
 </div>
 </div>
 </div>
-<p>Petal length di mysql local</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">mysql</span><span class="o">-</span><span class="n">connector</span><span class="o">-</span><span class="n">python</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: mysql-connector-python in c:\users\acer\anaconda3\lib\site-packages (8.0.32)
-Requirement already satisfied: protobuf&lt;=3.20.3,&gt;=3.11.0 in c:\users\acer\anaconda3\lib\site-packages (from mysql-connector-python) (3.20.3)
-Note: you may need to restart the kernel to use updated packages.
-</pre></div>
-</div>
-</div>
-</div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Mysql local</span>
 <span class="kn">import</span> <span class="nn">mysql.connector</span> <span class="k">as</span> <span class="nn">mysql</span>
 <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">myconn</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;sql12.freesqldatabase.com&#39;</span><span class="p">,</span>
+
+<span class="n">myconn</span> <span class="o">=</span> <span class="n">mysql</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">host</span><span class="o">=</span><span class="s1">&#39;sql12.freesqldatabase.com&#39;</span><span class="p">,</span>
                        <span class="n">database</span><span class="o">=</span><span class="s1">&#39;sql12604228&#39;</span><span class="p">,</span> 
                        <span class="n">user</span><span class="o">=</span><span class="s1">&#39;sql12604228&#39;</span><span class="p">,</span> 
                        <span class="n">password</span><span class="o">=</span><span class="s1">&#39;FT4AaDU9kD&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Membuat objek cursor</span>
+
+<span class="c1"># Membuat objek cursor</span>
 <span class="n">mycursor</span> <span class="o">=</span> <span class="n">myconn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
 
 <span class="c1"># Mengambil data dari tabel</span>
@@ -627,102 +614,54 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 </div>
 </div>
-<p>Petal width , class di sql server local)</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">pyodbc</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># membaca file csv</span>
+<span class="n">iris_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/content/drive/MyDrive/prosaindata/tugas/tugas-prosaindata/iris.csv&#39;</span><span class="p">)</span>
+
+<span class="c1"># melakukan seleksi data pada kolom &#39;sepallength&#39;, &#39;petalwidth&#39;, dan &#39;class&#39;</span>
+<span class="n">iris_selection</span> <span class="o">=</span> <span class="n">iris_df</span><span class="p">[[</span><span class="s1">&#39;sepallength&#39;</span><span class="p">,</span> <span class="s1">&#39;petalwidth&#39;</span><span class="p">,</span> <span class="s1">&#39;class&#39;</span><span class="p">]]</span>
+
+<span class="c1"># menampilkan DataFrame hasil seleksi data</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">iris_selection</span><span class="o">.</span><span class="n">head</span><span class="p">())</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied: pyodbc in c:\users\acer\anaconda3\lib\site-packages (4.0.0-unsupported)
-Note: you may need to restart the kernel to use updated packages.
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   sepallength  petalwidth        class
+0          5.1         0.2  Iris-setosa
+1          4.9         0.2  Iris-setosa
+2          4.7         0.2  Iris-setosa
+3          4.6         0.2  Iris-setosa
+4          5.0         0.2  Iris-setosa
 </pre></div>
 </div>
 </div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pyodbc</span> 
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cnxn_str</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Driver={ODBC Driver 17 for SQL Server};&quot;</span>
-            <span class="s2">&quot;Server=LAPTOP-SOC00JA3\SQLEXPRESS;&quot;</span> 
-            <span class="s2">&quot;Database=prosain</span><span class="si">{210411100112}</span><span class="s2">;Trusted_Connection=yes&quot;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">orchest</span>
 
-<span class="n">cnxn</span> <span class="o">=</span> <span class="n">pyodbc</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">cnxn_str</span><span class="p">)</span>
-<span class="n">cursor</span> <span class="o">=</span> <span class="n">cnxn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>	
-<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="s2">&quot;Select petalwidth, class From iris&quot;</span><span class="p">)</span>
-<span class="n">row</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span> 
-<span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-
-<span class="n">data</span><span class="o">=</span><span class="p">[]</span>
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">row</span><span class="p">:</span>
-    <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">([</span><span class="n">i</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">i</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s1">&#39;&quot;&#39;</span><span class="p">)])</span>
-
-<span class="c1"># Membuat DataFrame dari hasil query</span>
-<span class="n">df_sqlServer</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;petalwidth&#39;</span><span class="p">,</span> <span class="s1">&#39;class&#39;</span><span class="p">])</span>
-
-<span class="c1"># Menyalin DataFrame ke variabel baru</span>
-<span class="n">df3</span> <span class="o">=</span> <span class="n">df_sqlServer</span>
-
-<span class="c1"># Menampilkan data</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df3</span><span class="p">)</span>
+<span class="c1"># Gabungkan data dari beberapa sumber ke dalam satu DataFrame</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">iris_selection</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     petalwidth           class
-0           0.2     Iris-setosa
-1           0.2     Iris-setosa
-2           0.2     Iris-setosa
-3           0.2     Iris-setosa
-4           0.2     Iris-setosa
-..          ...             ...
-145         2.3  Iris-virginica
-146         1.9  Iris-virginica
-147         2.0  Iris-virginica
-148         2.3  Iris-virginica
-149         1.8  Iris-virginica
-
-[150 rows x 2 columns]
-</pre></div>
-</div>
-</div>
-</div>
-<div class="section" id="menggabungkan-4-database">
-<h2>Menggabungkan 4 database<a class="headerlink" href="#menggabungkan-4-database" title="Permalink to this heading">#</a></h2>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df</span><span class="p">,</span><span class="n">df1</span><span class="p">,</span><span class="n">df2</span><span class="p">,</span><span class="n">df3</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     sepallength  sepal_w petallength  petalwidth           class
-0            5.1      3.5         1.4         0.2     Iris-setosa
-1            4.9      3.0         1.4         0.2     Iris-setosa
-2            4.7      3.2         1.3         0.2     Iris-setosa
-3            4.6      3.1         1.5         0.2     Iris-setosa
-4            5.0      3.6         1.4         0.2     Iris-setosa
-..           ...      ...         ...         ...             ...
-145          6.7      3.0         5.2         2.3  Iris-virginica
-146          6.3      2.5           5         1.9  Iris-virginica
-147          6.5      3.0         5.2         2.0  Iris-virginica
-148          6.2      3.4         5.4         2.3  Iris-virginica
-149          5.9      3.0         5.1         1.8  Iris-virginica
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     sepal_w petallength  sepallength  petalwidth           class
+0        3.5         1.4          5.1         0.2     Iris-setosa
+1        3.0         1.4          4.9         0.2     Iris-setosa
+2        3.2         1.3          4.7         0.2     Iris-setosa
+3        3.1         1.5          4.6         0.2     Iris-setosa
+4        3.6         1.4          5.0         0.2     Iris-setosa
+..       ...         ...          ...         ...             ...
+145      3.0         5.2          6.7         2.3  Iris-virginica
+146      2.5           5          6.3         1.9  Iris-virginica
+147      3.0         5.2          6.5         2.0  Iris-virginica
+148      3.4         5.4          6.2         2.3  Iris-virginica
+149      3.0         5.1          5.9         1.8  Iris-virginica
 
 [150 rows x 5 columns]
 </pre></div>
@@ -730,8 +669,8 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 </div>
 </div>
-<div class="section" id="pre-prosessing">
-<h2>Pre-prosessing<a class="headerlink" href="#pre-prosessing" title="Permalink to this heading">#</a></h2>
+<div class="tex2jax_ignore mathjax_ignore section" id="preprocessing">
+<h1>Preprocessing<a class="headerlink" href="#preprocessing" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -757,8 +696,72 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 </div>
 </div>
-<div class="section" id="metode-knn">
-<h2>Metode KNN<a class="headerlink" href="#metode-knn" title="Permalink to this heading">#</a></h2>
+<div class="tex2jax_ignore mathjax_ignore section" id="pca">
+<h1>PCA<a class="headerlink" href="#pca" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">StandardScaler</span>
+<span class="kn">from</span> <span class="nn">google.colab</span> <span class="kn">import</span> <span class="n">drive</span>
+
+<span class="c1"># define the file path for orchest output</span>
+<span class="n">output_path</span> <span class="o">=</span> <span class="s1">&#39;/content/drive/MyDrive/prosaindata/tugas/tugas-prosaindata/pca_data.csv&#39;</span>
+
+<span class="c1"># define the preprocessing steps</span>
+<span class="n">preprocessing_steps</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="n">StandardScaler</span><span class="p">(),</span>
+<span class="p">]</span>
+
+<span class="c1"># fit and transform the preprocessing steps to X</span>
+<span class="k">for</span> <span class="n">step</span> <span class="ow">in</span> <span class="n">preprocessing_steps</span><span class="p">:</span>
+    <span class="n">X</span> <span class="o">=</span> <span class="n">step</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># define the PCA model with n_components = 2</span>
+<span class="n">pca</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># fit and transform PCA to X</span>
+<span class="n">X_pca</span> <span class="o">=</span> <span class="n">pca</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># create DataFrame for PCA output</span>
+<span class="n">pca_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">X_pca</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;PC1&#39;</span><span class="p">,</span> <span class="s1">&#39;PC2&#39;</span><span class="p">])</span>
+<span class="n">pca_df</span><span class="p">[</span><span class="s1">&#39;target&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">y</span>
+
+<span class="c1"># output the transformed data to csv file in Google Drive</span>
+<span class="n">pca_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">output_path</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># display the DataFrame</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">pca_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          PC1       PC2          target
+0   -2.264542  0.505704     Iris-setosa
+1   -2.086426 -0.655405     Iris-setosa
+2   -2.367950 -0.318477     Iris-setosa
+3   -2.304197 -0.575368     Iris-setosa
+4   -2.388777  0.674767     Iris-setosa
+..        ...       ...             ...
+145  1.870522  0.382822  Iris-virginica
+146  1.558492 -0.905314  Iris-virginica
+147  1.520845  0.266795  Iris-virginica
+148  1.376391  1.016362  Iris-virginica
+149  0.959299 -0.022284  Iris-virginica
+
+[150 rows x 3 columns]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="metode-knn">
+<h1>Metode Knn<a class="headerlink" href="#metode-knn" title="Permalink to this heading">#</a></h1>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#knn</span>
@@ -779,9 +782,7 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="metode-naive-bayes">
-<h2>Metode Naive Bayes<a class="headerlink" href="#metode-naive-bayes" title="Permalink to this heading">#</a></h2>
+<p>Metode Naive Bayes</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># naive bayes</span>
@@ -800,9 +801,6 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="model-knn">
-<h2>Model KNN<a class="headerlink" href="#model-knn" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># buat model knn</span>
@@ -815,9 +813,6 @@ Note: you may need to restart the kernel to use updated packages.
 </div>
 </div>
 </div>
-</div>
-<div class="section" id="model-naive-bayes">
-<h2>Model Naive Bayes<a class="headerlink" href="#model-naive-bayes" title="Permalink to this heading">#</a></h2>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#buat model naive bayes</span>
@@ -826,7 +821,6 @@ Note: you may need to restart the kernel to use updated packages.
 <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;nb1_pickle&#39;</span><span class="p">,</span><span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">r</span><span class="p">:</span>
     <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">gaussian</span><span class="p">,</span><span class="n">r</span><span class="p">)</span>
 </pre></div>
-</div>
 </div>
 </div>
 </div>
@@ -861,22 +855,13 @@ Note: you may need to restart the kernel to use updated packages.
                   <!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
-       href="get-data-SSMS.html"
+       href="Tugas2-Okhi%20Sahrul%20Barkah.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Cara Menghubungkan SQL Server ke Google Collaboratory</p>
+        <p class="prev-next-title">Tugas 2 Memanggil data iris di 4 database yang berbeda</p>
       </div>
-    </a>
-    <a class="right-next"
-       href="Tugas3.html"
-       title="next page">
-      <div class="prev-next-info">
-        <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">Tugas 3 Memanggil data iris di 4 database yang berbeda Menggunakan PCA</p>
-      </div>
-      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
@@ -893,13 +878,13 @@ Note: you may need to restart the kernel to use updated packages.
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menggabungkan-4-database">Menggabungkan 4 database</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pre-prosessing">Pre-prosessing</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-knn">Metode KNN</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-naive-bayes">Metode Naive Bayes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-knn">Model KNN</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#model-naive-bayes">Model Naive Bayes</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">Tugas 3 Memanggil data iris di 4 database yang berbeda Menggunakan PCA</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#getdata">GetData</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#preprocessing">Preprocessing</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#pca">PCA</a></li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#metode-knn">Metode Knn</a></li>
 </ul>
+
   </nav></div>
 
 </div></div>
