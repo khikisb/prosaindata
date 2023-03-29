@@ -60,7 +60,7 @@ const thebe_selector_input = "pre"
 const thebe_selector_output = ".output, .cell_output"
 </script>
     <script async="async" src="../_static/sphinx-thebe.js"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'tugas-prosaindata/get-data-PostgresServer';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tugas-prosaindata/Pra proses data time series';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -235,7 +235,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftugas-prosaindata/get-data-PostgresServer.html&body=Your%20issue%20content%20here." target="_blank"
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftugas-prosaindata/Pra proses data time series.html&body=Your%20issue%20content%20here." target="_blank"
    class="btn btn-sm btn-source-issues-button dropdown-item"
    title="Open an issue"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -265,7 +265,7 @@ const thebe_selector_output = ".output, .cell_output"
       
       
       
-      <li><a href="../_sources/tugas-prosaindata/get-data-PostgresServer.ipynb" target="_blank"
+      <li><a href="../_sources/tugas-prosaindata/Pra proses data time series.ipynb" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -371,85 +371,280 @@ document.write(`
                   
   <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">psycopg2</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="c1"># Connection parameters, yours will be different</span>
-<span class="n">param_dic</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s2">&quot;host&quot;</span>      <span class="p">:</span> <span class="s2">&quot;trumpet.db.elephantsql.com&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;database&quot;</span>  <span class="p">:</span> <span class="s2">&quot;xtzkuaqv&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;user&quot;</span>      <span class="p">:</span> <span class="s2">&quot;xtzkuaqv&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;password&quot;</span>  <span class="p">:</span> <span class="s2">&quot;OupjNX9j0ny4IIeAWJpC014w6HPFTA38&quot;</span>
-<span class="p">}</span>
-
-<span class="k">def</span> <span class="nf">connect</span><span class="p">(</span><span class="n">params_dic</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot; Connect to the PostgreSQL database server &quot;&quot;&quot;</span>
-    <span class="n">conn</span> <span class="o">=</span> <span class="kc">None</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="c1"># connect to the PostgreSQL server</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Connecting to the PostgreSQL database...&#39;</span><span class="p">)</span>
-        <span class="n">conn</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">**</span><span class="n">params_dic</span><span class="p">)</span>
-    <span class="k">except</span> <span class="p">(</span><span class="ne">Exception</span><span class="p">,</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">DatabaseError</span><span class="p">)</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">error</span><span class="p">)</span>
-        <span class="n">sys</span><span class="o">.</span><span class="n">exit</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> 
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Connection successful&quot;</span><span class="p">)</span>
-    <span class="k">return</span> <span class="n">conn</span>
-
-<span class="k">def</span> <span class="nf">postgresql_to_dataframe</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">select_query</span><span class="p">,</span> <span class="n">column_names</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Tranform a SELECT query into a pandas dataframe</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">cursor</span> <span class="o">=</span> <span class="n">conn</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
-    <span class="k">try</span><span class="p">:</span>
-        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">select_query</span><span class="p">)</span>
-    <span class="k">except</span> <span class="p">(</span><span class="ne">Exception</span><span class="p">,</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">DatabaseError</span><span class="p">)</span> <span class="k">as</span> <span class="n">error</span><span class="p">:</span>
-        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Error: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">error</span><span class="p">)</span>
-        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-        <span class="k">return</span> <span class="mi">1</span>
-    
-    <span class="c1"># Mengambil data dari cursor</span>
-    <span class="n">rows</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
-    <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-    
-    <span class="c1"># Membuat DataFrame dari hasil query</span>
-    <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">rows</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="n">column_names</span><span class="p">)</span>
-    
-    <span class="k">return</span> <span class="n">df</span>
-
-<span class="c1"># Membuat koneksi database</span>
-<span class="n">conn</span> <span class="o">=</span> <span class="n">connect</span><span class="p">(</span><span class="n">param_dic</span><span class="p">)</span>
-
-<span class="c1"># Menjalankan query dan menghasilkan DataFrame</span>
-<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT sepal_w FROM iris&quot;</span>
-<span class="n">column_names</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;sepal_w&quot;</span><span class="p">]</span>
-<span class="n">df1</span> <span class="o">=</span> <span class="n">postgresql_to_dataframe</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="n">query</span><span class="p">,</span> <span class="n">column_names</span><span class="p">)</span>
-
-<span class="c1"># Menampilkan data</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">df1</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsRegressor</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">MinMaxScaler</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">mean_squared_error</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># load time series dataset</span>
+<span class="n">series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;https://raw.githubusercontent.com/dhamvi01/Univariate-Time-Series-using-LSTM/master/airline-passengers.csv&#39;</span><span class="p">,</span> <span class="n">header</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">index_col</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">series</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Connecting to the PostgreSQL database...
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Connection successful
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     sepal_w
-0        3.5
-1        3.0
-2        3.2
-3        3.1
-4        3.6
-..       ...
-145      3.0
-146      2.5
-147      3.0
-148      3.4
-149      3.0
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>         Passengers
+Month              
+1949-01         112
+1949-02         118
+1949-03         132
+1949-04         129
+1949-05         121
+...             ...
+1960-08         606
+1960-09         508
+1960-10         461
+1960-11         390
+1960-12         432
 
-[150 rows x 1 columns]
+[144 rows x 1 columns]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># convert series to NumPy array</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">series</span><span class="o">.</span><span class="n">to_numpy</span><span class="p">()</span>
+
+<span class="c1"># print the shape of the array</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(144, 1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Specify subsequence length and number of subsequences</span>
+<span class="n">n_steps</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">n_samples</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span> <span class="o">-</span> <span class="n">n_steps</span> <span class="o">+</span> <span class="mi">1</span>
+
+<span class="c1"># Split data into input and output variables</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="n">n_samples</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">))</span>
+<span class="n">y</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">n_samples</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n_samples</span><span class="p">):</span>
+    <span class="n">X</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">n_steps</span><span class="p">]</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">y</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="n">n_steps</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[112. 118. 132.]
+ [118. 132. 129.]
+ [132. 129. 121.]
+ [129. 121. 135.]
+ [121. 135. 148.]
+ [135. 148. 148.]
+ [148. 148. 136.]
+ [148. 136. 119.]
+ [136. 119. 104.]
+ [119. 104. 118.]
+ [104. 118. 115.]
+ [118. 115. 126.]
+ [115. 126. 141.]
+ [126. 141. 135.]
+ [141. 135. 125.]
+ [135. 125. 149.]
+ [125. 149. 170.]
+ [149. 170. 170.]
+ [170. 170. 158.]
+ [170. 158. 133.]
+ [158. 133. 114.]
+ [133. 114. 140.]
+ [114. 140. 145.]
+ [140. 145. 150.]
+ [145. 150. 178.]
+ [150. 178. 163.]
+ [178. 163. 172.]
+ [163. 172. 178.]
+ [172. 178. 199.]
+ [178. 199. 199.]
+ [199. 199. 184.]
+ [199. 184. 162.]
+ [184. 162. 146.]
+ [162. 146. 166.]
+ [146. 166. 171.]
+ [166. 171. 180.]
+ [171. 180. 193.]
+ [180. 193. 181.]
+ [193. 181. 183.]
+ [181. 183. 218.]
+ [183. 218. 230.]
+ [218. 230. 242.]
+ [230. 242. 209.]
+ [242. 209. 191.]
+ [209. 191. 172.]
+ [191. 172. 194.]
+ [172. 194. 196.]
+ [194. 196. 196.]
+ [196. 196. 236.]
+ [196. 236. 235.]
+ [236. 235. 229.]
+ [235. 229. 243.]
+ [229. 243. 264.]
+ [243. 264. 272.]
+ [264. 272. 237.]
+ [272. 237. 211.]
+ [237. 211. 180.]
+ [211. 180. 201.]
+ [180. 201. 204.]
+ [201. 204. 188.]
+ [204. 188. 235.]
+ [188. 235. 227.]
+ [235. 227. 234.]
+ [227. 234. 264.]
+ [234. 264. 302.]
+ [264. 302. 293.]
+ [302. 293. 259.]
+ [293. 259. 229.]
+ [259. 229. 203.]
+ [229. 203. 229.]
+ [203. 229. 242.]
+ [229. 242. 233.]
+ [242. 233. 267.]
+ [233. 267. 269.]
+ [267. 269. 270.]
+ [269. 270. 315.]
+ [270. 315. 364.]
+ [315. 364. 347.]
+ [364. 347. 312.]
+ [347. 312. 274.]
+ [312. 274. 237.]
+ [274. 237. 278.]
+ [237. 278. 284.]
+ [278. 284. 277.]
+ [284. 277. 317.]
+ [277. 317. 313.]
+ [317. 313. 318.]
+ [313. 318. 374.]
+ [318. 374. 413.]
+ [374. 413. 405.]
+ [413. 405. 355.]
+ [405. 355. 306.]
+ [355. 306. 271.]
+ [306. 271. 306.]
+ [271. 306. 315.]
+ [306. 315. 301.]
+ [315. 301. 356.]
+ [301. 356. 348.]
+ [356. 348. 355.]
+ [348. 355. 422.]
+ [355. 422. 465.]
+ [422. 465. 467.]
+ [465. 467. 404.]
+ [467. 404. 347.]
+ [404. 347. 305.]
+ [347. 305. 336.]
+ [305. 336. 340.]
+ [336. 340. 318.]
+ [340. 318. 362.]
+ [318. 362. 348.]
+ [362. 348. 363.]
+ [348. 363. 435.]
+ [363. 435. 491.]
+ [435. 491. 505.]
+ [491. 505. 404.]
+ [505. 404. 359.]
+ [404. 359. 310.]
+ [359. 310. 337.]
+ [310. 337. 360.]
+ [337. 360. 342.]
+ [360. 342. 406.]
+ [342. 406. 396.]
+ [406. 396. 420.]
+ [396. 420. 472.]
+ [420. 472. 548.]
+ [472. 548. 559.]
+ [548. 559. 463.]
+ [559. 463. 407.]
+ [463. 407. 362.]
+ [407. 362. 405.]
+ [362. 405. 417.]
+ [405. 417. 391.]
+ [417. 391. 419.]
+ [391. 419. 461.]
+ [419. 461. 472.]
+ [461. 472. 535.]
+ [472. 535. 622.]
+ [535. 622. 606.]
+ [622. 606. 508.]
+ [606. 508. 461.]
+ [508. 461. 390.]
+ [461. 390. 432.]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Scale the input variables using MinMaxScaler</span>
+<span class="n">scaler</span> <span class="o">=</span> <span class="n">MinMaxScaler</span><span class="p">()</span>
+<span class="n">X_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+
+<span class="c1"># Split the data into training and testing sets</span>
+<span class="n">train_size</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="mf">0.67</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">X_scaled</span><span class="p">))</span>
+<span class="n">X_train</span><span class="p">,</span> <span class="n">X_test</span> <span class="o">=</span> <span class="n">X_scaled</span><span class="p">[:</span><span class="n">train_size</span><span class="p">],</span> <span class="n">X_scaled</span><span class="p">[</span><span class="n">train_size</span><span class="p">:]</span>
+<span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">y</span><span class="p">[:</span><span class="n">train_size</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">train_size</span><span class="p">:]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Train the KNN model on the training data</span>
+<span class="n">k</span> <span class="o">=</span> <span class="mi">3</span>  <span class="c1"># number of neighbors</span>
+<span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsRegressor</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="n">k</span><span class="p">)</span>
+<span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+
+<span class="c1"># Make predictions on the testing data</span>
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">y_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[301. 356. 348. 355. 422. 465. 467. 404. 347. 305. 336. 340. 318. 362.
+ 348. 363. 435. 491. 505. 404. 359. 310. 337. 360. 342. 406. 396. 420.
+ 472. 548. 559. 463. 407. 362. 405. 417. 391. 419. 461. 472. 535. 622.
+ 606. 508. 461. 390. 432.]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Calculate and print the MSE</span>
+<span class="n">mse</span> <span class="o">=</span> <span class="n">mean_squared_error</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;MSE: &quot;</span><span class="p">,</span> <span class="n">mse</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>MSE:  6225.01891252955
 </pre></div>
 </div>
 </div>

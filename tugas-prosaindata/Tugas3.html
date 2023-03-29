@@ -63,6 +63,7 @@ const thebe_selector_output = ".output, .cell_output"
     <script>DOCUMENTATION_OPTIONS.pagename = 'tugas-prosaindata/Tugas3';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Tugas 4 : Data Time Series" href="Tugas4.html" />
     <link rel="prev" title="Tugas 2 Memanggil data iris di 4 database yang berbeda" href="Tugas2-Okhi%20Sahrul%20Barkah.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
@@ -158,14 +159,13 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Twitter.html">Tugas 1 Crawling data Twitter</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ScrapeDataUTM.html">Scrape Website pta.trunojoyo.ac.id with Beautiful Soap</a></li>
 <li class="toctree-l1"><a class="reference internal" href="beritaOnline.html">Scrape data dari berita online (DETIK.COM)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="getdata-PgadminLocal.html">Cara menghubungkan Postgres Local dengan Google Colaboratory</a></li>
-<li class="toctree-l1"><a class="reference internal" href="get-data-SSMS.html">Cara Menghubungkan SQL Server ke Google Collaboratory</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Tugas2-Okhi%20Sahrul%20Barkah.html">Tugas 2 Memanggil data iris di 4 database yang berbeda</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">Tugas 3 Memanggil data iris di 4 database yang berbeda, dan merekayasa fitur Menggunakan PCA</a></li>
 
 
 
 
+<li class="toctree-l1"><a class="reference internal" href="Tugas4.html">Tugas 4 : Data Time Series</a></li>
 </ul>
 
     </div>
@@ -437,46 +437,24 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: pandas in /usr/local/lib/python3.9/dist-packages (1.4.4)
-Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.9/dist-packages (from pandas) (2022.7.1)
-Requirement already satisfied: numpy&gt;=1.18.5 in /usr/local/lib/python3.9/dist-packages (from pandas) (1.22.4)
 Requirement already satisfied: python-dateutil&gt;=2.8.1 in /usr/local/lib/python3.9/dist-packages (from pandas) (2.8.2)
+Requirement already satisfied: numpy&gt;=1.18.5 in /usr/local/lib/python3.9/dist-packages (from pandas) (1.22.4)
+Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.9/dist-packages (from pandas) (2022.7.1)
 Requirement already satisfied: six&gt;=1.5 in /usr/local/lib/python3.9/dist-packages (from python-dateutil&gt;=2.8.1-&gt;pandas) (1.15.0)
 Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: psycopg2 in /usr/local/lib/python3.9/dist-packages (2.9.5)
 Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-<span class=" -Color -Color-Red">ERROR: Could not find a version that satisfies the requirement jdbc (from versions: none)</span>
-<span class=" -Color -Color-Red">ERROR: No matching distribution found for jdbc</span>
+Requirement already satisfied: mysql-connector-python in /usr/local/lib/python3.9/dist-packages (8.0.32)
+Requirement already satisfied: protobuf&lt;=3.20.3,&gt;=3.11.0 in /usr/local/lib/python3.9/dist-packages (from mysql-connector-python) (3.19.6)
 Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Collecting mysql-connector-python
-  Downloading mysql_connector_python-8.0.32-cp39-cp39-manylinux1_x86_64.whl (23.5 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">23.5/23.5 MB</span> <span class=" -Color -Color-Red">34.8 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hRequirement already satisfied: protobuf&lt;=3.20.3,&gt;=3.11.0 in /usr/local/lib/python3.9/dist-packages (from mysql-connector-python) (3.19.6)
-Installing collected packages: mysql-connector-python
-Successfully installed mysql-connector-python-8.0.32
-Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Collecting orchest
-  Downloading orchest-0.3.11.tar.gz (17 kB)
-  Preparing metadata (setup.py) ... ?25l?25hdone
-Collecting pyarrow&lt;8.0,&gt;=1.0.0
-  Downloading pyarrow-7.0.0-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl (26.7 MB)
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">26.7/26.7 MB</span> <span class=" -Color -Color-Red">40.4 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
-?25hRequirement already satisfied: requests&gt;=1.0.0 in /usr/local/lib/python3.9/dist-packages (from orchest) (2.25.1)
+Requirement already satisfied: orchest in /usr/local/lib/python3.9/dist-packages (0.3.11)
+Requirement already satisfied: pyarrow&lt;8.0,&gt;=1.0.0 in /usr/local/lib/python3.9/dist-packages (from orchest) (7.0.0)
+Requirement already satisfied: requests&gt;=1.0.0 in /usr/local/lib/python3.9/dist-packages (from orchest) (2.25.1)
 Requirement already satisfied: numpy&gt;=1.16.6 in /usr/local/lib/python3.9/dist-packages (from pyarrow&lt;8.0,&gt;=1.0.0-&gt;orchest) (1.22.4)
 Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/local/lib/python3.9/dist-packages (from requests&gt;=1.0.0-&gt;orchest) (1.26.15)
-Requirement already satisfied: chardet&lt;5,&gt;=3.0.2 in /usr/local/lib/python3.9/dist-packages (from requests&gt;=1.0.0-&gt;orchest) (4.0.0)
-Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.9/dist-packages (from requests&gt;=1.0.0-&gt;orchest) (2022.12.7)
 Requirement already satisfied: idna&lt;3,&gt;=2.5 in /usr/local/lib/python3.9/dist-packages (from requests&gt;=1.0.0-&gt;orchest) (2.10)
-Building wheels for collected packages: orchest
-  Building wheel for orchest (setup.py) ... ?25l?25hdone
-  Created wheel for orchest: filename=orchest-0.3.11-py3-none-any.whl size=19359 sha256=168da472bce461a9e33feb6e57c09270a873e399033f22ff271d8b2f82d10d6d
-  Stored in directory: /root/.cache/pip/wheels/28/fd/ad/876cab218568a51f43fe21359fda871407b5366898829e089e
-Successfully built orchest
-Installing collected packages: pyarrow, orchest
-  Attempting uninstall: pyarrow
-    Found existing installation: pyarrow 9.0.0
-    Uninstalling pyarrow-9.0.0:
-      Successfully uninstalled pyarrow-9.0.0
-Successfully installed orchest-0.3.11 pyarrow-7.0.0
+Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.9/dist-packages (from requests&gt;=1.0.0-&gt;orchest) (2022.12.7)
+Requirement already satisfied: chardet&lt;5,&gt;=3.0.2 in /usr/local/lib/python3.9/dist-packages (from requests&gt;=1.0.0-&gt;orchest) (4.0.0)
 </pre></div>
 </div>
 </div>
@@ -626,16 +604,6 @@ Connection successful
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   sepallength  petalwidth        class
-0          5.1         0.2  Iris-setosa
-1          4.9         0.2  Iris-setosa
-2          4.7         0.2  Iris-setosa
-3          4.6         0.2  Iris-setosa
-4          5.0         0.2  Iris-setosa
-</pre></div>
-</div>
-</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -645,24 +613,6 @@ Connection successful
 <span class="c1"># Gabungkan data dari beberapa sumber ke dalam satu DataFrame</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">df1</span><span class="p">,</span> <span class="n">df2</span><span class="p">,</span> <span class="n">iris_selection</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     sepal_w petallength  sepallength  petalwidth           class
-0        3.5         1.4          5.1         0.2     Iris-setosa
-1        3.0         1.4          4.9         0.2     Iris-setosa
-2        3.2         1.3          4.7         0.2     Iris-setosa
-3        3.1         1.5          4.6         0.2     Iris-setosa
-4        3.6         1.4          5.0         0.2     Iris-setosa
-..       ...         ...          ...         ...             ...
-145      3.0         5.2          6.7         2.3  Iris-virginica
-146      2.5           5          6.3         1.9  Iris-virginica
-147      3.0         5.2          6.5         2.0  Iris-virginica
-148      3.4         5.4          6.2         2.3  Iris-virginica
-149      3.0         5.1          5.9         1.8  Iris-virginica
-
-[150 rows x 5 columns]
 </pre></div>
 </div>
 </div>
@@ -739,24 +689,6 @@ Connection successful
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>          PC1       PC2          target
-0   -2.264542  0.505704     Iris-setosa
-1   -2.086426 -0.655405     Iris-setosa
-2   -2.367950 -0.318477     Iris-setosa
-3   -2.304197 -0.575368     Iris-setosa
-4   -2.388777  0.674767     Iris-setosa
-..        ...       ...             ...
-145  1.870522  0.382822  Iris-virginica
-146  1.558492 -0.905314  Iris-virginica
-147  1.520845  0.266795  Iris-virginica
-148  1.376391  1.016362  Iris-virginica
-149  0.959299 -0.022284  Iris-virginica
-
-[150 rows x 3 columns]
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="tex2jax_ignore mathjax_ignore section" id="metode-knn">
@@ -775,11 +707,6 @@ Connection successful
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.978
-</pre></div>
-</div>
-</div>
 </div>
 <p>Metode Naive Bayes</p>
 <div class="cell docutils container">
@@ -791,11 +718,6 @@ Connection successful
 <span class="n">YY_pred</span> <span class="o">=</span> <span class="n">gaussian</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
 <span class="n">accuracy_nb</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">YY_pred</span><span class="p">)</span><span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">accuracy_nb</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>100.0
 </pre></div>
 </div>
 </div>
@@ -861,6 +783,15 @@ Connection successful
         <p class="prev-next-subtitle">previous</p>
         <p class="prev-next-title">Tugas 2 Memanggil data iris di 4 database yang berbeda</p>
       </div>
+    </a>
+    <a class="right-next"
+       href="Tugas4.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Tugas 4 : Data Time Series</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>
