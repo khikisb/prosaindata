@@ -17,10 +17,10 @@ Traceback (most recent call last):
     raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
 nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
 ------------------
-myconn = mysql.connect(host='127.0.0.1',
-                       database='freesqldatabase', 
-                       user='root', 
-                       password='')
+myconn = mysql.connect(host='sql12.freesqldatabase.com',
+                       database='sql12604228', 
+                       user='sql12604228', 
+                       password='FT4AaDU9kD')
 ------------------
 
 [0;31m[0m
@@ -30,16 +30,16 @@ myconn = mysql.connect(host='127.0.0.1',
 [0;32m--> 288[0;31m             [0mself[0m[0;34m.[0m[0m_cmysql[0m[0;34m.[0m[0mconnect[0m[0;34m([0m[0;34m**[0m[0mcnx_kwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m    289[0m             [0mself[0m[0;34m.[0m[0m_cmysql[0m[0;34m.[0m[0mconverter_str_fallback[0m [0;34m=[0m [0mself[0m[0;34m.[0m[0m_converter_str_fallback[0m[0;34m[0m[0;34m[0m[0m
 
-[0;31mMySQLInterfaceError[0m: Can't connect to MySQL server on '127.0.0.1:3306' (111)
+[0;31mMySQLInterfaceError[0m: Access denied for user 'sql12604228'@'34.125.102.170' (using password: YES)
 
 The above exception was the direct cause of the following exception:
 
-[0;31mDatabaseError[0mTraceback (most recent call last)
-[0;32m<ipython-input-3-3ad377568e1a>[0m in [0;36m<module>[0;34m[0m
-[0;32m----> 1[0;31m myconn = mysql.connect(host='127.0.0.1',
-[0m[1;32m      2[0m                        [0mdatabase[0m[0;34m=[0m[0;34m'freesqldatabase'[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      3[0m                        [0muser[0m[0;34m=[0m[0;34m'root'[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
-[1;32m      4[0m                        password='')
+[0;31mProgrammingError[0mTraceback (most recent call last)
+[0;32m<ipython-input-3-ee4cc9904c56>[0m in [0;36m<module>[0;34m[0m
+[0;32m----> 1[0;31m myconn = mysql.connect(host='sql12.freesqldatabase.com',
+[0m[1;32m      2[0m                        [0mdatabase[0m[0;34m=[0m[0;34m'sql12604228'[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      3[0m                        [0muser[0m[0;34m=[0m[0;34m'sql12604228'[0m[0;34m,[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m                        password='FT4AaDU9kD')
 
 [0;32m/usr/local/lib/python3.9/dist-packages/mysql/connector/pooling.py[0m in [0;36mconnect[0;34m(*args, **kwargs)[0m
 [1;32m    291[0m [0;34m[0m[0m
@@ -69,6 +69,6 @@ The above exception was the direct cause of the following exception:
 [0m[1;32m    294[0m                 [0mmsg[0m[0;34m=[0m[0merr[0m[0;34m.[0m[0mmsg[0m[0;34m,[0m [0merrno[0m[0;34m=[0m[0merr[0m[0;34m.[0m[0merrno[0m[0;34m,[0m [0msqlstate[0m[0;34m=[0m[0merr[0m[0;34m.[0m[0msqlstate[0m[0;34m[0m[0;34m[0m[0m
 [1;32m    295[0m             ) from err
 
-[0;31mDatabaseError[0m: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
-DatabaseError: 2003 (HY000): Can't connect to MySQL server on '127.0.0.1:3306' (111)
+[0;31mProgrammingError[0m: 1045 (28000): Access denied for user 'sql12604228'@'34.125.102.170' (using password: YES)
+ProgrammingError: 1045 (28000): Access denied for user 'sql12604228'@'34.125.102.170' (using password: YES)
 
