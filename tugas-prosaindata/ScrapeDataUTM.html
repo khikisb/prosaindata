@@ -18,12 +18,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="../_static/styles/theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/bootstrap.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
-<link href="../_static/styles/pydata-sphinx-theme.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
 
   
-  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=12da95d707ffb74b382d" rel="stylesheet" />
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -37,8 +37,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d" />
-<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d" />
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
 
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
@@ -165,7 +165,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 
 
-<li class="toctree-l1"><a class="reference internal" href="Tugas4.html">Tugas 4 : Data Time Series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas4.html">Tugas 4 Data Time Series</a></li>
 </ul>
 
     </div>
@@ -382,10 +382,10 @@ document.write(`
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: requests in /usr/local/lib/python3.9/dist-packages (2.27.1)
-Requirement already satisfied: charset-normalizer~=2.0.0 in /usr/local/lib/python3.9/dist-packages (from requests) (2.0.12)
-Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/local/lib/python3.9/dist-packages (from requests) (1.26.15)
 Requirement already satisfied: certifi&gt;=2017.4.17 in /usr/local/lib/python3.9/dist-packages (from requests) (2022.12.7)
 Requirement already satisfied: idna&lt;4,&gt;=2.5 in /usr/local/lib/python3.9/dist-packages (from requests) (3.4)
+Requirement already satisfied: charset-normalizer~=2.0.0 in /usr/local/lib/python3.9/dist-packages (from requests) (2.0.12)
+Requirement already satisfied: urllib3&lt;1.27,&gt;=1.21.1 in /usr/local/lib/python3.9/dist-packages (from requests) (1.26.15)
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
@@ -408,7 +408,7 @@ Building wheels for collected packages: bs4
 </pre></div>
 </div>
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Building wheel for bs4 (setup.py) ... ?25l?25hdone
-  Created wheel for bs4: filename=bs4-0.0.1-py3-none-any.whl size=1270 sha256=22de1c80195ccc28e8d9fdfcd376c1b3ac6f92dd8d9b9e01df15bb638f947827
+  Created wheel for bs4: filename=bs4-0.0.1-py3-none-any.whl size=1270 sha256=4dba1e799d264a9099eb9fa272fa29634df1b20a8ebafd563527781233dcd298
   Stored in directory: /root/.cache/pip/wheels/73/2b/cb/099980278a0c9a3e57ff1a89875ec07bfa0b6fcbebb9a8cad3
 Successfully built bs4
 </pre></div>
@@ -473,7 +473,7 @@ Successfully installed bs4-0.0.1
 <span class="n">total_pages</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">pagination</span><span class="p">[</span><span class="n">LAST_INDEX</span><span class="p">][</span><span class="s2">&quot;href&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="n">LAST_INDEX</span><span class="p">])</span>
 
 <span class="n">papers</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="k">for</span> <span class="n">pages</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">FIRST_INDEX</span><span class="p">,</span> <span class="mi">4</span> <span class="o">+</span> <span class="n">INCREMENT_BY_ONE</span><span class="p">):</span>
+<span class="k">for</span> <span class="n">pages</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">FIRST_INDEX</span><span class="p">,</span> <span class="n">total_pages</span> <span class="o">+</span> <span class="n">INCREMENT_BY_ONE</span><span class="p">):</span>
 
     <span class="n">url_link</span> <span class="o">=</span> <span class="s2">&quot;https://pta.trunojoyo.ac.id/c_search/byprod/10&quot;</span>
     <span class="n">id_prodi</span> <span class="o">=</span> <span class="n">url_link</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;/&quot;</span><span class="p">)[</span><span class="n">LAST_INDEX</span><span class="p">]</span>
@@ -500,6 +500,110 @@ Successfully installed bs4-0.0.1
             <span class="n">article_row_abstract</span><span class="p">,</span>
             <span class="n">nama_prodi</span>
         <span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">KeyboardInterrupt</span>Traceback (most recent call last)
+<span class="nn">&lt;ipython-input-5-0fd2b51338b0&gt;</span> in <span class="ni">&lt;cell line: 12&gt;</span><span class="nt">()</span>
+<span class="g g-Whitespace">     </span><span class="mi">18</span>         <span class="n">nama_prodi</span> <span class="o">=</span> <span class="s2">&quot;Teknik Informatika&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">19</span> 
+<span class="ne">---&gt; </span><span class="mi">20</span>     <span class="n">r_pages</span> <span class="o">=</span> <span class="n">request_header_url</span><span class="p">(</span><span class="s2">&quot;Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:15.0) Gecko/20100101 Firefox/15.0.1&quot;</span><span class="p">,</span> <span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">url_link</span><span class="si">}</span><span class="s2">/</span><span class="si">{</span><span class="n">pages</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">21</span>     <span class="n">soup_pages</span> <span class="o">=</span> <span class="n">parse_website</span><span class="p">(</span><span class="n">r_pages</span><span class="p">)</span>
+<span class="g g-Whitespace">     </span><span class="mi">22</span>     <span class="n">prettify_web_structure</span><span class="p">(</span><span class="n">soup_pages</span><span class="p">)</span>
+
+<span class="nn">&lt;ipython-input-4-e6e6f38faca4&gt;</span> in <span class="ni">request_header_url</span><span class="nt">(header, url_website)</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="k">def</span> <span class="nf">request_header_url</span><span class="p">(</span><span class="n">header</span><span class="p">,</span> <span class="n">url_website</span><span class="p">):</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>     <span class="n">headers</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;User-Agent&#39;</span><span class="p">:</span> <span class="n">header</span><span class="p">}</span>
+<span class="ne">----&gt; </span><span class="mi">6</span>     <span class="k">return</span> <span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="n">url_website</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">headers</span><span class="p">)</span>
+<span class="g g-Whitespace">      </span><span class="mi">7</span> 
+<span class="g g-Whitespace">      </span><span class="mi">8</span> <span class="k">def</span> <span class="nf">parse_website</span><span class="p">(</span><span class="n">request</span><span class="p">):</span>
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/requests/api.py</span> in <span class="ni">get</span><span class="nt">(url, params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span>     <span class="s2">&quot;&quot;&quot;</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="s2"> </span>
+<span class="ne">---&gt; </span><span class="mi">75</span><span class="s2">     return request(&#39;get&#39;, url, params=params, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">76</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">77</span><span class="s2"> </span>
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/requests/api.py</span> in <span class="ni">request</span><span class="nt">(method, url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">59</span><span class="s2">     # cases, and look like a memory leak in others.</span>
+<span class="g g-Whitespace">     </span><span class="mi">60</span><span class="s2">     with sessions.Session() as session:</span>
+<span class="ne">---&gt; </span><span class="mi">61</span><span class="s2">         return session.request(method=method, url=url, **kwargs)</span>
+<span class="g g-Whitespace">     </span><span class="mi">62</span><span class="s2"> </span>
+<span class="g g-Whitespace">     </span><span class="mi">63</span><span class="s2"> </span>
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/requests/sessions.py</span> in <span class="ni">request</span><span class="nt">(self, method, url, params, data, headers, cookies, files, auth, timeout, allow_redirects, proxies, hooks, stream, verify, cert, json)</span>
+<span class="g g-Whitespace">    </span><span class="mi">527</span><span class="s2">         }</span>
+<span class="g g-Whitespace">    </span><span class="mi">528</span><span class="s2">         send_kwargs.update(settings)</span>
+<span class="ne">--&gt; </span><span class="mi">529</span><span class="s2">         resp = self.send(prep, **send_kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">530</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">531</span><span class="s2">         return resp</span>
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/requests/sessions.py</span> in <span class="ni">send</span><span class="nt">(self, request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">643</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">644</span><span class="s2">         # Send the request</span>
+<span class="ne">--&gt; </span><span class="mi">645</span><span class="s2">         r = adapter.send(request, **kwargs)</span>
+<span class="g g-Whitespace">    </span><span class="mi">646</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">647</span><span class="s2">         # Total elapsed time of the request (approximately)</span>
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/requests/adapters.py</span> in <span class="ni">send</span><span class="nt">(self, request, stream, timeout, verify, cert, proxies)</span>
+<span class="g g-Whitespace">    </span><span class="mi">438</span><span class="s2">         try:</span>
+<span class="g g-Whitespace">    </span><span class="mi">439</span><span class="s2">             if not chunked:</span>
+<span class="ne">--&gt; </span><span class="mi">440</span><span class="s2">                 resp = conn.urlopen(</span>
+<span class="g g-Whitespace">    </span><span class="mi">441</span><span class="s2">                     method=request.method,</span>
+<span class="g g-Whitespace">    </span><span class="mi">442</span><span class="s2">                     url=url,</span>
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">urlopen</span><span class="nt">(self, method, url, body, headers, retries, redirect, assert_same_host, timeout, pool_timeout, release_conn, chunked, body_pos, **response_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">701</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">702</span><span class="s2">             # Make the request on the httplib connection object.</span>
+<span class="ne">--&gt; </span><span class="mi">703</span><span class="s2">             httplib_response = self._make_request(</span>
+<span class="g g-Whitespace">    </span><span class="mi">704</span><span class="s2">                 conn,</span>
+<span class="g g-Whitespace">    </span><span class="mi">705</span><span class="s2">                 method,</span>
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">_make_request</span><span class="nt">(self, conn, method, url, timeout, chunked, **httplib_request_kw)</span>
+<span class="g g-Whitespace">    </span><span class="mi">384</span><span class="s2">         # Trigger any extra validation we need to do.</span>
+<span class="g g-Whitespace">    </span><span class="mi">385</span><span class="s2">         try:</span>
+<span class="ne">--&gt; </span><span class="mi">386</span><span class="s2">             self._validate_conn(conn)</span>
+<span class="g g-Whitespace">    </span><span class="mi">387</span><span class="s2">         except (SocketTimeout, BaseSSLError) as e:</span>
+<span class="g g-Whitespace">    </span><span class="mi">388</span><span class="s2">             # Py2 raises this as a BaseSSLError, Py3 raises it as socket timeout.</span>
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/urllib3/connectionpool.py</span> in <span class="ni">_validate_conn</span><span class="nt">(self, conn)</span>
+<span class="g g-Whitespace">   </span><span class="mi">1040</span><span class="s2">         # Force connect early to allow us to validate the connection.</span>
+<span class="g g-Whitespace">   </span><span class="mi">1041</span><span class="s2">         if not getattr(conn, &quot;sock&quot;, None):  # AppEngine might not have  `.sock`</span>
+<span class="ne">-&gt; </span><span class="mi">1042</span><span class="s2">             conn.connect()</span>
+<span class="g g-Whitespace">   </span><span class="mi">1043</span><span class="s2"> </span>
+<span class="g g-Whitespace">   </span><span class="mi">1044</span><span class="s2">         if not conn.is_verified:</span>
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/urllib3/connection.py</span> in <span class="ni">connect</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">361</span><span class="s2">     def connect(self):</span>
+<span class="g g-Whitespace">    </span><span class="mi">362</span><span class="s2">         # Add certificate verification</span>
+<span class="ne">--&gt; </span><span class="mi">363</span><span class="s2">         self.sock = conn = self._new_conn()</span>
+<span class="g g-Whitespace">    </span><span class="mi">364</span><span class="s2">         hostname = self.host</span>
+<span class="g g-Whitespace">    </span><span class="mi">365</span><span class="s2">         tls_in_tls = False</span>
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/urllib3/connection.py</span> in <span class="ni">_new_conn</span><span class="nt">(self)</span>
+<span class="g g-Whitespace">    </span><span class="mi">172</span><span class="s2"> </span>
+<span class="g g-Whitespace">    </span><span class="mi">173</span><span class="s2">         try:</span>
+<span class="ne">--&gt; </span><span class="mi">174</span><span class="s2">             conn = connection.create_connection(</span>
+<span class="g g-Whitespace">    </span><span class="mi">175</span><span class="s2">                 (self._dns_host, self.port), self.timeout, **extra_kw</span>
+<span class="g g-Whitespace">    </span><span class="mi">176</span><span class="s2">             )</span>
+
+<span class="nn">/usr/local/lib/python3.9/dist-packages/urllib3/util/connection.py</span> in <span class="ni">create_connection</span><span class="nt">(address, timeout, source_address, socket_options)</span>
+<span class="g g-Whitespace">     </span><span class="mi">70</span><span class="s2">         )</span>
+<span class="g g-Whitespace">     </span><span class="mi">71</span><span class="s2"> </span>
+<span class="ne">---&gt; </span><span class="mi">72</span><span class="s2">     for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):</span>
+<span class="g g-Whitespace">     </span><span class="mi">73</span><span class="s2">         af, socktype, proto, canonname, sa = res</span>
+<span class="g g-Whitespace">     </span><span class="mi">74</span><span class="s2">         sock = None</span>
+
+<span class="nn">/usr/lib/python3.9/socket.py</span> in <span class="ni">getaddrinfo</span><span class="nt">(host, port, family, type, proto, flags)</span>
+<span class="g g-Whitespace">    </span><span class="mi">952</span><span class="s2">     # and socket type values to enum constants.</span>
+<span class="g g-Whitespace">    </span><span class="mi">953</span><span class="s2">     addrlist = []</span>
+<span class="ne">--&gt; </span><span class="mi">954</span><span class="s2">     for res in _socket.getaddrinfo(host, port, family, type, proto, flags):</span>
+<span class="g g-Whitespace">    </span><span class="mi">955</span><span class="s2">         af, socktype, proto, canonname, sa = res</span>
+<span class="g g-Whitespace">    </span><span class="mi">956</span><span class="s2">         addrlist.append((_intenum_converter(af, AddressFamily),</span>
+
+<span class="ne">KeyboardInterrupt</span>: 
 </pre></div>
 </div>
 </div>
@@ -538,7 +642,7 @@ anda bisa mendownloadnya</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-1480a10f-aac4-4160-bcb8-f9ae0f053c3d">
+  <div id="df-4bc9b596-dc88-4f67-b713-acfd22b19a25">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -601,114 +705,52 @@ anda bisa mendownloadnya</p>
       <td>Teknik Informatika</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>70411100007</td>
-      <td>Gerak Pekerja Pada Game Real Time Strategy Men...</td>
-      <td>Gerak pekerja ada pada game yang memiliki genr...</td>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>853</th>
+      <td>160411100032</td>
+      <td>PENERAPAN ALGORITMA LONG-SHORT TERM MEMORY UNT...</td>
+      <td>Investasi saham selama ini memiliki resiko ker...</td>
       <td>Teknik Informatika</td>
     </tr>
     <tr>
-      <th>6</th>
-      <td>70411100126</td>
-      <td>RANCANG BANGUN GAME PERAWATAN SAPI KARAPAN MEN...</td>
-      <td>Perkembangan game yang semakin pesat, memberik...</td>
+      <th>854</th>
+      <td>160411100182</td>
+      <td>SISTEM PENCARIAN TEKS AL-QURAN TERJEMAHAN BERB...</td>
+      <td>Information Retrieval (IR) merupakan pengambil...</td>
       <td>Teknik Informatika</td>
     </tr>
     <tr>
-      <th>7</th>
-      <td>70411100109</td>
-      <td>EKSTRAKSI FITUR BERBASIS TWO DIMENSIONAL LINEA...</td>
-      <td>Sistem pengenalan wajah adalah suatu sistem un...</td>
+      <th>855</th>
+      <td>160411100077</td>
+      <td>KLASIFIKASI KOMPLEKSITAS VISUAL CITRA SAMPAH M...</td>
+      <td>Klasifikasi citra merupakan proses pengelompok...</td>
       <td>Teknik Informatika</td>
     </tr>
     <tr>
-      <th>8</th>
-      <td>80411100083</td>
-      <td>IMPLEMENTASI  ALGORITMA PRIM  DAN DEPTH FIRST ...</td>
-      <td>Teknologi mobile game beroperating system open...</td>
+      <th>856</th>
+      <td>160411100084</td>
+      <td>IDENTIFIKASI BINER ATRIBUT PEJALAN KAKI MENGGU...</td>
+      <td>Identifikasi atribut pejalan kaki merupakan sa...</td>
       <td>Teknik Informatika</td>
     </tr>
     <tr>
-      <th>9</th>
-      <td>70411100092</td>
-      <td>Perancangan Sistem Informasi Badan Kepegawaian...</td>
-      <td>Kantor Badan Kepegawaian kota Bangkalan adalah...</td>
-      <td>Teknik Informatika</td>
-    </tr>
-    <tr>
-      <th>10</th>
-      <td>70411100120</td>
-      <td>PEMANFAATAN TOGAF ADM UNTUK PERANCANGAN SISTEM...</td>
-      <td>Penyusunan Sistem Informasi Dinas Perindustria...</td>
-      <td>Teknik Informatika</td>
-    </tr>
-    <tr>
-      <th>11</th>
-      <td>70411100143</td>
-      <td>APLIKASI METODE FUZZY ANALYTIC NETWORK PROCESS...</td>
-      <td>Perusahaan pemerintah maupun swasta mempunyai ...</td>
-      <td>Teknik Informatika</td>
-    </tr>
-    <tr>
-      <th>12</th>
-      <td>70411100037</td>
-      <td>SISTEM PENDUKUNG KEPUTUSAN REKOMENDASI MENU DI...</td>
-      <td>Pelayanan makanan bagi pasien rawat inap di Ru...</td>
-      <td>Teknik Informatika</td>
-    </tr>
-    <tr>
-      <th>13</th>
-      <td>70411100079</td>
-      <td>RANCANG BANGUN APLIKASI PEMILIHAN TEKNIK REKAY...</td>
-      <td>Penyusunan Sistem Pendukung Keputusan pemiliha...</td>
-      <td>Teknik Informatika</td>
-    </tr>
-    <tr>
-      <th>14</th>
-      <td>70411100050</td>
-      <td>DETEKSI COREPOINT SIDIK JARI MENGGUNAKAN METOD...</td>
-      <td>Sidik jari adalah salah satu karakteristik fis...</td>
-      <td>Teknik Informatika</td>
-    </tr>
-    <tr>
-      <th>15</th>
-      <td>70411100124</td>
-      <td>SISTEM PENENTUAN STATUS GIZI PASIEN RAWAT INAP...</td>
-      <td>Di Indonesia masalah perkembangan gizi adalah ...</td>
-      <td>Teknik Informatika</td>
-    </tr>
-    <tr>
-      <th>16</th>
-      <td>70411100072</td>
-      <td>PENGENALAN TULISAN TANGAN HURUF ALFABET\nDENGA...</td>
-      <td>Pengenalan tulisan tangan merupakan topik pene...</td>
-      <td>Teknik Informatika</td>
-    </tr>
-    <tr>
-      <th>17</th>
-      <td>70411100152</td>
-      <td>PENGENALAN POLA SENYUMAN BERBASIS EKSTRAKSI FI...</td>
-      <td>Citra senyum merupakan salah satu fitur biomet...</td>
-      <td>Teknik Informatika</td>
-    </tr>
-    <tr>
-      <th>18</th>
-      <td>70411100114</td>
-      <td>SISTEM PEROLEHAN CITRA BERBASIS ISI MENGGUNAKA...</td>
-      <td>Batik adalah kerajinan yang memiliki nilai sen...</td>
-      <td>Teknik Informatika</td>
-    </tr>
-    <tr>
-      <th>19</th>
-      <td>70411100036</td>
-      <td>ONTOLOGY SEMANTIC WEB UNTUK PENCARIAN TUGAS AK...</td>
-      <td>Kebutuhan pencarian data pada internet yang ce...</td>
+      <th>857</th>
+      <td>160411100044</td>
+      <td>DETEKSI OBJEK MANUSIA BERBASIS ONE STAGE DETEC...</td>
+      <td>Topik deteksi objek telah menarik perhatian ya...</td>
       <td>Teknik Informatika</td>
     </tr>
   </tbody>
 </table>
+<p>858 rows × 4 columns</p>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-1480a10f-aac4-4160-bcb8-f9ae0f053c3d')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-4bc9b596-dc88-4f67-b713-acfd22b19a25')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -759,12 +801,12 @@ anda bisa mendownloadnya</p>
 
       <script>
         const buttonEl =
-          document.querySelector('#df-1480a10f-aac4-4160-bcb8-f9ae0f053c3d button.colab-df-convert');
+          document.querySelector('#df-4bc9b596-dc88-4f67-b713-acfd22b19a25 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-1480a10f-aac4-4160-bcb8-f9ae0f053c3d');
+          const element = document.querySelector('#df-4bc9b596-dc88-4f67-b713-acfd22b19a25');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -813,7 +855,10 @@ anda bisa mendownloadnya</p>
               
               
                 <footer class="bd-footer-article">
-                  <!-- Previous / next buttons -->
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
 <div class="prev-next-area">
     <a class="left-prev"
        href="Twitter.html"
@@ -833,7 +878,10 @@ anda bisa mendownloadnya</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
+</div></div>
+  
 </div>
+
                 </footer>
               
             </div>
@@ -843,7 +891,7 @@ anda bisa mendownloadnya</p>
             
           </div>
           <footer class="bd-footer-content">
-            <div class="bd-footer-content__inner">
+            
 <div class="bd-footer-content__inner container">
   
   <div class="footer-item">
@@ -873,7 +921,7 @@ By Okhi Sahrul Barkah
     
   </div>
   
-</div></div>
+</div>
           </footer>
         
 
@@ -882,8 +930,8 @@ By Okhi Sahrul Barkah
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="../_static/scripts/bootstrap.js?digest=12da95d707ffb74b382d"></script>
-<script src="../_static/scripts/pydata-sphinx-theme.js?digest=12da95d707ffb74b382d"></script>
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
 
   <footer class="bd-footer">
   </footer>
