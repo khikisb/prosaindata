@@ -167,6 +167,7 @@ const thebe_selector_output = ".output, .cell_output"
 <li class="toctree-l1"><a class="reference internal" href="Tugas4.html">Tugas 4 Data Time Series</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">UTS Proyek Sains Data</a></li>
 
+
 </ul>
 
     </div>
@@ -373,6 +374,12 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-embedding-word2vec-cbow">Word Embedding Word2vec CBOW</a></li>
 </ul>
 </li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF- IDF</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pencarian-nilai-k-terbaik-untuk-metode-knn">pencarian nilai k terbaik untuk metode knn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pencarian-nilai-pca-terbaik">Pencarian nilai PCA terbaik</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
+</ul>
+</li>
 </ul>
 
             </nav>
@@ -447,82 +454,98 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Requirement already satisfied: sastrawi in /usr/local/lib/python3.9/dist-packages (1.0.1)
+Collecting sastrawi
+  Downloading Sastrawi-1.0.1-py2.py3-none-any.whl (209 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">209.7/209.7 KB</span> <span class=" -Color -Color-Red">4.3 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hInstalling collected packages: sastrawi
+Successfully installed sastrawi-1.0.1
 Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Requirement already satisfied: swifter in /usr/local/lib/python3.9/dist-packages (1.3.4)
-Requirement already satisfied: psutil&gt;=5.6.6 in /usr/local/lib/python3.9/dist-packages (from swifter) (5.9.4)
-Requirement already satisfied: tqdm&gt;=4.33.0 in /usr/local/lib/python3.9/dist-packages (from swifter) (4.65.0)
-Requirement already satisfied: bleach&gt;=3.1.1 in /usr/local/lib/python3.9/dist-packages (from swifter) (6.0.0)
-Requirement already satisfied: dask[dataframe]&gt;=2.10.0 in /usr/local/lib/python3.9/dist-packages (from swifter) (2022.12.1)
-Requirement already satisfied: ipywidgets&gt;=7.0.0 in /usr/local/lib/python3.9/dist-packages (from swifter) (7.7.1)
-Requirement already satisfied: parso&gt;0.4.0 in /usr/local/lib/python3.9/dist-packages (from swifter) (0.8.3)
-Requirement already satisfied: cloudpickle&gt;=0.2.2 in /usr/local/lib/python3.9/dist-packages (from swifter) (2.2.1)
+Collecting swifter
+  Downloading swifter-1.3.4.tar.gz (830 kB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">830.9/830.9 KB</span> <span class=" -Color -Color-Red">8.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25h  Preparing metadata (setup.py) ... ?25l?25hdone
 Requirement already satisfied: pandas&gt;=1.0.0 in /usr/local/lib/python3.9/dist-packages (from swifter) (1.4.4)
-Requirement already satisfied: webencodings in /usr/local/lib/python3.9/dist-packages (from bleach&gt;=3.1.1-&gt;swifter) (0.5.1)
+Requirement already satisfied: psutil&gt;=5.6.6 in /usr/local/lib/python3.9/dist-packages (from swifter) (5.9.4)
+Requirement already satisfied: dask[dataframe]&gt;=2.10.0 in /usr/local/lib/python3.9/dist-packages (from swifter) (2022.12.1)
+Requirement already satisfied: tqdm&gt;=4.33.0 in /usr/local/lib/python3.9/dist-packages (from swifter) (4.65.0)
+Requirement already satisfied: ipywidgets&gt;=7.0.0 in /usr/local/lib/python3.9/dist-packages (from swifter) (7.7.1)
+Requirement already satisfied: cloudpickle&gt;=0.2.2 in /usr/local/lib/python3.9/dist-packages (from swifter) (2.2.1)
+Requirement already satisfied: parso&gt;0.4.0 in /usr/local/lib/python3.9/dist-packages (from swifter) (0.8.3)
+Requirement already satisfied: bleach&gt;=3.1.1 in /usr/local/lib/python3.9/dist-packages (from swifter) (6.0.0)
 Requirement already satisfied: six&gt;=1.9.0 in /usr/local/lib/python3.9/dist-packages (from bleach&gt;=3.1.1-&gt;swifter) (1.16.0)
-Requirement already satisfied: click&gt;=7.0 in /usr/local/lib/python3.9/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (8.1.3)
-Requirement already satisfied: pyyaml&gt;=5.3.1 in /usr/local/lib/python3.9/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (6.0)
-Requirement already satisfied: partd&gt;=0.3.10 in /usr/local/lib/python3.9/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (1.3.0)
+Requirement already satisfied: webencodings in /usr/local/lib/python3.9/dist-packages (from bleach&gt;=3.1.1-&gt;swifter) (0.5.1)
 Requirement already satisfied: fsspec&gt;=0.6.0 in /usr/local/lib/python3.9/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (2023.3.0)
-Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.9/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (23.0)
 Requirement already satisfied: toolz&gt;=0.8.2 in /usr/local/lib/python3.9/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (0.12.0)
+Requirement already satisfied: partd&gt;=0.3.10 in /usr/local/lib/python3.9/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (1.3.0)
+Requirement already satisfied: packaging&gt;=20.0 in /usr/local/lib/python3.9/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (23.0)
+Requirement already satisfied: pyyaml&gt;=5.3.1 in /usr/local/lib/python3.9/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (6.0)
+Requirement already satisfied: click&gt;=7.0 in /usr/local/lib/python3.9/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (8.1.3)
 Requirement already satisfied: numpy&gt;=1.18 in /usr/local/lib/python3.9/dist-packages (from dask[dataframe]&gt;=2.10.0-&gt;swifter) (1.22.4)
-Requirement already satisfied: traitlets&gt;=4.3.1 in /usr/local/lib/python3.9/dist-packages (from ipywidgets&gt;=7.0.0-&gt;swifter) (5.7.1)
-Requirement already satisfied: widgetsnbextension~=3.6.0 in /usr/local/lib/python3.9/dist-packages (from ipywidgets&gt;=7.0.0-&gt;swifter) (3.6.4)
-Requirement already satisfied: ipython&gt;=4.0.0 in /usr/local/lib/python3.9/dist-packages (from ipywidgets&gt;=7.0.0-&gt;swifter) (7.34.0)
-Requirement already satisfied: jupyterlab-widgets&gt;=1.0.0 in /usr/local/lib/python3.9/dist-packages (from ipywidgets&gt;=7.0.0-&gt;swifter) (3.0.7)
 Requirement already satisfied: ipykernel&gt;=4.5.1 in /usr/local/lib/python3.9/dist-packages (from ipywidgets&gt;=7.0.0-&gt;swifter) (5.5.6)
+Requirement already satisfied: widgetsnbextension~=3.6.0 in /usr/local/lib/python3.9/dist-packages (from ipywidgets&gt;=7.0.0-&gt;swifter) (3.6.4)
+Requirement already satisfied: traitlets&gt;=4.3.1 in /usr/local/lib/python3.9/dist-packages (from ipywidgets&gt;=7.0.0-&gt;swifter) (5.7.1)
+Requirement already satisfied: ipython&gt;=4.0.0 in /usr/local/lib/python3.9/dist-packages (from ipywidgets&gt;=7.0.0-&gt;swifter) (7.34.0)
 Requirement already satisfied: ipython-genutils~=0.2.0 in /usr/local/lib/python3.9/dist-packages (from ipywidgets&gt;=7.0.0-&gt;swifter) (0.2.0)
-Requirement already satisfied: python-dateutil&gt;=2.8.1 in /usr/local/lib/python3.9/dist-packages (from pandas&gt;=1.0.0-&gt;swifter) (2.8.2)
+Requirement already satisfied: jupyterlab-widgets&gt;=1.0.0 in /usr/local/lib/python3.9/dist-packages (from ipywidgets&gt;=7.0.0-&gt;swifter) (3.0.7)
 Requirement already satisfied: pytz&gt;=2020.1 in /usr/local/lib/python3.9/dist-packages (from pandas&gt;=1.0.0-&gt;swifter) (2022.7.1)
+Requirement already satisfied: python-dateutil&gt;=2.8.1 in /usr/local/lib/python3.9/dist-packages (from pandas&gt;=1.0.0-&gt;swifter) (2.8.2)
 Requirement already satisfied: jupyter-client in /usr/local/lib/python3.9/dist-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (6.1.12)
 Requirement already satisfied: tornado&gt;=4.2 in /usr/local/lib/python3.9/dist-packages (from ipykernel&gt;=4.5.1-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (6.2)
 Requirement already satisfied: setuptools&gt;=18.5 in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (67.6.1)
-Requirement already satisfied: pexpect&gt;4.3 in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.8.0)
-Requirement already satisfied: backcall in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.2.0)
-Requirement already satisfied: jedi&gt;=0.16 in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.18.2)
-Requirement already satisfied: pygments in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (2.14.0)
-Requirement already satisfied: pickleshare in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.7.5)
-Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0 in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (3.0.38)
 Requirement already satisfied: decorator in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.4.2)
+Requirement already satisfied: pygments in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (2.14.0)
 Requirement already satisfied: matplotlib-inline in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.1.6)
+Requirement already satisfied: pickleshare in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.7.5)
+Requirement already satisfied: pexpect&gt;4.3 in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.8.0)
+Collecting jedi&gt;=0.16
+  Downloading jedi-0.18.2-py2.py3-none-any.whl (1.6 MB)
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ <span class=" -Color -Color-Green">1.6/1.6 MB</span> <span class=" -Color -Color-Red">29.5 MB/s</span> eta <span class=" -Color -Color-Cyan">0:00:00</span>
+?25hRequirement already satisfied: backcall in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.2.0)
+Requirement already satisfied: prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0 in /usr/local/lib/python3.9/dist-packages (from ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (3.0.38)
 Requirement already satisfied: locket in /usr/local/lib/python3.9/dist-packages (from partd&gt;=0.3.10-&gt;dask[dataframe]&gt;=2.10.0-&gt;swifter) (1.0.0)
 Requirement already satisfied: notebook&gt;=4.4.1 in /usr/local/lib/python3.9/dist-packages (from widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (6.4.8)
-Requirement already satisfied: prometheus-client in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.16.0)
-Requirement already satisfied: Send2Trash&gt;=1.8.0 in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (1.8.0)
-Requirement already satisfied: jinja2 in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (3.1.2)
 Requirement already satisfied: nest-asyncio&gt;=1.5 in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (1.5.6)
 Requirement already satisfied: terminado&gt;=0.8.3 in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.17.1)
 Requirement already satisfied: jupyter-core&gt;=4.6.1 in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (5.3.0)
-Requirement already satisfied: nbformat in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (5.8.0)
-Requirement already satisfied: pyzmq&gt;=17 in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (23.2.1)
 Requirement already satisfied: argon2-cffi in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (21.3.0)
+Requirement already satisfied: Send2Trash&gt;=1.8.0 in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (1.8.0)
+Requirement already satisfied: pyzmq&gt;=17 in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (23.2.1)
+Requirement already satisfied: prometheus-client in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.16.0)
+Requirement already satisfied: nbformat in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (5.8.0)
 Requirement already satisfied: nbconvert in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (6.5.4)
+Requirement already satisfied: jinja2 in /usr/local/lib/python3.9/dist-packages (from notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (3.1.2)
 Requirement already satisfied: ptyprocess&gt;=0.5 in /usr/local/lib/python3.9/dist-packages (from pexpect&gt;4.3-&gt;ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.7.0)
 Requirement already satisfied: wcwidth in /usr/local/lib/python3.9/dist-packages (from prompt-toolkit!=3.0.0,!=3.0.1,&lt;3.1.0,&gt;=2.0.0-&gt;ipython&gt;=4.0.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.2.6)
 Requirement already satisfied: platformdirs&gt;=2.5 in /usr/local/lib/python3.9/dist-packages (from jupyter-core&gt;=4.6.1-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (3.2.0)
 Requirement already satisfied: argon2-cffi-bindings in /usr/local/lib/python3.9/dist-packages (from argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (21.2.0)
 Requirement already satisfied: MarkupSafe&gt;=2.0 in /usr/local/lib/python3.9/dist-packages (from jinja2-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (2.1.2)
-Requirement already satisfied: jupyterlab-pygments in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.2.2)
-Requirement already satisfied: defusedxml in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.7.1)
-Requirement already satisfied: tinycss2 in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (1.2.1)
+Requirement already satisfied: lxml in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.9.2)
+Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.11.2)
 Requirement already satisfied: entrypoints&gt;=0.2.2 in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.4)
 Requirement already satisfied: mistune&lt;2,&gt;=0.8.1 in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.8.4)
-Requirement already satisfied: lxml in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.9.2)
+Requirement already satisfied: jupyterlab-pygments in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.2.2)
+Requirement already satisfied: tinycss2 in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (1.2.1)
+Requirement already satisfied: nbclient&gt;=0.5.0 in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.7.3)
 Requirement already satisfied: pandocfilters&gt;=1.4.1 in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (1.5.0)
-Requirement already satisfied: nbclient&gt;=0.5.0 in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.7.2)
-Requirement already satisfied: beautifulsoup4 in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.11.2)
+Requirement already satisfied: defusedxml in /usr/local/lib/python3.9/dist-packages (from nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.7.1)
 Requirement already satisfied: jsonschema&gt;=2.6 in /usr/local/lib/python3.9/dist-packages (from nbformat-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (4.3.3)
 Requirement already satisfied: fastjsonschema in /usr/local/lib/python3.9/dist-packages (from nbformat-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (2.16.3)
-Requirement already satisfied: attrs&gt;=17.4.0 in /usr/local/lib/python3.9/dist-packages (from jsonschema&gt;=2.6-&gt;nbformat-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (22.2.0)
 Requirement already satisfied: pyrsistent!=0.17.0,!=0.17.1,!=0.17.2,&gt;=0.14.0 in /usr/local/lib/python3.9/dist-packages (from jsonschema&gt;=2.6-&gt;nbformat-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (0.19.3)
+Requirement already satisfied: attrs&gt;=17.4.0 in /usr/local/lib/python3.9/dist-packages (from jsonschema&gt;=2.6-&gt;nbformat-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (22.2.0)
 Requirement already satisfied: cffi&gt;=1.0.1 in /usr/local/lib/python3.9/dist-packages (from argon2-cffi-bindings-&gt;argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (1.15.1)
 Requirement already satisfied: soupsieve&gt;1.2 in /usr/local/lib/python3.9/dist-packages (from beautifulsoup4-&gt;nbconvert-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (2.4)
 Requirement already satisfied: pycparser in /usr/local/lib/python3.9/dist-packages (from cffi&gt;=1.0.1-&gt;argon2-cffi-bindings-&gt;argon2-cffi-&gt;notebook&gt;=4.4.1-&gt;widgetsnbextension~=3.6.0-&gt;ipywidgets&gt;=7.0.0-&gt;swifter) (2.21)
+Building wheels for collected packages: swifter
+  Building wheel for swifter (setup.py) ... ?25l?25hdone
+  Created wheel for swifter: filename=swifter-1.3.4-py3-none-any.whl size=16321 sha256=d66828e33c2081db2c2c62602bc7a416654e6bd97ab843cbac02eeb367c4ad8c
+  Stored in directory: /root/.cache/pip/wheels/2b/5e/f2/3931524f702ffd03309e96d35ee2fbf9c61c27377511ee8d4c
+Successfully built swifter
+Installing collected packages: jedi, swifter
+Successfully installed jedi-0.18.2 swifter-1.3.4
 Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
 Requirement already satisfied: gensim in /usr/local/lib/python3.9/dist-packages (4.3.1)
-Requirement already satisfied: numpy&gt;=1.18.5 in /usr/local/lib/python3.9/dist-packages (from gensim) (1.22.4)
 Requirement already satisfied: smart-open&gt;=1.8.1 in /usr/local/lib/python3.9/dist-packages (from gensim) (6.3.0)
+Requirement already satisfied: numpy&gt;=1.18.5 in /usr/local/lib/python3.9/dist-packages (from gensim) (1.22.4)
 Requirement already satisfied: scipy&gt;=1.7.0 in /usr/local/lib/python3.9/dist-packages (from gensim) (1.10.1)
 </pre></div>
 </div>
@@ -550,7 +573,7 @@ Requirement already satisfied: scipy&gt;=1.7.0 in /usr/local/lib/python3.9/dist-
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-d4b3a128-bb44-42d0-b685-82b47405ed8f">
+  <div id="df-fe0b5699-fad6-43b8-ba9e-6ce2e6f78615">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -621,7 +644,7 @@ Requirement already satisfied: scipy&gt;=1.7.0 in /usr/local/lib/python3.9/dist-
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-d4b3a128-bb44-42d0-b685-82b47405ed8f')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-fe0b5699-fad6-43b8-ba9e-6ce2e6f78615')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -672,12 +695,12 @@ Requirement already satisfied: scipy&gt;=1.7.0 in /usr/local/lib/python3.9/dist-
 
       <script>
         const buttonEl =
-          document.querySelector('#df-d4b3a128-bb44-42d0-b685-82b47405ed8f button.colab-df-convert');
+          document.querySelector('#df-fe0b5699-fad6-43b8-ba9e-6ce2e6f78615 button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-d4b3a128-bb44-42d0-b685-82b47405ed8f');
+          const element = document.querySelector('#df-fe0b5699-fad6-43b8-ba9e-6ce2e6f78615');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -922,7 +945,7 @@ Name: Abstrak, Length: 810, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package punkt to /root/nltk_data...
-[nltk_data]   Package punkt is already up-to-date!
+[nltk_data]   Unzipping tokenizers/punkt.zip.
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0      [sistem, informasi, akademik, siakad, merupaka...
@@ -1029,7 +1052,7 @@ Name: comment_normalize, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[nltk_data] Downloading package stopwords to /root/nltk_data...
-[nltk_data]   Package stopwords is already up-to-date!
+[nltk_data]   Unzipping corpora/stopwords.zip.
 </pre></div>
 </div>
 <div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0     [sistem, informasi, akademik, siakad, sistem, ...
@@ -6203,7 +6226,7 @@ pretrained : pretrained
 </div>
 </div>
 <div class="cell_output docutils container">
-<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "5a6dad38b45d460ea8cb04685e806d1b"}</script></div>
+<script type="application/vnd.jupyter.widget-view+json">{"version_major": 2, "version_minor": 0, "model_id": "25fa2c5f3b8a466693e0a242e97599a1"}</script></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -6236,7 +6259,7 @@ Name: stemming, Length: 810, dtype: object
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html">
-  <div id="df-a4ae9414-5201-46d3-a211-e641786f680a">
+  <div id="df-d3ed16a4-82bc-447f-a37b-d8a903cf892c">
     <div class="colab-df-container">
       <div>
 <style scoped>
@@ -6532,7 +6555,7 @@ Name: stemming, Length: 810, dtype: object
   </tbody>
 </table>
 </div>
-      <button class="colab-df-convert" onclick="convertToInteractive('df-a4ae9414-5201-46d3-a211-e641786f680a')"
+      <button class="colab-df-convert" onclick="convertToInteractive('df-d3ed16a4-82bc-447f-a37b-d8a903cf892c')"
               title="Convert this dataframe to an interactive table."
               style="display:none;">
         
@@ -6583,12 +6606,12 @@ Name: stemming, Length: 810, dtype: object
 
       <script>
         const buttonEl =
-          document.querySelector('#df-a4ae9414-5201-46d3-a211-e641786f680a button.colab-df-convert');
+          document.querySelector('#df-d3ed16a4-82bc-447f-a37b-d8a903cf892c button.colab-df-convert');
         buttonEl.style.display =
           google.colab.kernel.accessAllowed ? 'block' : 'none';
 
         async function convertToInteractive(key) {
-          const element = document.querySelector('#df-a4ae9414-5201-46d3-a211-e641786f680a');
+          const element = document.querySelector('#df-d3ed16a4-82bc-447f-a37b-d8a903cf892c');
           const dataTable =
             await google.colab.kernel.invokeFunction('convertToInteractive',
                                                      [key], {});
@@ -6658,8 +6681,8 @@ Name: stemming, Length: 810, dtype: object
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cosine similarity between &#39;teknologi&#39; and &#39;system&#39; - CBOW :  0.9755684
-Cosine similarity between &#39;teknologi&#39; and &#39;mobile&#39; - CBOW :  0.9953545
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Cosine similarity between &#39;teknologi&#39; and &#39;system&#39; - CBOW :  0.9730561
+Cosine similarity between &#39;teknologi&#39; and &#39;mobile&#39; - CBOW :  0.9920812
 </pre></div>
 </div>
 </div>
@@ -6673,20 +6696,1531 @@ Cosine similarity between &#39;teknologi&#39; and &#39;mobile&#39; - CBOW :  0.9
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;kembang&#39;, 0.9991064071655273),
- (&#39;pesat&#39;, 0.9990214109420776),
- (&#39;mobile&#39;, 0.9953543543815613),
- (&#39;reality&#39;, 0.9948616027832031),
- (&#39;didik&#39;, 0.9939413070678711),
- (&#39;interaktif&#39;, 0.9938925504684448),
- (&#39;virtual&#39;, 0.9934832453727722),
- (&#39;maju&#39;, 0.9933517575263977),
- (&#39;augmented&#39;, 0.9931902289390564),
- (&#39;salah&#39;, 0.992928683757782)]
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[(&#39;pesat&#39;, 0.9987122416496277),
+ (&#39;kembang&#39;, 0.9978436231613159),
+ (&#39;reality&#39;, 0.9953564405441284),
+ (&#39;augmented&#39;, 0.9937573075294495),
+ (&#39;salah&#39;, 0.9928197264671326),
+ (&#39;didik&#39;, 0.9927232265472412),
+ (&#39;media&#39;, 0.9924330115318298),
+ (&#39;virtual&#39;, 0.9923315048217773),
+ (&#39;mobile&#39;, 0.9920812845230103),
+ (&#39;interaktif&#39;, 0.991840124130249)]
 </pre></div>
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="tex2jax_ignore mathjax_ignore section" id="tf-idf">
+<h1>TF- IDF<a class="headerlink" href="#tf-idf" title="Permalink to this heading">#</a></h1>
+<p>tf idf dengan sklearn</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># mengambil data hasil proses pre-prosessing sebelumnya untuk kategori dan text hasil stemming</span>
+<span class="n">datap</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s2">&quot;df.xlsx&quot;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;Label&quot;</span><span class="p">,</span> <span class="s2">&quot;stemming&quot;</span><span class="p">])</span>
+<span class="n">datap</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;Label&quot;</span><span class="p">,</span> <span class="s2">&quot;Abstrak&quot;</span><span class="p">]</span>
+<span class="n">datap</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-5365f561-885e-4ece-a756-1ad326d5e0c2">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Label</th>
+      <th>Abstrak</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>RPL</td>
+      <td>['sistem', 'informasi', 'akademik', 'siakad', ...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>RPL</td>
+      <td>['jalan', 'koneksi', 'jaring', 'komputer', 'la...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>RPL</td>
+      <td>['web', 'server', 'perangkat', 'lunak', 'serve...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>komputasi</td>
+      <td>['jadwal', 'kuliah', 'guru', 'kompleks', 'masa...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>komputasi</td>
+      <td>['iring', 'kembang', 'teknologi', 'dunia', 'mu...</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>805</th>
+      <td>komputasi</td>
+      <td>['investasi', 'saham', 'milik', 'resiko', 'rug...</td>
+    </tr>
+    <tr>
+      <th>806</th>
+      <td>PBA</td>
+      <td>['information', 'retrieval', 'ir', 'ambil', 'i...</td>
+    </tr>
+    <tr>
+      <th>807</th>
+      <td>komputasi</td>
+      <td>['klasifikasi', 'citra', 'proses', 'kelompok',...</td>
+    </tr>
+    <tr>
+      <th>808</th>
+      <td>komputasi</td>
+      <td>['identifikasi', 'atribut', 'pejal', 'kaki', '...</td>
+    </tr>
+    <tr>
+      <th>809</th>
+      <td>komputasi</td>
+      <td>['topik', 'deteksi', 'objek', 'tarik', 'perhat...</td>
+    </tr>
+  </tbody>
+</table>
+<p>810 rows × 2 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-5365f561-885e-4ece-a756-1ad326d5e0c2')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-5365f561-885e-4ece-a756-1ad326d5e0c2 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-5365f561-885e-4ece-a756-1ad326d5e0c2');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">datap</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(810, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># join list of token as single document string</span>
+<span class="kn">import</span> <span class="nn">ast</span>
+
+<span class="k">def</span> <span class="nf">join_text_list</span><span class="p">(</span><span class="n">texts</span><span class="p">):</span>
+    <span class="n">texts</span> <span class="o">=</span> <span class="n">ast</span><span class="o">.</span><span class="n">literal_eval</span><span class="p">(</span><span class="n">texts</span><span class="p">)</span>
+    <span class="k">return</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">text</span> <span class="k">for</span> <span class="n">text</span> <span class="ow">in</span> <span class="n">texts</span><span class="p">])</span>
+<span class="n">datap</span><span class="p">[</span><span class="s2">&quot;text_join&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">datap</span><span class="p">[</span><span class="s2">&quot;Abstrak&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="n">join_text_list</span><span class="p">)</span>
+
+<span class="n">datap</span><span class="p">[</span><span class="s2">&quot;text_join&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    sistem informasi akademik siakad sistem inform...
+1    jalan koneksi jaring komputer lancar ganggu ha...
+2    web server perangkat lunak server berfungsimen...
+3    jadwal kuliah guru kompleks masalah variabel t...
+4    iring kembang teknologi dunia muncul teknologi...
+Name: text_join, dtype: object
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span>
+
+<span class="c1"># banyaknya term yang akan digunakan, </span>
+<span class="c1"># di pilih berdasarkan top max_features </span>
+<span class="c1"># yang diurutkan berdasarkan term frequency seluruh corpus</span>
+<span class="n">max_features</span> <span class="o">=</span> <span class="mi">100000</span>
+
+<span class="c1"># Feature Engineering </span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;------- TF-IDF data -------&quot;</span><span class="p">)</span>
+
+<span class="n">tf_idf</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">max_features</span><span class="o">=</span><span class="n">max_features</span><span class="p">,</span> <span class="n">binary</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">tfidf_mat</span> <span class="o">=</span> <span class="n">tf_idf</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">datap</span><span class="p">[</span><span class="s2">&quot;text_join&quot;</span><span class="p">])</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;TF-IDF &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">tfidf_mat</span><span class="p">),</span> <span class="n">tfidf_mat</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>------- TF-IDF data -------
+TF-IDF  &lt;class &#39;numpy.ndarray&#39;&gt; (810, 6440)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">terms</span> <span class="o">=</span> <span class="n">tf_idf</span><span class="o">.</span><span class="n">get_feature_names_out</span><span class="p">()</span> 
+
+<span class="c1"># sum tfidf frequency of each term through documents</span>
+<span class="n">sums</span> <span class="o">=</span> <span class="n">tfidf_mat</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="c1"># connecting term to its sums frequency</span>
+<span class="n">datas</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">term</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">terms</span><span class="p">):</span>
+    <span class="n">datas</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">term</span><span class="p">,</span> <span class="n">sums</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="p">))</span>
+
+<span class="n">ranking</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">datas</span><span class="p">,</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;term&#39;</span><span class="p">,</span><span class="s1">&#39;rank&#39;</span><span class="p">])</span>
+<span class="n">ranking</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="s1">&#39;rank&#39;</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-21d5f6cf-0665-477d-9a39-b8827dc8be33">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>term</th>
+      <th>rank</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2092</th>
+      <td>hasil</td>
+      <td>24.590896</td>
+    </tr>
+    <tr>
+      <th>5360</th>
+      <td>sistem</td>
+      <td>23.413487</td>
+    </tr>
+    <tr>
+      <th>3602</th>
+      <td>metode</td>
+      <td>23.343594</td>
+    </tr>
+    <tr>
+      <th>5792</th>
+      <td>teliti</td>
+      <td>22.814735</td>
+    </tr>
+    <tr>
+      <th>3846</th>
+      <td>nilai</td>
+      <td>21.429353</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>5231</th>
+      <td>sepertidiabetes</td>
+      <td>0.129503</td>
+    </tr>
+    <tr>
+      <th>564</th>
+      <td>beberapatahapan</td>
+      <td>0.129503</td>
+    </tr>
+    <tr>
+      <th>5115</th>
+      <td>secaramanual</td>
+      <td>0.129503</td>
+    </tr>
+    <tr>
+      <th>3088</th>
+      <td>lce</td>
+      <td>0.129503</td>
+    </tr>
+    <tr>
+      <th>1121</th>
+      <td>dalamjangka</td>
+      <td>0.129503</td>
+    </tr>
+  </tbody>
+</table>
+<p>6440 rows × 2 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-21d5f6cf-0665-477d-9a39-b8827dc8be33')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-21d5f6cf-0665-477d-9a39-b8827dc8be33 button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-21d5f6cf-0665-477d-9a39-b8827dc8be33');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  </div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_extraction.text</span> <span class="kn">import</span> <span class="n">TfidfVectorizer</span><span class="p">,</span> <span class="n">CountVectorizer</span>
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">normalize</span>
+
+<span class="n">max_features</span> <span class="o">=</span> <span class="mi">10000</span>
+
+<span class="c1"># calc TF vector</span>
+<span class="n">cvect</span> <span class="o">=</span> <span class="n">CountVectorizer</span><span class="p">(</span><span class="n">max_features</span><span class="o">=</span><span class="n">max_features</span><span class="p">)</span>
+<span class="n">TF_vector</span> <span class="o">=</span> <span class="n">cvect</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">datap</span><span class="p">[</span><span class="s2">&quot;text_join&quot;</span><span class="p">])</span>
+
+<span class="c1"># normalize TF vector</span>
+<span class="n">normalized_TF_vector</span> <span class="o">=</span> <span class="n">normalize</span><span class="p">(</span><span class="n">TF_vector</span><span class="p">,</span> <span class="n">norm</span><span class="o">=</span><span class="s1">&#39;l1&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="c1"># calc IDF</span>
+<span class="n">tfidf</span> <span class="o">=</span> <span class="n">TfidfVectorizer</span><span class="p">(</span><span class="n">max_features</span><span class="o">=</span><span class="n">max_features</span><span class="p">,</span> <span class="n">smooth_idf</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">tfs</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">datap</span><span class="p">[</span><span class="s2">&quot;text_join&quot;</span><span class="p">])</span>
+<span class="n">IDF_vector</span> <span class="o">=</span> <span class="n">tfidf</span><span class="o">.</span><span class="n">idf_</span>
+
+<span class="c1"># hitung TF x IDF sehingga dihasilkan TFIDF matrix / vector</span>
+<span class="n">tfidf_mat</span> <span class="o">=</span> <span class="n">normalized_TF_vector</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">IDF_vector</span><span class="p">)</span><span class="o">.</span><span class="n">toarray</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># hasil dari tf-idf </span>
+<span class="n">dfbtf</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">tfidf_mat</span><span class="p">,</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="n">terms</span><span class="p">])</span>
+<span class="n">dfbtf</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-7546456d-3f70-41ae-9222-28f4048e156e">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead tr th {
+        text-align: left;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr>
+      <th></th>
+      <th>aalysis</th>
+      <th>aam</th>
+      <th>abad</th>
+      <th>abadi</th>
+      <th>abai</th>
+      <th>abdi</th>
+      <th>ability</th>
+      <th>abjad</th>
+      <th>absah</th>
+      <th>absensi</th>
+      <th>...</th>
+      <th>zara</th>
+      <th>zat</th>
+      <th>zcz</th>
+      <th>zf</th>
+      <th>zona</th>
+      <th>zone</th>
+      <th>zoning</th>
+      <th>zoom</th>
+      <th>zucara</th>
+      <th>zungu</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>805</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>806</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>807</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>808</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>809</th>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>...</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+<p>810 rows × 6440 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-7546456d-3f70-41ae-9222-28f4048e156e')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-7546456d-3f70-41ae-9222-28f4048e156e button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-7546456d-3f70-41ae-9222-28f4048e156e');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  </div></div>
+</div>
+<p>PCA</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># proses pca menjadi 150 fitur</span>
+<span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="n">pca_abstrak</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="mi">150</span><span class="p">)</span>
+<span class="n">principalComponents_abstrak</span> <span class="o">=</span> <span class="n">pca_abstrak</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">dfbtf</span><span class="p">)</span>
+<span class="n">pca_abstrak</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">principalComponents_abstrak</span><span class="p">)</span>
+<span class="n">pca_abstrak</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html">
+  <div id="df-e2010ae6-f426-44f8-ba22-cdb6bc7ca75d">
+    <div class="colab-df-container">
+      <div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+      <th>1</th>
+      <th>2</th>
+      <th>3</th>
+      <th>4</th>
+      <th>5</th>
+      <th>6</th>
+      <th>7</th>
+      <th>8</th>
+      <th>9</th>
+      <th>...</th>
+      <th>140</th>
+      <th>141</th>
+      <th>142</th>
+      <th>143</th>
+      <th>144</th>
+      <th>145</th>
+      <th>146</th>
+      <th>147</th>
+      <th>148</th>
+      <th>149</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-0.016021</td>
+      <td>-0.071515</td>
+      <td>-0.020457</td>
+      <td>-0.033010</td>
+      <td>-0.038718</td>
+      <td>-0.033752</td>
+      <td>-0.051012</td>
+      <td>-0.032502</td>
+      <td>-0.022019</td>
+      <td>0.015237</td>
+      <td>...</td>
+      <td>-0.043477</td>
+      <td>0.015453</td>
+      <td>0.005694</td>
+      <td>-0.048961</td>
+      <td>0.036145</td>
+      <td>-0.001895</td>
+      <td>-0.022025</td>
+      <td>0.025935</td>
+      <td>-0.010782</td>
+      <td>-0.006862</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.006575</td>
+      <td>-0.033075</td>
+      <td>-0.029853</td>
+      <td>-0.071363</td>
+      <td>-0.020505</td>
+      <td>-0.076653</td>
+      <td>-0.038907</td>
+      <td>0.027395</td>
+      <td>0.162624</td>
+      <td>0.144286</td>
+      <td>...</td>
+      <td>-0.057794</td>
+      <td>-0.007371</td>
+      <td>0.016852</td>
+      <td>-0.141982</td>
+      <td>-0.011823</td>
+      <td>0.126498</td>
+      <td>-0.060477</td>
+      <td>-0.022562</td>
+      <td>0.067367</td>
+      <td>0.017174</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0.010881</td>
+      <td>-0.030513</td>
+      <td>-0.063718</td>
+      <td>-0.065428</td>
+      <td>-0.087434</td>
+      <td>-0.104893</td>
+      <td>0.091026</td>
+      <td>-0.200680</td>
+      <td>0.024791</td>
+      <td>-0.007083</td>
+      <td>...</td>
+      <td>0.026157</td>
+      <td>0.015484</td>
+      <td>0.022994</td>
+      <td>0.070830</td>
+      <td>0.021169</td>
+      <td>-0.037000</td>
+      <td>0.022179</td>
+      <td>-0.014510</td>
+      <td>-0.040011</td>
+      <td>0.001030</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0.013570</td>
+      <td>-0.045700</td>
+      <td>-0.059762</td>
+      <td>0.039963</td>
+      <td>-0.006492</td>
+      <td>-0.040825</td>
+      <td>-0.009854</td>
+      <td>-0.049100</td>
+      <td>0.273521</td>
+      <td>-0.264394</td>
+      <td>...</td>
+      <td>0.003418</td>
+      <td>0.007039</td>
+      <td>-0.001094</td>
+      <td>0.015335</td>
+      <td>0.033935</td>
+      <td>0.018256</td>
+      <td>0.023057</td>
+      <td>-0.055040</td>
+      <td>0.014288</td>
+      <td>0.015252</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0.062473</td>
+      <td>0.020767</td>
+      <td>0.019382</td>
+      <td>-0.003095</td>
+      <td>-0.009477</td>
+      <td>-0.142502</td>
+      <td>-0.038306</td>
+      <td>0.044887</td>
+      <td>0.014183</td>
+      <td>0.018826</td>
+      <td>...</td>
+      <td>-0.027702</td>
+      <td>-0.010498</td>
+      <td>-0.011043</td>
+      <td>0.006083</td>
+      <td>0.006704</td>
+      <td>-0.013726</td>
+      <td>-0.003713</td>
+      <td>-0.024695</td>
+      <td>0.023148</td>
+      <td>-0.041261</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>805</th>
+      <td>-0.011479</td>
+      <td>-0.016357</td>
+      <td>-0.002511</td>
+      <td>-0.009939</td>
+      <td>-0.010630</td>
+      <td>0.015688</td>
+      <td>0.028308</td>
+      <td>0.037535</td>
+      <td>0.048756</td>
+      <td>0.014492</td>
+      <td>...</td>
+      <td>0.033775</td>
+      <td>-0.029008</td>
+      <td>-0.021952</td>
+      <td>0.053857</td>
+      <td>-0.010262</td>
+      <td>0.006768</td>
+      <td>0.042625</td>
+      <td>0.011365</td>
+      <td>-0.051791</td>
+      <td>-0.023572</td>
+    </tr>
+    <tr>
+      <th>806</th>
+      <td>-0.011564</td>
+      <td>-0.014801</td>
+      <td>-0.030022</td>
+      <td>-0.022091</td>
+      <td>-0.048483</td>
+      <td>-0.029848</td>
+      <td>0.088638</td>
+      <td>-0.118393</td>
+      <td>0.005543</td>
+      <td>-0.031998</td>
+      <td>...</td>
+      <td>0.002313</td>
+      <td>0.042526</td>
+      <td>-0.002184</td>
+      <td>-0.024396</td>
+      <td>-0.017381</td>
+      <td>0.006215</td>
+      <td>-0.023690</td>
+      <td>0.012242</td>
+      <td>0.014279</td>
+      <td>-0.003385</td>
+    </tr>
+    <tr>
+      <th>807</th>
+      <td>-0.107334</td>
+      <td>0.070779</td>
+      <td>-0.009322</td>
+      <td>0.022946</td>
+      <td>-0.026515</td>
+      <td>0.007852</td>
+      <td>0.042633</td>
+      <td>0.021233</td>
+      <td>-0.009676</td>
+      <td>-0.004305</td>
+      <td>...</td>
+      <td>0.001759</td>
+      <td>0.033325</td>
+      <td>0.046539</td>
+      <td>-0.018195</td>
+      <td>0.008916</td>
+      <td>0.008208</td>
+      <td>-0.032140</td>
+      <td>-0.019110</td>
+      <td>-0.010676</td>
+      <td>0.024202</td>
+    </tr>
+    <tr>
+      <th>808</th>
+      <td>-0.068449</td>
+      <td>0.039893</td>
+      <td>-0.003077</td>
+      <td>0.013662</td>
+      <td>-0.003782</td>
+      <td>0.004523</td>
+      <td>0.046895</td>
+      <td>0.035416</td>
+      <td>-0.006223</td>
+      <td>0.033510</td>
+      <td>...</td>
+      <td>0.016271</td>
+      <td>0.002851</td>
+      <td>0.004730</td>
+      <td>-0.017751</td>
+      <td>0.023045</td>
+      <td>-0.015785</td>
+      <td>-0.019872</td>
+      <td>0.012836</td>
+      <td>-0.013779</td>
+      <td>0.027003</td>
+    </tr>
+    <tr>
+      <th>809</th>
+      <td>-0.039400</td>
+      <td>0.020052</td>
+      <td>0.020505</td>
+      <td>0.001323</td>
+      <td>-0.022238</td>
+      <td>-0.027625</td>
+      <td>0.014025</td>
+      <td>-0.010100</td>
+      <td>0.018173</td>
+      <td>-0.005171</td>
+      <td>...</td>
+      <td>-0.016610</td>
+      <td>0.012381</td>
+      <td>0.013693</td>
+      <td>0.011727</td>
+      <td>-0.022301</td>
+      <td>-0.010532</td>
+      <td>-0.020892</td>
+      <td>-0.060220</td>
+      <td>0.010949</td>
+      <td>-0.018538</td>
+    </tr>
+  </tbody>
+</table>
+<p>810 rows × 150 columns</p>
+</div>
+      <button class="colab-df-convert" onclick="convertToInteractive('df-e2010ae6-f426-44f8-ba22-cdb6bc7ca75d')"
+              title="Convert this dataframe to an interactive table."
+              style="display:none;">
+        
+  <svg xmlns="http://www.w3.org/2000/svg" height="24px"viewBox="0 0 24 24"
+       width="24px">
+    <path d="M0 0h24v24H0V0z" fill="none"/>
+    <path d="M18.56 5.44l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94zm-11 1L8.5 8.5l.94-2.06 2.06-.94-2.06-.94L8.5 2.5l-.94 2.06-2.06.94zm10 10l.94 2.06.94-2.06 2.06-.94-2.06-.94-.94-2.06-.94 2.06-2.06.94z"/><path d="M17.41 7.96l-1.37-1.37c-.4-.4-.92-.59-1.43-.59-.52 0-1.04.2-1.43.59L10.3 9.45l-7.72 7.72c-.78.78-.78 2.05 0 2.83L4 21.41c.39.39.9.59 1.41.59.51 0 1.02-.2 1.41-.59l7.78-7.78 2.81-2.81c.8-.78.8-2.07 0-2.86zM5.41 20L4 18.59l7.72-7.72 1.47 1.35L5.41 20z"/>
+  </svg>
+      </button>
+      
+  <style>
+    .colab-df-container {
+      display:flex;
+      flex-wrap:wrap;
+      gap: 12px;
+    }
+
+    .colab-df-convert {
+      background-color: #E8F0FE;
+      border: none;
+      border-radius: 50%;
+      cursor: pointer;
+      display: none;
+      fill: #1967D2;
+      height: 32px;
+      padding: 0 0 0 0;
+      width: 32px;
+    }
+
+    .colab-df-convert:hover {
+      background-color: #E2EBFA;
+      box-shadow: 0px 1px 2px rgba(60, 64, 67, 0.3), 0px 1px 3px 1px rgba(60, 64, 67, 0.15);
+      fill: #174EA6;
+    }
+
+    [theme=dark] .colab-df-convert {
+      background-color: #3B4455;
+      fill: #D2E3FC;
+    }
+
+    [theme=dark] .colab-df-convert:hover {
+      background-color: #434B5C;
+      box-shadow: 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
+      filter: drop-shadow(0px 1px 2px rgba(0, 0, 0, 0.3));
+      fill: #FFFFFF;
+    }
+  </style>
+
+      <script>
+        const buttonEl =
+          document.querySelector('#df-e2010ae6-f426-44f8-ba22-cdb6bc7ca75d button.colab-df-convert');
+        buttonEl.style.display =
+          google.colab.kernel.accessAllowed ? 'block' : 'none';
+
+        async function convertToInteractive(key) {
+          const element = document.querySelector('#df-e2010ae6-f426-44f8-ba22-cdb6bc7ca75d');
+          const dataTable =
+            await google.colab.kernel.invokeFunction('convertToInteractive',
+                                                     [key], {});
+          if (!dataTable) return;
+
+          const docLinkHtml = 'Like what you see? Visit the ' +
+            '<a target="_blank" href=https://colab.research.google.com/notebooks/data_table.ipynb>data table notebook</a>'
+            + ' to learn more about interactive tables.';
+          element.innerHTML = '';
+          dataTable['output_type'] = 'display_data';
+          await google.colab.output.renderOutput(dataTable, element);
+          const docLink = document.createElement('div');
+          docLink.innerHTML = docLinkHtml;
+          element.appendChild(docLink);
+        }
+      </script>
+    </div>
+  </div>
+  </div></div>
+</div>
+<p>Split Data</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># split tanpa PCA</span>
+<span class="n">X</span><span class="o">=</span><span class="n">dfbtf</span>
+<span class="n">y</span><span class="o">=</span><span class="n">datap</span><span class="p">[</span><span class="s1">&#39;Label&#39;</span><span class="p">]</span>
+
+<span class="n">X_train</span><span class="p">,</span><span class="n">X_test</span><span class="p">,</span><span class="n">y_train</span><span class="p">,</span><span class="n">y_test</span><span class="o">=</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">X</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># split  PCA</span>
+<span class="n">pca_X</span><span class="o">=</span><span class="n">pca_abstrak</span>
+<span class="n">pca_y</span><span class="o">=</span><span class="n">datap</span><span class="p">[</span><span class="s1">&#39;Label&#39;</span><span class="p">]</span>
+
+<span class="n">pca_X_train</span><span class="p">,</span><span class="n">pca_X_test</span><span class="p">,</span><span class="n">pca_y_train</span><span class="p">,</span><span class="n">pca_y_test</span><span class="o">=</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">pca_X</span><span class="p">,</span><span class="n">pca_y</span><span class="p">,</span><span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Naive Bayes</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># HASIL AKURASI TANPA PCA</span>
+<span class="n">gaussian</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+<span class="n">gaussian</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+<span class="n">YY_pred</span> <span class="o">=</span> <span class="n">gaussian</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+<span class="n">accuracy_nb</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">YY_pred</span><span class="p">)</span><span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">accuracy_nb</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>74.9
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># HASIL AKURASI dengan PCA</span>
+<span class="n">pca_gaussian</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+<span class="n">pca_gaussian</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">pca_X_train</span><span class="p">,</span> <span class="n">pca_y_train</span><span class="p">)</span>
+<span class="n">pca_Y_pred</span> <span class="o">=</span> <span class="n">pca_gaussian</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">pca_X_test</span><span class="p">)</span>
+<span class="n">accuracy_nb_pca</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">pca_y_test</span><span class="p">,</span><span class="n">pca_Y_pred</span><span class="p">)</span><span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">accuracy_nb_pca</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>69.14
+</pre></div>
+</div>
+</div>
+</div>
+<p>KNN</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># HASIL AKURASI TANPA PCA</span>
+<span class="n">knn_clf</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">knn_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+
+<span class="n">y_pred</span> <span class="o">=</span> <span class="n">knn_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+
+<span class="n">accuracy_KNN</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">accuracy_KNN</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>74.9
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># HASIL AKURASI MEMAKAI PCA</span>
+<span class="n">pca_knn_clf</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">pca_knn_clf</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">pca_X_train</span><span class="p">,</span><span class="n">pca_y_train</span><span class="p">)</span>
+
+<span class="n">pca_y_pred</span> <span class="o">=</span> <span class="n">pca_knn_clf</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">pca_X_test</span><span class="p">)</span>
+
+<span class="n">accuracy_KNN_pca</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">pca_y_test</span><span class="p">,</span><span class="n">pca_y_pred</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">accuracy_KNN_pca</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>80.25
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="pencarian-nilai-k-terbaik-untuk-metode-knn">
+<h2>pencarian nilai k terbaik untuk metode knn<a class="headerlink" href="#pencarian-nilai-k-terbaik-untuk-metode-knn" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">pandas.core.missing</span> <span class="kn">import</span> <span class="n">mask_missing</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+
+<span class="c1"># membuat loopingan untuk mengecek score data dari data 1 sampai 500</span>
+<span class="n">data</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#menyimpan hasil score tanpa pca</span>
+<span class="n">data_pca</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#menyimpan hasil score dengan pca</span>
+<span class="n">data1</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#menyimpan data yang memiliki score terbesar tanpa pca</span>
+<span class="n">data1_pca</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#menyimpan data yang memiliki score terbesar dengan pca</span>
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">500</span><span class="p">):</span>
+  <span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="n">i</span><span class="p">)</span>
+  <span class="c1"># knn tanpa pca</span>
+  <span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">X_train</span><span class="p">,</span><span class="n">y_train</span><span class="p">)</span>
+  <span class="n">y_pred</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">X_test</span><span class="p">)</span>
+  <span class="n">accuracy_KNN</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span><span class="n">y_pred</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+  <span class="n">data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy_KNN</span><span class="p">)</span>
+
+  <span class="c1">#knn dengan pca</span>
+  <span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">pca_X_train</span><span class="p">,</span><span class="n">pca_y_train</span><span class="p">)</span>
+  <span class="n">pca_y_pred</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">pca_X_test</span><span class="p">)</span>
+  <span class="n">accuracy_KNN_pca</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">pca_y_test</span><span class="p">,</span><span class="n">pca_y_pred</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+  <span class="n">data_pca</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy_KNN_pca</span><span class="p">)</span>
+
+<span class="n">maksimum</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+<span class="n">maksimum_pca</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data_pca</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+
+  <span class="k">if</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">maksimum</span><span class="p">:</span>
+    <span class="n">data1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">data_pca</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">maksimum_pca</span><span class="p">:</span>
+    <span class="n">data1_pca</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;nilai akurasi maksimum untuk data tanpa pca adalah : &#39;</span><span class="p">,</span><span class="n">maksimum</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;nilai k maksimum untuk data tanpa pca adalah nilai k ke- &quot;</span><span class="p">,</span><span class="n">data1</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;nilai akurasi maksimum untuk data menggunakan pca adalah : &#39;</span><span class="p">,</span><span class="n">maksimum_pca</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;nilai k maksimum untuk data menggunakan pca adalah nilai k ke-&quot;</span><span class="p">,</span><span class="n">data1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nilai akurasi maksimum untuk data tanpa pca adalah :  76.54
+nilai k maksimum untuk data tanpa pca adalah nilai k ke-  [5]
+nilai akurasi maksimum untuk data menggunakan pca adalah :  82.3
+nilai k maksimum untuk data menggunakan pca adalah nilai k ke- [5]
+</pre></div>
+</div>
+</div>
+</div>
+<ul class="simple">
+<li><p>nilai k terbaik untuk data tanpa pca adalah nilai k ke-5 dengan akurasi sebesar 76.54 % sedangkan nilai k terbaik untuk data dengan menggunakan pca adalah nilai k ke- 5 dengan akurasi sebesar 82.3 %</p></li>
+<li><p>sehingga dari hasil di atas dengan metode knn lebih baik menggunakan pca dengan menggunakan nilai k 5 dengan akurasi maksimumnya adalah 82.3 %</p></li>
+</ul>
+</div>
+<div class="section" id="pencarian-nilai-pca-terbaik">
+<h2>Pencarian nilai PCA terbaik<a class="headerlink" href="#pencarian-nilai-pca-terbaik" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.decomposition</span> <span class="kn">import</span> <span class="n">PCA</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.neighbors</span> <span class="kn">import</span> <span class="n">KNeighborsClassifier</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span>
+<span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">GridSearchCV</span>
+<span class="kn">from</span> <span class="nn">sklearn.naive_bayes</span> <span class="kn">import</span> <span class="n">GaussianNB</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data_nb</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#menyimpan hasil score naive bayes</span>
+<span class="n">data_knn</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#menyimpan hasil score knn</span>
+<span class="n">data1</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1">#menyimpan data akurasi yang memiliki score terbesar</span>
+<span class="n">data2</span> <span class="o">=</span> <span class="p">[]</span> 
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">500</span><span class="p">):</span>
+  <span class="n">pca_abstrak</span> <span class="o">=</span> <span class="n">PCA</span><span class="p">(</span><span class="n">n_components</span><span class="o">=</span><span class="n">i</span><span class="p">)</span>
+  <span class="n">principalComponents_abstrak</span> <span class="o">=</span> <span class="n">pca_abstrak</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">dfbtf</span><span class="p">)</span>
+  <span class="n">pca_abstrak1</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">principalComponents_abstrak</span><span class="p">)</span>
+
+  <span class="c1"># split  PCA</span>
+  <span class="n">pca_X</span><span class="o">=</span><span class="n">pca_abstrak1</span>
+  <span class="n">pca_y</span><span class="o">=</span><span class="n">datap</span><span class="p">[</span><span class="s1">&#39;Label&#39;</span><span class="p">]</span>
+  <span class="n">pca_X_train</span><span class="p">,</span><span class="n">pca_X_test</span><span class="p">,</span><span class="n">pca_y_train</span><span class="p">,</span><span class="n">pca_y_test</span><span class="o">=</span><span class="n">train_test_split</span><span class="p">(</span><span class="n">pca_X</span><span class="p">,</span><span class="n">pca_y</span><span class="p">,</span><span class="n">test_size</span><span class="o">=</span><span class="mf">0.3</span><span class="p">,</span><span class="n">random_state</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+
+  <span class="c1"># HASIL AKURASI dengan PCA</span>
+  <span class="c1"># naive bayes</span>
+  <span class="n">gaussian</span> <span class="o">=</span> <span class="n">GaussianNB</span><span class="p">()</span>
+  <span class="n">gaussian</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">pca_X_train</span><span class="p">,</span> <span class="n">pca_y_train</span><span class="p">)</span>
+  <span class="n">pca_Y_pred</span> <span class="o">=</span> <span class="n">gaussian</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">pca_X_test</span><span class="p">)</span>
+  <span class="n">accuracy_nb_pca2</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">pca_y_test</span><span class="p">,</span><span class="n">pca_Y_pred</span><span class="p">)</span><span class="o">*</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+  <span class="n">data_nb</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy_nb_pca2</span><span class="p">)</span>
+
+  <span class="c1"># knn</span>
+  <span class="n">knn</span> <span class="o">=</span> <span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span> <span class="o">=</span> <span class="mi">9</span><span class="p">)</span>
+  <span class="n">knn</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">pca_X_train</span><span class="p">,</span><span class="n">pca_y_train</span><span class="p">)</span>
+  <span class="n">pca_y_pred</span> <span class="o">=</span> <span class="n">knn</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">pca_X_test</span><span class="p">)</span>
+  <span class="n">accuracy_KNN_pca</span><span class="o">=</span><span class="nb">round</span><span class="p">(</span><span class="n">accuracy_score</span><span class="p">(</span><span class="n">pca_y_test</span><span class="p">,</span><span class="n">pca_y_pred</span><span class="p">)</span><span class="o">*</span><span class="mi">100</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+  <span class="n">data_knn</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">accuracy_KNN_pca</span><span class="p">)</span>
+
+<span class="n">maksimum_nb</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data_nb</span><span class="p">)</span>
+<span class="n">maksimum_knn</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">data_knn</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span> <span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+  <span class="k">if</span> <span class="n">data_nb</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">maksimum_nb</span><span class="p">:</span>
+    <span class="n">data1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">data_knn</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">==</span> <span class="n">maksimum_knn</span><span class="p">:</span>
+    <span class="n">data2</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;nilai akurasi naive bayes maksimum yang di dapatkan : &#39;</span><span class="p">,</span><span class="n">maksimum_nb</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;nilai pca naive bayes maksimum&quot;</span><span class="p">,</span><span class="n">data1</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;jumlah nilai pca naive bayes maksimum&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">data1</span><span class="p">))</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s1">&#39;nilai akurasi knn maksimum yang di dapatkan : &#39;</span><span class="p">,</span><span class="n">maksimum_knn</span><span class="p">)</span>
+<span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;jumlah nilai pca KNN maksimum&quot;</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">data2</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nilai akurasi naive bayes maksimum yang di dapatkan :  74.9
+nilai pca naive bayes maksimum [9]
+jumlah nilai pca naive bayes maksimum 1
+nilai akurasi knn maksimum yang di dapatkan :  84.36
+jumlah nilai pca KNN maksimum 1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="s2">&quot;nilai pca knn maksimum&quot;</span><span class="p">,</span><span class="n">data2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>nilai pca knn maksimum [48]
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="kesimpulan">
+<h2>Kesimpulan<a class="headerlink" href="#kesimpulan" title="Permalink to this heading">#</a></h2>
+<p>dari hasil pencarian nilai yang terbaik dari 500 kali percobaan, akurasi terbaik untuk metode knn adalah 84.36 % dan nilai akurasi terbaik untuk naive bayes adalah 74.9 %</p>
+<p>sedangkan nilai pca yang memiliki nilai akurasi tertinggi untuk naive bayes ada pada pca ke 9 dengan nilai akurasi 74.9 % dan untuk knn nilai pca tebaik adalah pca ke 48 yang menghasilkan akurasi 84.36 %</p>
+<p>sehingga dari kedua metode yang terbaik adalah dengan menggunakan pca knn dengan akurasi sebesar 84.36 %</p>
 </div>
 </div>
 
@@ -6759,6 +8293,12 @@ Cosine similarity between &#39;teknologi&#39; and &#39;mobile&#39; - CBOW :  0.9
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#word-embedding-word2vec-cbow">Word Embedding Word2vec CBOW</a></li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#tf-idf">TF- IDF</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pencarian-nilai-k-terbaik-untuk-metode-knn">pencarian nilai k terbaik untuk metode knn</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#pencarian-nilai-pca-terbaik">Pencarian nilai PCA terbaik</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kesimpulan">Kesimpulan</a></li>
 </ul>
 </li>
 </ul>
