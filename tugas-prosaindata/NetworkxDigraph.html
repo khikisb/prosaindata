@@ -1,0 +1,659 @@
+
+
+<!DOCTYPE html>
+
+
+<html lang="en" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NetworkxDigraph &#8212; Proyek Sains Data</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "light";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=e353d410970836974a52" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=e353d410970836974a52" rel="stylesheet" />
+
+  
+  <link href="../_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=e353d410970836974a52" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" href="../_static/styles/sphinx-book-theme.css?digest=14f4ca6b54d191a8c7657f6c759bf11a5fb86285" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=e353d410970836974a52" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52" />
+
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?digest=5a5c038af52cf7bc1a1ec88eea08e6366ee68824"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="../_static/togglebutton.js"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="../_static/design-tabs.js"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"
+const thebe_selector = ".thebe,.cell"
+const thebe_selector_input = "pre"
+const thebe_selector_output = ".output, .cell_output"
+</script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'tugas-prosaindata/NetworkxDigraph';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Text Summarization" href="Text-Summarization.html" />
+    <link rel="prev" title="UTS Proyek Sains Data" href="21-112_Okhi%20Sahrul%20Barkah_UTS.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__primary"
+          id="__primary"/>
+  <label class="overlay overlay-primary" for="__primary"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          name="__secondary"
+          id="__secondary"/>
+  <label class="overlay overlay-secondary" for="__secondary"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+  
+    <nav class="bd-header navbar navbar-expand-lg bd-navbar">
+    </nav>
+  
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+  
+
+<a class="navbar-brand logo" href="../intro.html">
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/Okhi.png" class="logo__image only-light" alt="Logo image"/>
+    <script>document.write(`<img src="../_static/Okhi.png" class="logo__image only-dark" alt="Logo image"/>`);</script>
+  
+  
+</a></div>
+        <div class="sidebar-primary-item"><nav class="bd-links" id="bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="../intro.html">
+                    Proyek Sains Data
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Twitter.html">Tugas 1 Crawling data Twitter</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ScrapeDataUTM.html">Scrape Website pta.trunojoyo.ac.id with Beautiful Soap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="beritaOnline.html">Scrape data dari berita online (DETIK.COM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas2-Okhi%20Sahrul%20Barkah.html">Tugas 2 Memanggil data iris di 4 database yang berbeda</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Tugas3.html">Tugas 3 Memanggil data iris di 4 database yang berbeda, dan merekayasa fitur Menggunakan PCA</a></li>
+
+
+
+
+<li class="toctree-l1"><a class="reference internal" href="Tugas4.html">Tugas 4 Data Time Series</a></li>
+<li class="toctree-l1"><a class="reference internal" href="21-112_Okhi%20Sahrul%20Barkah_UTS.html">UTS Proyek Sains Data</a></li>
+
+
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">NetworkxDigraph</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Text-Summarization.html">Text Summarization</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><label class="sidebar-toggle primary-toggle btn btn-sm" for="__primary" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</label></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2Ftugas-prosaindata/NetworkxDigraph.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/tugas-prosaindata/NetworkxDigraph.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+<script>
+document.write(`
+  <button class="theme-switch-button btn btn-sm btn-outline-primary navbar-btn rounded-circle" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="theme-switch" data-mode="light"><i class="fa-solid fa-sun"></i></span>
+    <span class="theme-switch" data-mode="dark"><i class="fa-solid fa-moon"></i></span>
+    <span class="theme-switch" data-mode="auto"><i class="fa-solid fa-circle-half-stroke"></i></span>
+  </button>
+`);
+</script>
+
+<script>
+document.write(`
+  <button class="btn btn-sm navbar-btn search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+  </button>
+`);
+</script>
+<label class="sidebar-toggle secondary-toggle btn btn-sm" for="__secondary"title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</label>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>NetworkxDigraph</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengimport-library-networkx-sebagai-nx-dan-membuat-sebuah-directed-graph">Mengimport library NetworkX sebagai nx dan Membuat sebuah directed graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menambahkan-edge-edge-pada-graph">Menambahkan edge-edge pada graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-pagerank-menggunakan-method-nx-pagerank">Menghitung pagerank menggunakan method nx.pagerank()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-algoritma-pagerank-dengan-menggunakan-iterasi-secara-manual-menggunakan-library-networkx">Implementasi algoritma PageRank dengan menggunakan iterasi secara manual menggunakan library NetworkX</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article" role="main">
+                  
+  <div class="tex2jax_ignore mathjax_ignore section" id="networkxdigraph">
+<h1>NetworkxDigraph<a class="headerlink" href="#networkxdigraph" title="Permalink to this heading">#</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pip</span> <span class="n">install</span> <span class="n">networkx</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
+Requirement already satisfied: networkx in /usr/local/lib/python3.9/dist-packages (3.1)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="mengimport-library-networkx-sebagai-nx-dan-membuat-sebuah-directed-graph">
+<h2>Mengimport library NetworkX sebagai nx dan Membuat sebuah directed graph<a class="headerlink" href="#mengimport-library-networkx-sebagai-nx-dan-membuat-sebuah-directed-graph" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">networkx</span> <span class="k">as</span> <span class="nn">nx</span>
+<span class="n">G</span> <span class="o">=</span> <span class="n">nx</span><span class="o">.</span><span class="n">DiGraph</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="menambahkan-edge-edge-pada-graph">
+<h2>Menambahkan edge-edge pada graph<a class="headerlink" href="#menambahkan-edge-edge-pada-graph" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="n">G</span><span class="o">.</span><span class="n">add_edge</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span><span class="o">.</span><span class="n">draw</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">with_labels</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/31046755f499e0466505a8bba53ef95adc43e66d64f15db09f644af507bfdb16.png" src="../_images/31046755f499e0466505a8bba53ef95adc43e66d64f15db09f644af507bfdb16.png" />
+</div>
+</div>
+</div>
+<div class="section" id="menghitung-pagerank-menggunakan-method-nx-pagerank">
+<h2>Menghitung pagerank menggunakan method nx.pagerank()<a class="headerlink" href="#menghitung-pagerank-menggunakan-method-nx-pagerank" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nx</span><span class="o">.</span><span class="n">pagerank</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.85</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1: 0.0754684514178472,
+ 2: 0.062416863172959705,
+ 3: 0.062416863172959705,
+ 4: 0.062416863172959705,
+ 5: 0.09408881551992201,
+ 6: 0.12061617883655987,
+ 7: 0.08102176279375409,
+ 8: 0.18354510310914324,
+ 9: 0.25800909880389444}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="implementasi-algoritma-pagerank-dengan-menggunakan-iterasi-secara-manual-menggunakan-library-networkx">
+<h2>Implementasi algoritma PageRank dengan menggunakan iterasi secara manual menggunakan library NetworkX<a class="headerlink" href="#implementasi-algoritma-pagerank-dengan-menggunakan-iterasi-secara-manual-menggunakan-library-networkx" title="Permalink to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">pagerank_iter</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.85</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">tol</span><span class="o">=</span><span class="mf">1.0e-6</span><span class="p">):</span>
+    <span class="n">pr</span> <span class="o">=</span> <span class="p">{</span><span class="n">node</span><span class="p">:</span> <span class="mi">1</span><span class="o">/</span><span class="n">G</span><span class="o">.</span><span class="n">number_of_nodes</span><span class="p">()</span> <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">()}</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Iteration 0: </span><span class="si">{</span><span class="n">pr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">max_iter</span><span class="p">):</span>
+        <span class="n">old_pr</span> <span class="o">=</span> <span class="n">pr</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">diff</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">node</span> <span class="ow">in</span> <span class="n">G</span><span class="o">.</span><span class="n">nodes</span><span class="p">():</span>
+            <span class="n">incoming_edges</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">in_edges</span><span class="p">(</span><span class="n">node</span><span class="p">))</span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">incoming_edges</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="n">pr</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">incoming_weights</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">([</span><span class="n">old_pr</span><span class="p">[</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">G</span><span class="o">.</span><span class="n">out_edges</span><span class="p">(</span><span class="n">edge</span><span class="p">[</span><span class="mi">0</span><span class="p">]))</span> <span class="k">for</span> <span class="n">edge</span> <span class="ow">in</span> <span class="n">incoming_edges</span><span class="p">])</span>
+                <span class="n">pr</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">1</span> <span class="o">-</span> <span class="n">alpha</span><span class="p">)</span> <span class="o">/</span> <span class="n">G</span><span class="o">.</span><span class="n">number_of_nodes</span><span class="p">()</span> <span class="o">+</span> <span class="n">alpha</span> <span class="o">*</span> <span class="n">incoming_weights</span>
+            <span class="n">diff</span> <span class="o">+=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">pr</span><span class="p">[</span><span class="n">node</span><span class="p">]</span> <span class="o">-</span> <span class="n">old_pr</span><span class="p">[</span><span class="n">node</span><span class="p">])</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Iteration </span><span class="si">{</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="si">}</span><span class="s2">: </span><span class="si">{</span><span class="n">pr</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">diff</span> <span class="o">&lt;</span> <span class="n">tol</span><span class="p">:</span>
+            <span class="k">break</span>
+    <span class="k">return</span> <span class="n">pr</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pagerank_iter</span><span class="p">(</span><span class="n">G</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.85</span><span class="p">,</span> <span class="n">max_iter</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Iteration 0: {1: 0.1111111111111111, 2: 0.1111111111111111, 3: 0.1111111111111111, 4: 0.1111111111111111, 5: 0.1111111111111111, 6: 0.1111111111111111, 7: 0.1111111111111111, 8: 0.1111111111111111, 9: 0.1111111111111111}
+Iteration 1: {1: 0.06388888888888888, 2: 0.04814814814814815, 3: 0.04814814814814815, 4: 0.04814814814814815, 5: 0.1111111111111111, 6: 0.15833333333333333, 7: 0.06388888888888888, 8: 0.15833333333333333, 9: 0.20555555555555555}
+Iteration 2: {1: 0.043819444444444446, 2: 0.03476851851851852, 3: 0.03476851851851852, 4: 0.03476851851851852, 5: 0.0575925925925926, 6: 0.07805555555555554, 7: 0.06388888888888888, 8: 0.19847222222222222, 9: 0.19886574074074073}
+Iteration 3: {1: 0.043819444444444446, 2: 0.029082175925925928, 3: 0.029082175925925928, 4: 0.029082175925925928, 5: 0.04621990740740741, 6: 0.06099652777777778, 7: 0.041143518518518524, 8: 0.10749074074074072, 9: 0.2272974537037037}
+Iteration 4: {1: 0.03415266203703704, 2: 0.029082175925925928, 3: 0.029082175925925928, 4: 0.029082175925925928, 5: 0.041386516203703705, 6: 0.053746440972222226, 7: 0.03631012731481482, 8: 0.08815717592592592, 9: 0.13787971643518515}
+Iteration 5: {1: 0.03209847077546297, 2: 0.026343254243827163, 3: 0.026343254243827163, 4: 0.026343254243827163, 5: 0.041386516203703705, 6: 0.053746440972222226, 7: 0.034255936053240746, 8: 0.07994041087962964, 9: 0.11939199508101853}
+Iteration 6: {1: 0.031225439489293988, 2: 0.02576123338638118, 3: 0.02576123338638118, 4: 0.02576123338638118, 5: 0.03905843277391976, 6: 0.0502543158275463, 7: 0.034255936053240746, 8: 0.07994041087962964, 9: 0.11037067179060572}
+Iteration 7: {1: 0.031225439489293988, 2: 0.025513874521966635, 3: 0.025513874521966635, 4: 0.025513874521966635, 5: 0.03856371504509067, 6: 0.049512239234302674, 7: 0.03326650059558257, 8: 0.07598266904899692, 9: 0.11012331292619118}
+Iteration 8: {1: 0.03080492941978926, 2: 0.025513874521966635, 3: 0.025513874521966635, 4: 0.025513874521966635, 5: 0.038353460010338306, 6: 0.049196856682174134, 7: 0.03305624556083021, 8: 0.07514164890998748, 9: 0.10623359478327246}
+Iteration 9: {1: 0.030715571030019505, 2: 0.025394730002273627, 3: 0.025394730002273627, 4: 0.025394730002273627, 5: 0.038353460010338306, 6: 0.049196856682174134, 7: 0.03296688717106045, 8: 0.07478421535090846, 9: 0.10542936927534469}
+Iteration 10: {1: 0.03067759371436736, 2: 0.025369411791838863, 3: 0.025369411791838863, 4: 0.025369411791838863, 5: 0.03825218716859925, 6: 0.04904494741956554, 7: 0.03296688717106045, 8: 0.07478421535090846, 9: 0.10503693701360584}
+Iteration 11: {1: 0.03067759371436736, 2: 0.02535865155240409, 3: 0.02535865155240409, 4: 0.02535865155240409, 5: 0.0382306666897297, 6: 0.04901266670126122, 7: 0.03292384621332135, 8: 0.07461205151995207, 9: 0.10502617677417106}
+Iteration 12: {1: 0.030659301307328246, 2: 0.02535865155240409, 3: 0.02535865155240409, 4: 0.02535865155240409, 5: 0.03822152048621015, 6: 0.04899894739598189, 7: 0.03291470000980179, 8: 0.07457546670587382, 9: 0.10485697200905922}
+Iteration 13: {1: 0.03065541417083243, 2: 0.025353468703743005, 3: 0.025353468703743005, 4: 0.025353468703743005, 5: 0.03822152048621015, 6: 0.04899894739598189, 7: 0.03291081287330598, 8: 0.07455991815989059, 9: 0.10482198778059693}
+Iteration 14: {1: 0.030653762137821713, 2: 0.025352367348402523, 3: 0.025352367348402523, 4: 0.025352367348402523, 5: 0.03821711506484822, 6: 0.048992339263939005, 7: 0.03291081287330598, 8: 0.07455991815989059, 9: 0.10480491677281947}
+Iteration 15: {1: 0.030653762137821713, 2: 0.025351899272382822, 3: 0.025351899272382822, 4: 0.025351899272382822, 5: 0.03821617891280882, 6: 0.04899093503587989, 7: 0.03290894056922716, 8: 0.0745524289435753, 9: 0.10480444869679978}
+Iteration 16: {1: 0.030652966408588216, 2: 0.025351899272382822, 3: 0.025351899272382822, 4: 0.025351899272382822, 5: 0.038215781048192066, 6: 0.04899033823895477, 7: 0.03290854270461042, 8: 0.07455083748510832, 9: 0.10479708820138992}
+Iteration 17: {1: 0.030652797316126097, 2: 0.025351673815766664, 3: 0.025351673815766664, 4: 0.025351673815766664, 5: 0.038215781048192066, 6: 0.04899033823895477, 7: 0.032908373612148295, 8: 0.07455016111525985, 9: 0.10479556636923087}
+Iteration 18: {1: 0.030652725451829697, 2: 0.025351625906235728, 3: 0.025351625906235728, 4: 0.025351625906235728, 5: 0.038215589410068335, 6: 0.048990050781769164, 7: 0.032908373612148295, 8: 0.07455016111525985, 9: 0.1047948237715014}
+Iteration 19: {1: 0.030652725451829697, 2: 0.025351605544685085, 3: 0.025351605544685085, 4: 0.025351605544685085, 5: 0.03821554868696704, 6: 0.04898998969711722, 7: 0.03290829216594571, 8: 0.07454983533044951, 9: 0.10479480340995076}
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{1: 0.030652725451829697,
+ 2: 0.025351605544685085,
+ 3: 0.025351605544685085,
+ 4: 0.025351605544685085,
+ 5: 0.03821554868696704,
+ 6: 0.04898998969711722,
+ 7: 0.03290829216594571,
+ 8: 0.07454983533044951,
+ 9: 0.10479480340995076}
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./tugas-prosaindata"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+                <footer class="bd-footer-article">
+                  
+<div class="footer-article-items footer-article__inner">
+  
+    <div class="footer-article-item"><!-- Previous / next buttons -->
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="21-112_Okhi%20Sahrul%20Barkah_UTS.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">UTS Proyek Sains Data</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Text-Summarization.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Text Summarization</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div></div>
+  
+</div>
+
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#mengimport-library-networkx-sebagai-nx-dan-membuat-sebuah-directed-graph">Mengimport library NetworkX sebagai nx dan Membuat sebuah directed graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menambahkan-edge-edge-pada-graph">Menambahkan edge-edge pada graph</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#menghitung-pagerank-menggunakan-method-nx-pagerank">Menghitung pagerank menggunakan method nx.pagerank()</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#implementasi-algoritma-pagerank-dengan-menggunakan-iterasi-secara-manual-menggunakan-library-networkx">Implementasi algoritma PageRank dengan menggunakan iterasi secara manual menggunakan library NetworkX</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Okhi Sahrul Barkah
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  <p class="copyright">
+    
+      © Copyright 2022.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=e353d410970836974a52"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=e353d410970836974a52"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
