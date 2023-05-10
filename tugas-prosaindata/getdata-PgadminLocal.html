@@ -169,6 +169,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1"><a class="reference internal" href="NetworkxDigraph.html">NetworkxDigraph</a></li>
 <li class="toctree-l1"><a class="reference internal" href="Text-Summarization.html">Text Summarization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Topic-Modelling.html">Topic Modelling</a></li>
 </ul>
 
     </div>
@@ -395,7 +396,7 @@ document.write(`
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Looking in indexes: https://pypi.org/simple, https://us-python.pkg.dev/colab-wheels/public/simple/
-Requirement already satisfied: psycopg2 in /usr/local/lib/python3.9/dist-packages (2.9.5)
+Requirement already satisfied: psycopg2 in /usr/local/lib/python3.10/dist-packages (2.9.6)
 </pre></div>
 </div>
 </div>
@@ -419,14 +420,14 @@ Requirement already satisfied: psycopg2 in /usr/local/lib/python3.9/dist-package
 </div>
 <div class="cell_output docutils container">
 <div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="ne">OperationalError</span>Traceback (most recent call last)
-<span class="o">&lt;</span><span class="n">ipython</span><span class="o">-</span><span class="nb">input</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">6</span><span class="n">f149f010ae3</span><span class="o">&gt;</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="nn">&lt;ipython-input-3-6f149f010ae3&gt;</span> in <span class="ni">&lt;cell line: 1&gt;</span><span class="nt">()</span>
 <span class="ne">----&gt; </span><span class="mi">1</span> <span class="n">connection</span> <span class="o">=</span> <span class="n">psycopg2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">user</span><span class="o">=</span><span class="s1">&#39;postgres&#39;</span><span class="p">,</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span>                               <span class="n">password</span><span class="o">=</span><span class="s1">&#39;akuanakbaik&#39;</span><span class="p">,</span>
 <span class="g g-Whitespace">      </span><span class="mi">3</span>                               <span class="n">host</span><span class="o">=</span><span class="s1">&#39;127.0.0.1&#39;</span><span class="p">,</span>
 <span class="g g-Whitespace">      </span><span class="mi">4</span>                               <span class="n">port</span><span class="o">=</span><span class="s1">&#39;5432&#39;</span><span class="p">,</span>
 <span class="g g-Whitespace">      </span><span class="mi">5</span>                               <span class="n">database</span><span class="o">=</span><span class="s1">&#39;prosain</span><span class="si">{210411100112}</span><span class="s1">&#39;</span><span class="p">)</span>
 
-<span class="nn">/usr/local/lib/python3.9/dist-packages/psycopg2/__init__.py</span> in <span class="ni">connect</span><span class="nt">(dsn, connection_factory, cursor_factory, **kwargs)</span>
+<span class="nn">/usr/local/lib/python3.10/dist-packages/psycopg2/__init__.py</span> in <span class="ni">connect</span><span class="nt">(dsn, connection_factory, cursor_factory, **kwargs)</span>
 <span class="g g-Whitespace">    </span><span class="mi">120</span> 
 <span class="g g-Whitespace">    </span><span class="mi">121</span>     <span class="n">dsn</span> <span class="o">=</span> <span class="n">_ext</span><span class="o">.</span><span class="n">make_dsn</span><span class="p">(</span><span class="n">dsn</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
 <span class="ne">--&gt; </span><span class="mi">122</span>     <span class="n">conn</span> <span class="o">=</span> <span class="n">_connect</span><span class="p">(</span><span class="n">dsn</span><span class="p">,</span> <span class="n">connection_factory</span><span class="o">=</span><span class="n">connection_factory</span><span class="p">,</span> <span class="o">**</span><span class="n">kwasync</span><span class="p">)</span>
